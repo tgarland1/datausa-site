@@ -81,6 +81,6 @@ class Profile(object):
 
     def sections(self):
         """list[Section]: Loads YAML configuration files and converts them to Section classes. """
-
         # pass each file to the Section class and return the final array
-        return [Section(f, self) for f in self.splash.sections]
+        for f in self.splash.sections:
+            yield Section(f, self)

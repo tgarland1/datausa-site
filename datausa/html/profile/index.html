@@ -62,14 +62,8 @@
   <h1>{{ profile.attr.name }}</h1>
 </div>
 
-{% set sections = profile.sections() %}
-
 <div id="profile-nav">
-  <ul>
-  {% for section in sections %}
-    <a href="#{{ section.anchor }}"><li data-anchor="{{ section.anchor }}">{{ section.title|safe }}</li></a>
-  {% endfor %}
-  </ul>
+
 </div>
 
 {% for section in sections %}
