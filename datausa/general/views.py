@@ -80,6 +80,11 @@ def about():
     g.page_sub_type = "index"
     return render_template("about/index.html")
 
+@mod.route("/qhod/")
+def qhod():
+    g.page_type = "profile"
+    return render_template("owh/overview.html")
+
 @mod.route("/about/datasets/")
 def datasets():
     g.page_type = "about"
