@@ -1,0 +1,138 @@
+{
+"data": [
+	{
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 26
+	},
+	{
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 125
+	},
+	{
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : "Asian",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : "Asian",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 584
+	},
+	{
+		"race_ethnicity" : "Asian",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 31
+	},
+	{
+		"race_ethnicity" : "Black or African American",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : "Black or African American",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 108
+	},
+	{
+		"race_ethnicity" : "Black or African American",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 1466
+	},
+	{
+		"race_ethnicity" : "Hispanic/Latino",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : "Hispanic/Latino",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 2109
+	},
+	{
+		"race_ethnicity" : "Hispanic/Latino",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 176
+	},
+	{
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 275
+	},
+	{
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 2318
+	},
+	{
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 622
+	},
+	{
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 91
+	},
+	{
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 78
+	},
+	{
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 11
+	},
+	{
+		"race_ethnicity" : "White",
+		"currently_smoked_cigarettes" : "No",
+		"count" : 5748
+	},
+	{
+		"race_ethnicity" : "White",
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 898
+	},
+	{
+		"race_ethnicity" : "White",
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	},
+	{
+		"race_ethnicity" : null,
+		"currently_smoked_cigarettes" : "No",
+		"count" : 294
+	},
+	{
+		"race_ethnicity" : null,
+		"currently_smoked_cigarettes" : "Yes",
+		"count" : 29
+	},
+	{
+		"race_ethnicity" : null,
+		"currently_smoked_cigarettes" : null,
+		"count" : 0
+	}
+]}

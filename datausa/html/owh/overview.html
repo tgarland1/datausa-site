@@ -1,24 +1,60 @@
 {% extends "templates/nav.html" %}
 
-{% block subtitle %}
-<div id="title-bar">
-  <span><a href="/"><img src="/static/img/logo_sm.png" alt="Data USA" /></a>
-  <a href="#" class="expand-stats-btn close"></a></span>
-</div>
-{% endblock %}
-
 {% block body %}
-<br>
-<br>
-<br>
-<h1 align="center"> This is a test</h1>
-<br>
-<br>
+<a name="top"></a>
+<div class="bound">
+  <div id="show-bg">
+    <div><i class="fa fa-camera"></i></div>
+  </div>
+
+  <article id="splash">
+<div id="splash-image" style="background-image: url('/static/img/splash/geo/04000US46.jpg');"></div>
+
+    <div class="content">
+
+      <div class="f"></div>
+
+      <div class="splash-titles">
+      <h1>Youth Risk Behavioral Survey</h1>
+      test viz right below:
+      <div id="test_viz"></div>
+      </div>
+      </div>
+      </article>
 {% endblock %}
 
 {% block js %}
 
 <script>
+d3.json('/static/data/cigarette_data.json', function(data){
+	//send the data to the makeviz function to render the viz
+	makeviz(data.data);
+});
+function makeviz(data){
+	//sort the data
+	console.log(data)
+	data = data.filter(function(n){
+		return n.count != 0;
+	});
+	data.sort(function (a,b){
+		if(a.count > b.count){
+			return 1;
+		}
+		if(a.count < b.count){
+			return -1;
+		}
+	});
+	console.log(data)
+	//render the viz
+ var visualization = d3plus.viz()
+    .container("#test_viz")
+    .data(data)
+    .type("bar")
+    .id("race_ethnicity")
+    .x("currently_smoked_cigarettes")
+    .y("count")
+    .draw();
+};
 
   var fontRange = [50, 65];
   if (window.innerWidth <= 480) {
