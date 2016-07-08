@@ -1,0 +1,1221 @@
+{
+"data": [
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 60
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 13
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 28
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 6
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 18
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 79
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 47
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 7
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 59
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 28
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 25
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 104
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 15
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 51
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 294
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 27
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 23
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 27
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 103
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 234
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 286
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 2
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 123
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 120
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 3
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 107
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 37
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 70
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 6
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 12
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 2
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 10
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 6
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 60
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 3
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 64
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 3
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 14
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 67
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 4
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 10
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 196
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 5
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 32
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 62
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 43
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 22
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 19
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 26
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 10
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 10
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 34
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 66
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 82
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 6
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 12
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 10
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 9
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 61
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 28
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 24
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 2
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 46
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : "13 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 36
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 39
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 30
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 117
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 40
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 89
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 17
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 40
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 18
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 90
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 16
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 36
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 36
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 94
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 313
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 2
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 5
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 412
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 392
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 83
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 140
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 12
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 5
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 11
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 74
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 88
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 36
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 132
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 3
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 284
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 215
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 6
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 101
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 7
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 13
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 61
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 9
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 5
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 253
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 33
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 3
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 2
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 160
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 61
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 6
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 17
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 2
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 10
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 6
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 71
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 45
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 9
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Native Hawaiian or Other Pacific Islander",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 2
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 24
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 28
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 75
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 29
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 54
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 31
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 112
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Asian",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 11
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 1
+	},
+	{
+		"age" : "13 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 2
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 54
+	},
+	{
+		"age" : "12 years old or younger",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 4
+	},
+	{
+		"age" : null,
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 35
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 46
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Asian",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 12
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Non-Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 25
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 120
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "Black or African American",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 50
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 107
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "Multiple- Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 46
+	},
+	{
+		"age" : "13 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 1
+	},
+	{
+		"age" : "14 years old",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 3
+	},
+	{
+		"age" : "17 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 374
+	},
+	{
+		"age" : "16 years old",
+		"race_ethnicity" : "White",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "No",
+		"count" : 414
+	},
+	{
+		"age" : "15 years old",
+		"race_ethnicity" : "Hispanic/Latino",
+		"sex" : "Female",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 21
+	},
+	{
+		"age" : "18 years old or older",
+		"race_ethnicity" : "American Indian/Alaskan Native",
+		"sex" : "Male",
+		"texted_or_emailed_while_driving" : "Yes",
+		"count" : 3
+	}
+]}
