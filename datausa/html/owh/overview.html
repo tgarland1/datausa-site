@@ -27,40 +27,69 @@
 {% block js %}
 
 <script>
-d3.json('/static/data/cigarette_data.json', function(data){
-	//send the data to the makeviz function to render the viz
-	makeviz(data.data);
-});
-function makeviz(data){
-	//sort the data
-	console.log(data)
-	data = data.filter(function(n){
-		return n.count != 0;
-	});
-	data.sort(function (a,b){
-		if(a.count > b.count){
-			return 1;
-		}
-		if(a.count < b.count){
-			return -1;
-		}
-	});
-	console.log(data)
-	//render the viz
- var visualization = d3plus.viz()
-    .container("#test_v") //note I purposefully broke this call
-    .data(data)
-    .type("bar")
-    .id("race_ethnicity")
-    .x("currently_smoked_cigarettes")
-    .y("count")
-    .draw();
+
+{#  Smoking Data #}
+
+
+
+function makeviz(data) {
+    //sort the data
+    console.log(data)
+    data = data.filter(function (n) {
+        return n.count != 0;
+    });
+    data.sort(function (a, b) {
+        if (a.count > b.count) {
+            return 1;
+        }
+        if (a.count < b.count) {
+            return -1;
+        }
+    });
+    console.log(data)
+
+    //render the viz
+    var visualization = d3plus.viz()
+            .container("#test_viz") //note I purposefully broke this call
+            .data(data)
+            .type("bar")
+            .id("race_ethnicity")
+            .x("currently_smoked_cigarettes")
+            .y("count")
+            .draw();
 };
 
-d3.json('/static/data/yrbs_text_drive.json', function(data){
-	//send the data to the makeviz function to render the viz
-	makeviz2(data.data);
-});
+{# End of Smoking Data #}
+
+var datasetr;
+
+var blt = 1;
+console.log("Blt is" + blt)
+
+if (blt == 0){
+    console.log(blt)
+    d3.json('/static/data/cigarette_data.json', function(data){
+        //send the data to the makeviz function to render the viz
+    datasetr=data;
+    makeviz(datasetr.data);
+    });
+}
+
+
+if (blt == 1){
+
+    d3.json('/static/data/yrbs_text_drive.json', function(data){
+    //send the data to the makeviz function to render the viz
+    datasetr=data;
+    makeviz2(datasetr.data);
+    });
+}
+
+
+
+
+
+
 
 function makeviz2(data){
 	//sort the data
@@ -68,26 +97,36 @@ function makeviz2(data){
 	data = data.filter(function(n){
 		return n.count != 0;
 	});
-data.sort(function (a,b){
-		if(a.count > b.count){
-			return 1;
-		}
-		if(a.count < b.count){
-			return -1;
-		}
-	});
+    data.sort(function (a,b){
+            if(a.count > b.count){
+                return 1;
+            }
+            if(a.count < b.count){
+                return -1;
+            }
+        });
 	
 	console.log(data)
 	//render the viz
- var visualization = d3plus.viz()
-    .container("#test_viz") //note I purposefully broke this call
-    .data(data)
-    .type("bar")
-    .id(["race_ethnicity","age","sex"])
-    .x("texted_or_emailed_while_driving")
-    .y("count")
-    .draw();
+     var visualization = d3plus.viz()
+        .container("#test_viz") //note I purposefully broke this call
+        .data(data)
+        .type("bar")
+{#        .id(["sex","race_ethnicity","age"])#}
+        .id(["sex","age"])
+        .x("texted_or_emailed_while_driving")
+        .y("count")
+        .ui([
+            {
+            "method" : "id",
+            "value"  : [ "sex" , "race_ethnicity" ]
+            }
+            ])
+        .draw();
 };
+
+
+
 
   var fontRange = [50, 65];
   if (window.innerWidth <= 480) {
@@ -141,7 +180,9 @@ data.sort(function (a,b){
     sideNavBottom = sideButtons[0][sideButtons.length - 1].offsetTop + 30;
   }
 
+
   var firstScroll = true;
+
   function navScroll(){
 
     if (!firstScroll) {

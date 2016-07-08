@@ -97,7 +97,7 @@ def build_story_cache():
         if not s["date"]:
             s["date"] = re.match("(\d+-\d+-\d+)", filename).group(0)
         s["_date_obj"] = parser.parse(s["date"])
-        s["date"] = s["_date_obj"].strftime("%B %-d, %Y")
+        s["date"] = s["_date_obj"].strftime("%B %d, %Y")
         s["authors"] = story_conf['authors'] if 'authors' in story_conf else []
         s["background_image"] = story_conf['background_image'] if 'background_image' in story_conf else None
         return s
