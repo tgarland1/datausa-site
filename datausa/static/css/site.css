@@ -21,6 +21,11 @@ output, ruby, section, summary, time, mark, audio, video {
   padding: 0;
   vertical-align: top; }
 
+
+  #test_viz2 {
+    margin-bottom: -100px;
+  }
+
   blockquote, q {
     quotes: none; }
 
@@ -268,6 +273,11 @@ body.frozen {
       cursor: pointer; }
       .pri-link:hover, .pri-link:focus {
         opacity: 1; }
+
+.spacer {
+  margin-top: 25px;
+}
+
 
 .tab-container {
   -webkit-justify-content: center;

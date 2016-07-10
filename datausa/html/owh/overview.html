@@ -1,5 +1,8 @@
 {% extends "templates/nav.html" %}
 
+
+
+
 {% block body %}
 <a name="top"></a>
 <div class="bound">
@@ -7,34 +10,181 @@
     <div><i class="fa fa-camera"></i></div>
   </div>
 
+
   <article id="splash">
-<div id="splash-image" style="background-image: url('/static/img/splash/geo/04000US46.jpg');"></div>
+    <div id="splash-image" style="background-image: url('/static/img/splash/geo/04000US46.jpg');"></div>
 
+    <div class="col-sm-4 col-md-4">
     <div class="content">
+    <div class="f"></div>
 
+    <div class="splash-titles">
+        <div class="row spacer">
+
+        </div>
+        <h3>Select behavior</h3>
+     <span> <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select a Topic
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#" value="texted_or_emailed_while_driving">Texting or Emailing While Driving</a></li>
+    <li><a href="#" value="currently_smoked_cigarettes">Cigarette Usage</a></li>
+    <li><a href="#" value="currently_used_electronic_vapor_products">Electronic Vapor Product Usage</a></li>
+    <!--<li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li> -->
+  </ul>
+</div>
+ <div class="row spacer">
+
+ </div>
+<h3>Filter by:</h3>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select a Group
+    <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" value="sex">Gender</a></li>
+        <li><a href="#" value="age">Age</a></li>
+        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
+        <li><a href="#" value="none">No grouping</a></li>
+      </ul>
+    </div>
+     <br>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Select a second group
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" value="sex">Gender</a></li>
+        <li><a href="#" value="age">Age</a></li>
+        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
+        <li><a href="#" value="none">No grouping</a></li>
+      </ul>
+    </div>
+     <br>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Select a third group
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" value="sex">Gender</a></li>
+        <li><a href="#" value="age">Age</a></li>
+        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
+        <li><a href="#" value="none">No grouping</a></li>
+      </ul>
+    </div>
+     <br>
+    <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+      Execute Query
+    </button>
+    </span>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="col-sm-8 col-md-8">
+    <div class="content">
       <div class="f"></div>
 
       <div class="splash-titles">
       <h1>Youth Risk Behavioral Survey</h1>
-      <br>
-      The visualization below allows you to explore which of today's youth text or email while driving:
-      <div id="test_viz"></div>
+
+      <div id="test_viz2"></div>
+      <div class="row spacer">
+
+        </div>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
       </div>
       </div>
+        </div>
+
       </article>
+
 {% endblock %}
 
 {% block js %}
 
 <script>
-
+//this function allows the dropdown text to change after the selection, which will drive the API url development
+$(function(){
+    $(".dropdown-menu li a").click(function(){
+      //$(".btn:first-child").text($(this).text());
+      //$(".btn:first-child").val($(this).text());
+      $(this).parent().parent().siblings(".btn").text($(this).text());
+      $(this).parent().parent().siblings(".btn").attr("value",$(this).attr("value"));
+      //alert($(this).attr("value"));
+   });
+});
+//the function below will run when the query button is pushed
+$('#yrbsExecuteQuery').on('click', function () {
+    $( "#test_viz2" ).empty();
+    var $btn = $(this).button('loading')
+    // business logic...
+    var api = "http://ec2-52-90-94-195.compute-1.amazonaws.com/query/owhyrbsquery?";
+    var column1=$("#yrbs_topic").attr("value");
+    /*
+    var group1 = $("#yrbs_group1").attr("value");
+    var group2 = $("#yrbs_group2").attr("value");
+    var group3 = $("#yrbs_group3").attr("value");
+    var query = api.concat("&column=",column1,"&group=",group1,"&group=",group2,"&group=",group3);
+    var query = api.concat("?column=",column1,"&column=",group1,"&column=",group2,"&group=",group3);
+    */
+    idorder = [];
+    var topic;
+    if ($("#yrbs_group1").attr("value") && $("#yrbs_group1").attr("value") != 'none'){
+      api = api.concat("&column=",$("#yrbs_group1").attr("value"),"&group=",$("#yrbs_group1").attr("value"))
+      idorder.push($("#yrbs_group1").attr("value"));
+    }
+    if ($("#yrbs_group2").attr("value") && $("#yrbs_group2").attr("value") != 'none'){
+      api = api.concat("&column=",$("#yrbs_group2").attr("value"),"&group=",$("#yrbs_group2").attr("value"))
+      idorder.push($("#yrbs_group2").attr("value"));
+    }
+    if ($("#yrbs_group3").attr("value") && $("#yrbs_group3").attr("value") != 'none'){
+      api = api.concat("&column=",$("#yrbs_group3").attr("value"),"&group=",$("#yrbs_group3").attr("value"))
+      idorder.push($("#yrbs_group3").attr("value"));
+    }
+    if ($("#yrbs_topic").attr("value")){
+      api = api.concat('&column=',$("#yrbs_topic").attr("value"))
+      topic = $("#yrbs_topic").attr("value")
+    }
+    console.log(api);
+    //now the the query is formed, we need to make an ajax call to get the data:
+    d3.json(api, function(data){
+        //send the data to the makeviz function to render the viz
+    datasetr=data;
+    dynamicviz(datasetr.data, idorder, topic);
+    });
+    $btn.button('reset');
+  });
 {#  Smoking Data #}
-
-
-
-function makeviz(data) {
+function dynamicviz(data, idorder, topic) {
     //sort the data
-    console.log(data)
+    //console.log(data)
     data = data.filter(function (n) {
         return n.count != 0;
     });
@@ -46,114 +196,40 @@ function makeviz(data) {
             return -1;
         }
     });
-    console.log(data)
-
+    //console.log(data)
     //render the viz
     var visualization = d3plus.viz()
-            .container("#test_viz") //note I purposefully broke this call
+            .container("#test_viz2")
             .data(data)
             .type("bar")
-            .id("race_ethnicity")
-            .x("currently_smoked_cigarettes")
+            .id(idorder)
+            .x(topic)
             .y("count")
+            .height(500)
             .draw();
 };
-
-{# End of Smoking Data #}
-
-var datasetr;
-
-var blt = 1;
-console.log("Blt is" + blt)
-
-if (blt == 0){
-    console.log(blt)
-    d3.json('/static/data/cigarette_data.json', function(data){
-        //send the data to the makeviz function to render the viz
-    datasetr=data;
-    makeviz(datasetr.data);
-    });
-}
-
-
-if (blt == 1){
-
-    d3.json('/static/data/yrbs_text_drive.json', function(data){
-    //send the data to the makeviz function to render the viz
-    datasetr=data;
-    makeviz2(datasetr.data);
-    });
-}
-
-
-
-
-
-
-
-function makeviz2(data){
-	//sort the data
-	console.log(data)
-	data = data.filter(function(n){
-		return n.count != 0;
-	});
-    data.sort(function (a,b){
-            if(a.count > b.count){
-                return 1;
-            }
-            if(a.count < b.count){
-                return -1;
-            }
-        });
-	
-	console.log(data)
-	//render the viz
-     var visualization = d3plus.viz()
-        .container("#test_viz") //note I purposefully broke this call
-        .data(data)
-        .type("bar")
-{#        .id(["sex","race_ethnicity","age"])#}
-        .id(["sex","age"])
-        .x("texted_or_emailed_while_driving")
-        .y("count")
-        .ui([
-            {
-            "method" : "id",
-            "value"  : [ "sex" , "race_ethnicity" ]
-            }
-            ])
-        .draw();
-};
-
-
 
 
   var fontRange = [50, 65];
   if (window.innerWidth <= 480) {
     fontRange = [45, 60];
   }
-
   var fontScale = d3.scale.linear()
     .domain([60, 20])
     .range(fontRange)
     .clamp(true);
-
   var title = d3.select(".splash-titles h1");
   title.style("font-size", fontScale(title.text().length) + "px");
-
   if (!d3plus.client.touch) {
     var scrollTimeout = setTimeout(function(){
       d3.select("#scroll-btn").classed("visible", true);
     }, 5000);
   }
-
   var maxCarousel = d3.selectAll(".carousel-text").size() - 1, currentPage = 0;
   d3.selectAll(".carousel-btn").on("click", function(d, i){
     if (i && currentPage < maxCarousel) currentPage++;
     else if (i === 0 && currentPage > 0) currentPage--;
-
     d3.select("#carousel-page").text(currentPage + 1);
-
     d3.selectAll(".carousel-btn").classed("active", function(dd, ii){
       return !ii && currentPage || ii && currentPage < maxCarousel;
     });
@@ -161,60 +237,47 @@ function makeviz2(data){
       return ii === currentPage;
     });
   });
-
   d3.select(".expand-stats-btn").on("click", function(){
     d3.event.preventDefault();
     d3.select(this).classed("close", !d3.select(this).classed("close"));
     d3.select("#nav-bar-scroll").classed("stat-hidden", !d3.select("#nav-bar-scroll").classed("stat-hidden"));
   });
-
   var splashHeight = d3.select("#splash").node().offsetHeight,
       boundHeight = d3.select(".bound").node().offsetHeight
       titleNavHeight = d3.select("#title-bar").node().offsetHeight,
       statNavHeight = d3.select("#stats-bar").node().offsetHeight,
       profNavHeight = d3.select("#profile-nav").node().offsetHeight,
       footerTop = d3.select(".profile-end").node().offsetTop;
-
   var sideButtons = d3.selectAll(".section-sidenav-button"), sideNavBottom = 0;
   if (sideButtons.size()) {
     sideNavBottom = sideButtons[0][sideButtons.length - 1].offsetTop + 30;
   }
-
-
   var firstScroll = true;
-
   function navScroll(){
-
     if (!firstScroll) {
       clearTimeout(scrollTimeout);
       d3.select("#scroll-btn").classed("visible", false);
     }
     firstScroll = false;
-
     var y = d3plus.client.scroll.y(),
         colorTitleNav = y > titleNavHeight,
         showTitleNav = y > splashHeight/2.75,
         showStatNav = y > splashHeight,
         showProfNav = y > (boundHeight - titleNavHeight - statNavHeight) &&
                       (y + sideNavBottom) < footerTop;
-
     var parallaxScroll = d3.scale.linear()
       .domain([0, window.innerHeight])
       .rangeRound([0, window.innerHeight/3.6])
       .clamp(true);
-
     d3.select("#splash-image").style("top", parallaxScroll(y) + "px")
-
     d3.select("#top-nav").classed("filled", colorTitleNav);
     d3.select("nav").classed("filled", colorTitleNav);
     d3.select("#title-bar").classed("visible", showTitleNav);
     d3.select("#home-btn").classed("hidden", showTitleNav);
-
     d3.select("#stats-bar").classed("visible", showProfNav);
     d3.select(".expand-stats-btn").classed("show", showProfNav);
     d3.select("#profile-nav").classed("visible", showProfNav);
     d3.select("#section-sidenav").classed("visible", showProfNav);
-
     var active_section;
     var top_buffer = titleNavHeight + profNavHeight + statNavHeight + 15;
     d3.selectAll("header a[name]")
@@ -228,7 +291,6 @@ function makeviz2(data){
       .classed("active", function(){
         return this.getAttribute("data-anchor") === active_section;
       });
-
     var active_sub;
     var subs = d3.selectAll("section." + active_section + " .category a[name]");
     if (subs.size()) {
@@ -246,25 +308,20 @@ function makeviz2(data){
       .classed("active", function(){
         return this.getAttribute("data-anchor") === active_sub;
       })
-
   }
-
   navScroll();
   scrollFunctions.push(navScroll);
-
   d3.select("#show-bg").on("click", function(){
     var show = d3.select("#splash-image").classed("color");
     d3.select("#splash-image").classed("color", !show);
     d3.select("#splash .content").classed("hide", !show);
   });
-
   // toggle extra items in long list
   d3.selectAll(".show-more").on("click", function(){
     d3.event.preventDefault();
     d3.select(this).style("display", "none");
     d3.select(this.parentNode.nextSibling).style("display", "inline");
   })
-
 </script>
 
 {% endblock %}
