@@ -125,20 +125,31 @@ $('#yrbsExecuteQuery').on('click', function () {
     var query = api.concat("&column=",column1,"&group=",group1,"&group=",group2,"&group=",group3);
     var query = api.concat("?column=",column1,"&column=",group1,"&column=",group2,"&group=",group3);
     */
+    idorder = [];
+    var topic;
     if ($("#yrbs_group1").attr("value") && $("#yrbs_group1").attr("value") != 'none'){
       api = api.concat("&column=",$("#yrbs_group1").attr("value"),"&group=",$("#yrbs_group1").attr("value"))
+      idorder.push($("#yrbs_group1").attr("value"));
     }
     if ($("#yrbs_group2").attr("value") && $("#yrbs_group2").attr("value") != 'none'){
       api = api.concat("&column=",$("#yrbs_group2").attr("value"),"&group=",$("#yrbs_group2").attr("value"))
+      idorder.push($("#yrbs_group2").attr("value"));
     }
     if ($("#yrbs_group3").attr("value") && $("#yrbs_group3").attr("value") != 'none'){
       api = api.concat("&column=",$("#yrbs_group3").attr("value"),"&group=",$("#yrbs_group3").attr("value"))
+      idorder.push($("#yrbs_group3").attr("value"));
     }
     if ($("#yrbs_topic").attr("value")){
       api = api.concat('&column=',$("#yrbs_topic").attr("value"))
+      topic = $("#yrbs_topic").attr("value")
     }
     console.log(api);
     //now the the query is formed, we need to make an ajax call to get the data:
+    d3.json(api, function(data){
+        //send the data to the makeviz function to render the viz
+    datasetr=data;
+    dynamicviz(datasetr.data, idorder, topic);
+    });
 
 
     $btn.button('reset');
@@ -146,6 +157,32 @@ $('#yrbsExecuteQuery').on('click', function () {
 
 {#  Smoking Data #}
 
+function dynamicviz(data, idorder, topic) {
+    //sort the data
+    //console.log(data)
+    data = data.filter(function (n) {
+        return n.count != 0;
+    });
+    data.sort(function (a, b) {
+        if (a.count > b.count) {
+            return 1;
+        }
+        if (a.count < b.count) {
+            return -1;
+        }
+    });
+    //console.log(data)
+
+    //render the viz
+    var visualization = d3plus.viz()
+            .container("#test_viz") //note I purposefully broke this call
+            .data(data)
+            .type("bar")
+            .id(idorder)
+            .x(topic)
+            .y("count")
+            .draw();
+};
 
 
 function makeviz(data) {
@@ -200,12 +237,6 @@ if (blt == 1){
     makeviz2(datasetr.data);
     });
 }
-
-
-
-
-
-
 
 function makeviz2(data){
 	//sort the data
