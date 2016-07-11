@@ -1,8 +1,6 @@
 {% extends "templates/nav.html" %}
 
 
-
-
 {% block body %}
 <a name="top"></a>
 <div class="bound">
@@ -18,6 +16,7 @@
     <div class="f"></div>
 
     <div class="splash-titles">
+
         <div class="row spacer">
 
         </div>
@@ -59,9 +58,9 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#" value="sex">Gender</a></li>
-        <li><a href="#" value="age">Age</a></li>
-        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
+        <li class="disabled"><a href="#" id="sex" value="sex">Gender</a></li>
+        <li><a href="#" id="age" value="age">Age</a></li>
+        <li><a href="#" id="race_ethnicity" value="race_ethnicity">Race / Ethnicity</a></li>
         <li><a href="#" value="none">No grouping</a></li>
       </ul>
     </div>
@@ -96,10 +95,6 @@
       <h1>Youth Risk Behavioral Survey</h1>
 
       <div id="test_viz2"></div>
-      <div class="row spacer">
-
-        </div>
-
 
 
 
@@ -128,6 +123,7 @@
 {% block js %}
 
 <script>
+
 //this function allows the dropdown text to change after the selection, which will drive the API url development
 $(function(){
 
@@ -136,13 +132,13 @@ $(function(){
       //$(".btn:first-child").val($(this).text());
       $(this).parent().parent().siblings(".btn").text($(this).text());
       $(this).parent().parent().siblings(".btn").attr("value",$(this).attr("value"));
-      //alert($(this).attr("value"));
    });
 
 });
 
 //the function below will run when the query button is pushed
 $('#yrbsExecuteQuery').on('click', function () {
+    $( "#test_viz2" ).empty();
     var $btn = $(this).button('loading')
     // business logic...
     var api = "http://ec2-52-90-94-195.compute-1.amazonaws.com/query/owhyrbsquery?";
@@ -159,6 +155,8 @@ $('#yrbsExecuteQuery').on('click', function () {
     if ($("#yrbs_group1").attr("value") && $("#yrbs_group1").attr("value") != 'none'){
       api = api.concat("&column=",$("#yrbs_group1").attr("value"),"&group=",$("#yrbs_group1").attr("value"))
       idorder.push($("#yrbs_group1").attr("value"));
+        vl = $("#yrbs_group1").attr("value")
+        $("#yrbs_group2 option[value=vl]").prop("disabled", true);
     }
     if ($("#yrbs_group2").attr("value") && $("#yrbs_group2").attr("value") != 'none'){
       api = api.concat("&column=",$("#yrbs_group2").attr("value"),"&group=",$("#yrbs_group2").attr("value"))
@@ -204,7 +202,7 @@ function dynamicviz(data, idorder, topic) {
 
     //render the viz
     var visualization = d3plus.viz()
-            .container("#test_viz") //note I purposefully broke this call
+            .container("#test_viz2") //note I purposefully broke this call
             .data(data)
             .type("bar")
             .id(idorder)

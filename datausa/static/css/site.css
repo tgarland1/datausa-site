@@ -21,6 +21,10 @@ output, ruby, section, summary, time, mark, audio, video {
   padding: 0;
   vertical-align: top; }
 
+.spacer{
+  margin-top: 25px
+}
+
   blockquote, q {
     quotes: none; }
 
