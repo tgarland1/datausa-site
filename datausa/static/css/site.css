@@ -26,6 +26,72 @@ output, ruby, section, summary, time, mark, audio, video {
   margin-top: 25px
 }
 
+.Page-1 {
+  width: 451px;
+  height: 106px;
+  object-fit: contain;
+}
+
+.Comprehensive-Data-f {
+  width: 423px;
+  height: 40px;
+  font-family: Palanquin;
+  font-size: 22px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.analysis-sum {
+  width: 99px;
+  height: 30px;
+  font-family: Palanquin;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2.6px;
+  color: #ffffff;
+}
+
+.story-sum {
+  width: 85px;
+  height: 30px;
+  font-family: Palanquin;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2.6px;
+  color: #ffffff;
+}
+
+.map-sum {
+  width: 55px;
+  height: 30px;
+  font-family: Palanquin;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2.6px;
+  color: #ffffff;
+}
+
+.d-sum {
+  width: 55px;
+  height: 30px;
+  font-family: Palanquin;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2.6px;
+  color: #ffffff;
+}
+
+.about-sum {
+  width: 70px;
+  height: 30px;
+  font-family: Palanquin;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2.6px;
+  color: #ffffff;
+}
+
+
   blockquote, q {
     quotes: none; }
 
