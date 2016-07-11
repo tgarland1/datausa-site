@@ -38,45 +38,15 @@
 
  </div>
 <h3>Filter by:</h3>
-
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Select a Group
-    <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#" value="sex">Gender</a></li>
-        <li><a href="#" value="age">Age</a></li>
-        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
-        <li><a href="#" value="none">No grouping</a></li>
-      </ul>
-    </div>
-     <br>
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Select a second group
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li class="disabled"><a href="#" id="sex" value="sex">Gender</a></li>
-        <li><a href="#" id="age" value="age">Age</a></li>
-        <li><a href="#" id="race_ethnicity" value="race_ethnicity">Race / Ethnicity</a></li>
-        <li><a href="#" value="none">No grouping</a></li>
-      </ul>
-    </div>
-     <br>
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Select a third group
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#" value="sex">Gender</a></li>
-        <li><a href="#" value="age">Age</a></li>
-        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
-        <li><a href="#" value="none">No grouping</a></li>
-      </ul>
-    </div>
+    <select id="selecttest" class="form-control" placeholder="Add a filter">
+      <option selected disabled>Select a filter</option>
+      <option value="sex">Gender</option>
+      <option value="age">Age</option>
+      <option value="race_ethnicity">Race / Ethnicity</option>
+    </select>
+     <div class="hidden issex">Gender <a href="#" class="remove" rel="Gender">remove</a></div>
+    <div class="hidden isage">Age <a href="#" class="remove" rel="Age">remove</a></div>
+    <div class="hidden israce_ethnicity">Race / Ethnicity <a href="#" class="remove" rel="Race / Ethnicity">remove</a></div>
      <br>
     <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
       Execute Query
@@ -93,6 +63,7 @@
 
       <div class="splash-titles">
       <h1>Youth Risk Behavioral Survey</h1>
+
 
       <div id="test_viz2"></div>
 
@@ -124,6 +95,26 @@
 
 <script>
 
+var idorder = [];
+
+$("#selecttest").change(function(){
+    var value = $("#selecttest option:selected").val();
+    var theDiv = $(".is" + value);
+    idorder.push(value);
+{#    alert(idorder[0]);#}
+    theDiv.slideDown().removeClass("hidden");
+    $("#selecttest option:selected").attr('disabled','disabled');
+});
+
+$("div a.remove").click(function () {
+    var value = $(this).attr('rel');
+    var theDiv = $(".is" + value);
+
+    $("#selecttest option[value=" + value + "]").removeAttr('disabled');
+
+    $(this).parent().slideUp(function() { $(this).addClass("hidden"); });
+});
+
 //this function allows the dropdown text to change after the selection, which will drive the API url development
 $(function(){
 
@@ -143,29 +134,17 @@ $('#yrbsExecuteQuery').on('click', function () {
     // business logic...
     var api = "http://ec2-52-90-94-195.compute-1.amazonaws.com/query/owhyrbsquery?";
     var column1=$("#yrbs_topic").attr("value");
-    /*
-    var group1 = $("#yrbs_group1").attr("value");
-    var group2 = $("#yrbs_group2").attr("value");
-    var group3 = $("#yrbs_group3").attr("value");
-    var query = api.concat("&column=",column1,"&group=",group1,"&group=",group2,"&group=",group3);
-    var query = api.concat("?column=",column1,"&column=",group1,"&column=",group2,"&group=",group3);
-    */
-    idorder = [];
+
+    var x = idorder.length;
+    if (x > 0) {
+        for (i = 0; i < x; i++) {
+            api = api.concat("&column=",idorder[i],"&group=",idorder[i])
+        }
+        api = api.concat('&column=',$("#yrbs_topic").attr("value"))
+    }
+
+
     var topic;
-    if ($("#yrbs_group1").attr("value") && $("#yrbs_group1").attr("value") != 'none'){
-      api = api.concat("&column=",$("#yrbs_group1").attr("value"),"&group=",$("#yrbs_group1").attr("value"))
-      idorder.push($("#yrbs_group1").attr("value"));
-        vl = $("#yrbs_group1").attr("value")
-        $("#yrbs_group2 option[value=vl]").prop("disabled", true);
-    }
-    if ($("#yrbs_group2").attr("value") && $("#yrbs_group2").attr("value") != 'none'){
-      api = api.concat("&column=",$("#yrbs_group2").attr("value"),"&group=",$("#yrbs_group2").attr("value"))
-      idorder.push($("#yrbs_group2").attr("value"));
-    }
-    if ($("#yrbs_group3").attr("value") && $("#yrbs_group3").attr("value") != 'none'){
-      api = api.concat("&column=",$("#yrbs_group3").attr("value"),"&group=",$("#yrbs_group3").attr("value"))
-      idorder.push($("#yrbs_group3").attr("value"));
-    }
     if ($("#yrbs_topic").attr("value")){
       api = api.concat('&column=',$("#yrbs_topic").attr("value"))
       topic = $("#yrbs_topic").attr("value")
@@ -198,7 +177,6 @@ function dynamicviz(data, idorder, topic) {
             return -1;
         }
     });
-    //console.log(data)
 
     //render the viz
     var visualization = d3plus.viz()
@@ -210,96 +188,6 @@ function dynamicviz(data, idorder, topic) {
             .y("count")
             .draw();
 };
-
-
-function makeviz(data) {
-    //sort the data
-    console.log(data)
-    data = data.filter(function (n) {
-        return n.count != 0;
-    });
-    data.sort(function (a, b) {
-        if (a.count > b.count) {
-            return 1;
-        }
-        if (a.count < b.count) {
-            return -1;
-        }
-    });
-    console.log(data)
-
-    //render the viz
-    var visualization = d3plus.viz()
-            .container("#test_viz") //note I purposefully broke this call
-            .data(data)
-            .type("bar")
-            .id("race_ethnicity")
-            .x("currently_smoked_cigarettes")
-            .y("count")
-            .draw();
-};
-
-{# End of Smoking Data #}
-
-var datasetr;
-
-var blt = 1;
-console.log("Blt is" + blt)
-
-if (blt == 0){
-    console.log(blt)
-    d3.json('/static/data/cigarette_data.json', function(data){
-        //send the data to the makeviz function to render the viz
-    datasetr=data;
-    makeviz(datasetr.data);
-    });
-}
-
-
-if (blt == 1){
-
-    d3.json('/static/data/yrbs_text_drive.json', function(data){
-    //send the data to the makeviz function to render the viz
-    datasetr=data;
-    makeviz2(datasetr.data);
-    });
-}
-
-function makeviz2(data){
-	//sort the data
-	console.log(data)
-	data = data.filter(function(n){
-		return n.count != 0;
-	});
-    data.sort(function (a,b){
-            if(a.count > b.count){
-                return 1;
-            }
-            if(a.count < b.count){
-                return -1;
-            }
-        });
-	
-	console.log(data)
-	//render the viz
-     var visualization = d3plus.viz()
-        .container("#test_viz") //note I purposefully broke this call
-        .data(data)
-        .type("bar")
-{#        .id(["sex","race_ethnicity","age"])#}
-        .id(["sex","age"])
-        .x("texted_or_emailed_while_driving")
-        .y("count")
-        .ui([
-            {
-            "method" : "id",
-            "value"  : [ "sex" , "race_ethnicity" ]
-            }
-            ])
-        .draw();
-};
-
-
 
 
   var fontRange = [50, 65];
