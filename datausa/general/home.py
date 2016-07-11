@@ -10,7 +10,7 @@ TYPEMAP = {
 HOMEFEED = [
     {
         "link": "/profile/geo/washington-dc/#global_diversity",
-        "title": "Global Diversity in Washington, DC",
+        "title": "Women Smokers in the US: Are You One of Them?",
         "section": "demographics",
         "viz": "geo_map"
     },
