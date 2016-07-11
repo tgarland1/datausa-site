@@ -11,17 +11,17 @@
   </div>
 
   <article id="splash">
-<div id="splash-image" style="background-image: url('/static/img/splash/geo/04000US46.jpg');"></div>
+    <div id="splash-image" style="background-image: url('/static/img/splash/geo/04000US46.jpg');"></div>
 
+    <div class="col-sm-4 col-md-4">
     <div class="content">
+    <div class="f"></div>
 
-      <div class="f"></div>
+    <div class="splash-titles">
+        <div class="row spacer">
 
-      <div class="splash-titles">
-      <h1>Youth Risk Behavioral Survey</h1>
-      The visualization below allows you to explore which of today's youth text or email while driving:
-      <div id="test_viz"></div>
-      <div>select options for this visualization:</div>
+        </div>
+        <h3>Select behavior</h3>
      <span> <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Select a Topic
@@ -35,48 +35,75 @@
     <li><a href="#">Separated link</a></li> -->
   </ul>
 </div>
-Select the order in which you would like to group the topic by:
+ <div class="row spacer">
+
+ </div>
+<h3>Filter by:</h3>
 
 <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Select a Group
     <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#" value="sex">Gender</a></li>
-    <li><a href="#" value="age">Age</a></li>
-    <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
-    <li><a href="#" value="none">No grouping</a></li>
-  </ul>
-</div>
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Select a second, drillable group
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#" value="sex">Gender</a></li>
-    <li><a href="#" value="age">Age</a></li>
-    <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
-    <li><a href="#" value="none">No grouping</a></li>
-  </ul>
-</div>
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Select a third drillable group
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#" value="sex">Gender</a></li>
-    <li><a href="#" value="age">Age</a></li>
-    <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
-    <li><a href="#" value="none">No grouping</a></li>
-  </ul>
-</div>
-<button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
-  Execute Query
-</button>
-</span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" value="sex">Gender</a></li>
+        <li><a href="#" value="age">Age</a></li>
+        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
+        <li><a href="#" value="none">No grouping</a></li>
+      </ul>
+    </div>
+     <br>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Select a second group
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" value="sex">Gender</a></li>
+        <li><a href="#" value="age">Age</a></li>
+        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
+        <li><a href="#" value="none">No grouping</a></li>
+      </ul>
+    </div>
+     <br>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_group3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Select a third group
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" value="sex">Gender</a></li>
+        <li><a href="#" value="age">Age</a></li>
+        <li><a href="#" value="race_ethnicity">Race / Ethnicity</a></li>
+        <li><a href="#" value="none">No grouping</a></li>
+      </ul>
+    </div>
+     <br>
+    <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+      Execute Query
+    </button>
+    </span>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="col-sm-8 col-md-8">
+    <div class="content">
+      <div class="f"></div>
+
+      <div class="splash-titles">
+      <h1>Youth Risk Behavioral Survey</h1>
+
+      <div id="test_viz2"></div>
+      <div class="row spacer">
+
+        </div>
+
+
+
+
+
 <br>
 <br>
 <br>
@@ -93,6 +120,8 @@ Select the order in which you would like to group the topic by:
 <br>
       </div>
       </div>
+        </div>
+
       </article>
 {% endblock %}
 
