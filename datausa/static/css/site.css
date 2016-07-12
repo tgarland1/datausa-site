@@ -1,5 +1,5 @@
 <<<<<<< Updated upstream
-@import url(https://fonts.googleapis.com/css?family=Palanquin:300,400,600,700|Lato:300,400|Pathway+Gothic+One|Source+Sans+Pro:300,400); 
+@import url(https://fonts.googleapis.com/css?family=Palanquin:300,400,600,700|Lato:300,400|Pathway+Gothic+One|Source+Sans+Pro:300,400);
   body {
     position: relative; }
     body.open {
@@ -24,7 +24,23 @@ output, ruby, section, summary, time, mark, audio, video {
   vertical-align: top; }
 
 .spacer{
-  margin-top: 25px
+  margin-top: 18px
+}
+
+#yrbs-btns {
+  outline: #ffffff solid ;
+  /*width: 62px;*/
+  /*height: 35px;*/
+  /*font-family: Palanquin;*/
+  /*font-size: 14px;*/
+  /*font-weight: bold;*/
+  /*line-height: 2.5;*/
+  /*letter-spacing: 1.2px;*/
+  color: #ffffff;
+}
+
+#yrbs-btns label {
+  color: #ffffff;
 }
 
 .Page-1 {
@@ -7327,7 +7343,7 @@ body.about {
     display: none;   }
 }
 =======
-@import url(https://fonts.googleapis.com/css?family=Palanquin:300,400,600,700|Lato:300,400|Pathway+Gothic+One|Source+Sans+Pro:300,400); 
+@import url(https://fonts.googleapis.com/css?family=Palanquin:300,400,600,700|Lato:300,400|Pathway+Gothic+One|Source+Sans+Pro:300,400);
   body {
     position: relative; }
     body.open {
