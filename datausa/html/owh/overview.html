@@ -11,17 +11,20 @@
   <article id="splash">
     <div id="splash-image" style="background-image: url('/static/img/splash/geo/04000US46.jpg');"></div>
 
-    <div class="col-sm-4 col-md-4">
+   
     <div class="content">
     <div class="f"></div>
 
-    <div class="splash-titles">
-
+      <div class="splash-titles">
+      <h1>Health Data Analysis</h1>
+      <div id="test_viz2"></div>
+      </div>
         <div class="row spacer">
 
         </div>
         <h3>Select a Topic</h3>
-     <span> 
+    
+{#
      <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="">
     Topics
@@ -57,9 +60,7 @@
 
   </ul>
 </div>
- <div class="row spacer">
 
- </div>
 <h3>Filter by:</h3>
     <select id="selecttest" class="form-control" placeholder="Add a filter">
       <option selected disabled>Select a filter</option>
@@ -100,52 +101,158 @@
     <div class="hidden issexual_identity">Sexual Identity <a href="#" class="remove" rel="sexual_identity" style="color: grey">remove</a></div>
     <div class="hidden isobesity_indicator">Obsese <a href="#" class="remove" rel="obesity_indicator" style="color: grey">remove</a></div>
     <div class="hidden isoverweight_indicator">Overweight <a href="#" class="remove" rel="overweight_indicator" style="color: grey">remove</a></div>
-
+#}
+{#
      <br>
+     <select id="selecttopic" class="chosen">
+      <option data-table-id="yrbs2015" value="sex">Gender</option>
+      <option data-table-id="yrbs2015" value="age">Age</option>
+      <option data-table-id="yrbs2015" value="race_ethnicity">Race / Ethnicity</option>
+      <option data-table-id="yrbs2015" value="grade">Grade</option>
+      <option data-table-id="vs2014mort" value="education_2003_revision">Education</option>
+      <option data-table-id="vs2014mort" value="month_of_death">Month of Death</option>
+      <option data-table-id="vs2014mort" value="sex">Gender</option>
+      <option data-table-id="vs2014mort" value="age">Age</option>
+      <option data-table-id="vs2014mort" value="day_of_week_of_death">Day Of Week Of Death</option>
+      <option data-table-id="vs2014mort" value="autopsy">Autopsy</option>
+      <option data-table-id="vs2014mort" value="race_ethnicity">Race / Ethnicity</option>
+      <option data-table-id="vs2014mort" value="marital_status">Marital Status</option>
+      <option data-table-id="yrbs2013state" value="state">State</option>
+      <option data-table-id="yrbs2013state" value="year">Year</option>
+      <option data-table-id="yrbs2013state" value="age">Age</option>
+      <option data-table-id="yrbs2013state" value="sex">Gender</option>
+      <option data-table-id="yrbs2013state" value="grade">Grade</option>
+      <option data-table-id="yrbs2013state" value="race_breakdown_seven">Race Breakdown Seven</option>
+      <option data-table-id="yrbs2013state" value="sexual_identity">Sexual Identity</option>
+      <option data-table-id="yrbs2013state" value="obesity_indicator">Obesity Indicator</option>
+      <option data-table-id="yrbs2013state" value="overweight_indicator">Overweight Indicator</option>
+      </select>
+      <br>
+      #}
+      <select class="chosen" id="choosetopic">
+        <option data-table-id="yrbs2015" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</option> 
+        <option data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</option>
+        <option data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</option>
+        <option data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</option>
+        <option data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</option>
+        <option data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</option>
+        <option data-table-id="yrbs2015" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</option>
+        <option data-table-id="vs2014mort" value="resident_status">Resident Status</option> 
+      <option data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</option>
+      <option data-table-id="vs2014mort" value="injury_at_work">Injury At Work</option>
+      <option data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</option> 
+      <option data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</option>
+      <option data-table-id="vs2014mort" value="activity_code">Activity Code</option>
+      <option data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</option>
+      <option data-table-id="vs2014mort" value="cause">Cause</option>
+      </select>
+      <span id="yrbs2015filters">
+      <select class="chosen" data-filter-id="yrbs2015">
+      <option data-table-id="yrbs2015" value="sex">Gender</option>
+      <option data-table-id="yrbs2015" value="age">Age</option>
+      <option data-table-id="yrbs2015" value="race_ethnicity">Race / Ethnicity</option>
+      <option data-table-id="yrbs2015" value="grade">Grade</option>
+      </select>
+      </span>
+      <span id="vs2014mortfilters">
+      <select class="chosen" data-filter-id="vs2015mort">
+      <option data-table-id="vs2014mort" value="education_2003_revision">Education</option>
+      <option data-table-id="vs2014mort" value="month_of_death">Month of Death</option>
+      <option data-table-id="vs2014mort" value="sex">Gender</option>
+      <option data-table-id="vs2014mort" value="age">Age</option>
+      <option data-table-id="vs2014mort" value="day_of_week_of_death">Day Of Week Of Death</option>
+      <option data-table-id="vs2014mort" value="autopsy">Autopsy</option>
+      <option data-table-id="vs2014mort" value="race_ethnicity">Race / Ethnicity</option>
+      <option data-table-id="vs2014mort" value="marital_status">Marital Status</option>
+      </select>
+      </span>
+
+{#
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li class="dropdown-header">Youth Risky Behaviors - National Level 2015</li>
+        <li><option data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</option>      /a></li>
+        <li><option data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</option>      </a></li>
+        <li><option data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</option>      </a></li>
+        <li><option data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</option>      /a></li>
+        <li><option data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</option>      </a></li>
+        <li><option data-table-id="yrbs2015" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</option>      </a></li>
+    <li role="separator" class="divider"></li>
+    <li class="dropdown-header">2014 Mortality</li>
+      <li><option data-table-id="vs2014mort" value="resident_status">Resident Status</option>     </a></li>
+      <li><option data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</option>      </a></li>
+      <li><option data-table-id="vs2014mort" value="injury_at_work">Injury At Work</option>      </a></li>
+      <li><option data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</option>      </a></li>
+      <li><option data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</option>      </a></li>
+      <li><option data-table-id="vs2014mort" value="activity_code">Activity Code</option>      </a></li>
+      <li><option data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</option>      </a></li>
+      <li><option data-table-id="vs2014mort" value="cause">Cause</option>      </a></li>
+      <li role="separator" class="divider"></li>
+    <li class="dropdown-header">Youth Risky Behaviors - State Level 2000 - 2013</li>
+      <li><a href="#" data-table-id="yrbs2013state" value="sexual_contact">Sexual Contact</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="texted_or_emailed_while_driving">Texted Or Emailed While Driving</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="electronically_bullied_in_past_year">Electronically Bullied In Past Year</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="smoked_in_past_30_days">Smoked In Past 30 Days</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="had_sex_with_4_or_more_people">Had Sex With 4 Or More People during lifetime</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="had_8_or_more_hours_of_sleep">Regularly Gets 8 Or More Hours Of Sleep</a></li>
+  #}
+
     <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
       Execute Query
     </button>
-    </span>
 
+
+ <div id="test_viz2"></div>
     </div>
     </div>
     </div>
-
-    <div class="col-sm-8 col-md-8">
-    <div class="content">
-      <div class="f"></div>
-
-      <div class="splash-titles">
-      <h1>Health Data Analysis</h1>
-      <div id="test_viz2"></div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
       </div>
       </div>
         </div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+   <div class="row spacer">
 
+ </div>
+  <div class="row spacer">
+
+ </div>
+  <div class="row spacer">
+
+ </div>
       </article>
+     
+
 {% endblock %}
 
 {% block js %}
 
 <script>
+$("#yrbs2015filters").hide();
+$("#vs2014mortfilters").hide();
+$('a.chosen-single > span').on('DOMSubtreeModified',function(){
+  var tableid = $("option:contains("+$(this).text()+")").data("table-id");
+  $(tableid+"filters").show();
+});
+$("#choosetopic").on('change', function(){
+    //var tableid = $("option:contains("+$(this).text()+")").data("table-id");
+    var tableid = $(this).attr("data-table-id");
+    $(tableid+"filters").show();
+
+});
+
+
+
 
 var idorder = [];
-
+$('.chosen').chosen();
 
 //need to create a function that will remove items from idorder when "remove" is clicked
 $("#selecttest").change(function(){
