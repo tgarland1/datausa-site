@@ -23,9 +23,9 @@
   <div id="top-nav">
       <div class="btn-container"></div>
 
-      <div id="home-btn">
-          <a href="/"><img src="/static/img/logo_sm.png" alt="Data USA" style="width:78px" /></a>
-      </div>
+{#      <div id="home-btn">#}
+{#          <a href="/"><img src="/static/img/logo_sm.png" alt="Data USA" style="width:78px" /></a>#}
+{#      </div>#}
 
       <div id="search-btn" data-results="search-simple-nav">
         <a href="/search/?q=" class="m-hotspot"></a>
@@ -48,21 +48,24 @@
       </li>
       {% endif %}
       <li class="analysis-sum">
-        <a href="/qhod/"><h2>Analysis</h2></a>
-{#        <ul>#}
-{#          <li class="geo-sum">#}
-{#            <a href="/search/?kind=geo">Locations</a>#}
-{#          </li>#}
-{#          <li class="naics-sum">#}
-{#            <a href="/search/?kind=naics">Industries</a>#}
-{#          </li>#}
+        <a class="disabled"><h2>Analysis</h2></a>
+        <ul>
+          <li class="geo-sum">
+            <a href="/search/?kind=geo">Locations</a>
+          </li>
+          <li class="naics-sum">
+            <a href="/qhod/">Risky Behaviors</a>
+          </li>
+          <li class="soc-sum">
+            <a href="/analysis/mortality">Mortality</a>
+          </li>
 {#          <li class="soc-sum">#}
 {#            <a href="/search/?kind=soc">Occupations</a>#}
 {#          </li>#}
 {#          <li class="cip-sum">#}
 {#            <a href="/search/?kind=cip">Education</a>#}
 {#          </li>#}
-{#        </ul>#}
+        </ul>
       </li>
       <li class="story-sum">
         <a href="/story/"><h2>Stories</h2></a>

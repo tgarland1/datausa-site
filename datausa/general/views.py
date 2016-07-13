@@ -85,6 +85,11 @@ def qhod():
     g.page_type = "profile"
     return render_template("owh/overview.html")
 
+@mod.route("/analysis/mortality/")
+def mortality():
+    g.page_type = "profile"
+    return render_template("owh/mortality.html")
+
 @mod.route("/about/datasets/")
 def datasets():
     g.page_type = "about"

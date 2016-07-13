@@ -6,27 +6,66 @@
 
 <section class="home-desc">
   <img class="page-1" src="/static/img/home/page-1.png" alt="WomenData" />
-	<h2 class="Comprehensive-Data-f">Comprehensive Data for U.S. Women's Health</h2>
+    <br>
+	<h2 class="Comprehensive-Data-f" id="home-header">Comprehensive Data for U.S. Women's Health</h2>
 </section>
+
 <section class="search-home-container">
-	<div class="search-input-btn">
-		<input type="text" data-results="search-home" data-search="home" id="home-search-input" class="search-input" />
-		<select id="search-type">
-			<option value="all">All</option>
-			<option value="geo">Locations</option>
-			<option value="naics">Industries</option>
-			<option value="soc">Occupations</option>
-			<option value="cip">Education</option>
-		</select>
-		<a href="/search/" id="search-switch" class="adv" onclick="advSearch.toggle();">Search</a>
-	</div>
-	<div id="search-home" class="search-body">
-    <div class="no-search-results">No results found</div>
-		<div class="search-results"></div>
-	</div>
-  <section class="results-show-all">
-    <a href="/search/" class="pri-link">Show all results <span class="more"></span></a>
-  </section>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="">
+        Topics
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Youth Risky Behavior</a></li>
+        <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Mortality</a></li>
+{#        <li class="dropdown-header">Youth Risky Behaviors - National Level 2015</li>#}
+{#            <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</a></li>#}
+{#            <li><a href="#" data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</a></li>#}
+{#            <li><a href="#" data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</a></li>#}
+{#            <li><a href="#" data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</a></li>#}
+{#            <li><a href="#" data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</a></li>#}
+{#            <li><a href="#" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</a></li>#}
+{#        <li role="separator" class="divider"></li>#}
+{#        <li class="dropdown-header">2014 Mortality</li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="resident_status">Resident Status</a></li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</a></li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="injury_at_work">Injury At Work</a></li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</a></li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</a></li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="activity_code">Activity Code</a></li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</a></li>#}
+{#          <li><a href="#" data-table-id="vs2014mort" value="cause">Cause</a></li>#}
+{#          <li role="separator" class="divider"></li>#}
+{#        <li class="dropdown-header">Youth Risky Behaviors - State Level 2000 - 2013</li>#}
+{#          <li><a href="#" data-table-id="yrbs2013state" value="sexual_contact">Sexual Contact</a></li>#}
+{#          <li><a href="#" data-table-id="yrbs2013state" value="texted_or_emailed_while_driving">Texted Or Emailed While Driving</a></li>#}
+{#          <li><a href="#" data-table-id="yrbs2013state" value="electronically_bullied_in_past_year">Electronically Bullied In Past Year</a></li>#}
+{#          <li><a href="#" data-table-id="yrbs2013state" value="smoked_in_past_30_days">Smoked In Past 30 Days</a></li>#}
+{#          <li><a href="#" data-table-id="yrbs2013state" value="had_sex_with_4_or_more_people">Had Sex With 4 Or More People during lifetime</a></li>#}
+{#          <li><a href="#" data-table-id="yrbs2013state" value="had_8_or_more_hours_of_sleep">Regularly Gets 8 Or More Hours Of Sleep</a></li>#}
+
+
+      </ul>
+    </div>
+{#	<div class="search-input-btn">#}
+{#		<input type="text" data-results="search-home" data-search="home" id="home-search-input" class="search-input" />#}
+{#		<select id="search-type">#}
+{#			<option value="all">All</option>#}
+{#			<option value="geo">Locations</option>#}
+{#			<option value="naics">Industries</option>#}
+{#			<option value="soc">Occupations</option>#}
+{#			<option value="cip">Education</option>#}
+{#		</select>#}
+{#		<a href="/search/" id="search-switch" class="adv" onclick="advSearch.toggle();">Search</a>#}
+{#	</div>#}
+{#	<div id="search-home" class="search-body">#}
+{#    <div class="no-search-results">No results found</div>#}
+{#		<div class="search-results"></div>#}
+{#	</div>#}
+{#  <section class="results-show-all">#}
+{#    <a href="/search/" class="pri-link">Show all results <span class="more"></span></a>#}
+{#  </section>#}
 </section>
 
 <div class="home-collab">

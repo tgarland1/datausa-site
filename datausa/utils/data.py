@@ -159,6 +159,7 @@ def build_profile_cache():
             section_data = yaml.load("".join(open(section_path).readlines()))
             profiles[p]["sections"].append({"anchor": s, "title": section_data["title"], "description": section_data["description"]})
         app.logger.info("Loaded {} profile anchors for: {}".format(len(profiles[p]["sections"]), p))
+
     return profiles
 
 def geo_neighbors(geo_id):
