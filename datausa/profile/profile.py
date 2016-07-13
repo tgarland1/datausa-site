@@ -28,6 +28,7 @@ class Profile(BaseObject):
     """
 
     def __init__(self, attr_id, attr_type, required_namespaces=None):
+
         """Initializes a new Profile class.
 
         Args:
