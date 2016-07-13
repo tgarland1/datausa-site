@@ -1,0 +1,178 @@
+title: "Health & Safety"
+description: "The University of Wisconsin has collected data on various health and safety factors, and created a ranking for each."
+
+topics:
+  - category: "Healthcare"
+  - title: "Clinician to Patient Ratios"
+    slug: "clinician_patient_ratio"
+    subtitle: "<<sub dataset=chr>>"
+    sumlevel: "!nation"
+  - class: "flex stat-flex"
+    sumlevel: "!nation"
+    source: NO
+    stat:
+      - title: "Primary Care"
+        value: "1 to <<var namespace=health|key=primary_care_physicians>>"
+  - class: "flex stat-flex"
+    sumlevel: "!nation"
+    source: NO
+    stat:
+      - title: "Dentists"
+        value: "1 to <<var namespace=health|key=dentists>>"
+  - class: "flex stat-flex"
+    sumlevel: "!nation"
+    source: NO
+    stat:
+      - title: "Mental Health"
+        value: "1 to <<var namespace=health|key=mental_health_providers>>"
+  - class: "flex stat-flex"
+    sumlevel: "!nation"
+    source: NO
+    stat:
+      - title: "Other"
+        value: "1 to <<var namespace=health|key=other_primary_care_providers>>"
+  - title: "Healthcare Costs"
+    subtitle: "<<sub dataset=chr>>"
+    slug: "healthcare_cost"
+    description: "Here are the <<level child=True|dataset=chr|plural=True>> in <<name dataset=chr>>, colored by the amount of price-adjusted Medicare reimbursements per enrollee."
+    stat:
+      - title: "<<level child=True|dataset=chr|uppercase=True|plural=True>> with the highest Medicare reimbursement"
+        value: "<<var namespace=health_care_costs|key=geo|row=0>>"
+        subvalues:
+          - "<<var namespace=health_care_costs|key=geo|row=1>>"
+          - "<<var namespace=health_care_costs|key=geo|row=2>>"
+    viz:
+      attrs: "geo"
+      color: "health_care_costs"
+      coords:
+          solo: "<<children dataset=chr>>"
+          value: "<<sumlevel child=True|dataset=chr|plural=True>>"
+      data:
+        show: "geo"
+        sumlevel: <<sumlevel child=True|dataset=chr>>
+        where: "geo:<<children prefix=True|dataset=chr>>"
+        required: "health_care_costs"
+      height: 400
+      id: "geo"
+      type: "geo_map"
+  - title: "Obesity and Diabetes"
+    subtitle: "<<sub dataset=chr>>"
+    slug: "obesity_diabetes"
+    description: "Here we can compare the percentage of adults that report a BMI greater than or equal to 30 with the percentage of adults aged 20 and above with diagnosed diabetes for all of the <<level child=True|dataset=chr|plural=True>> in <<name dataset=chr>> sized by the estimated population."
+    stat_stack: YES
+    stat:
+      - title: "<<level child=True|dataset=chr|uppercase=True|plural=True>> by obesity prevalence"
+        value: "<<var namespace=obesity|key=geo|row=0>>"
+        subvalues:
+          - "<<var namespace=obesity|key=geo|row=1>>"
+          - "<<var namespace=obesity|key=geo|row=2>>"
+      - title: "<<level child=True|dataset=chr|uppercase=True|plural=True>> by diabetes prevalence"
+        value: "<<var namespace=diabetes|key=geo|row=0>>"
+        subvalues:
+          - "<<var namespace=diabetes|key=geo|row=1>>"
+          - "<<var namespace=diabetes|key=geo|row=2>>"
+    viz:
+      attrs: "geo"
+      data:
+        show: "geo"
+        sumlevel: <<sumlevel child=True|dataset=chr>>
+        where: "geo:<<children prefix=True|dataset=chr>>"
+        required: "diabetes,adult_obesity,population_estimate"
+      highlight: "<<id dataset=chr>>"
+      id: "geo"
+      size: "population_estimate"
+      type: "scatter"
+      x: "diabetes"
+      y: "adult_obesity"
+  - title: "Substance Abuse"
+    subtitle: "<<sub dataset=chr>>"
+    slug: "substance_abuse"
+    select:
+      method: "color"
+      data:
+        - "adult_smoking"
+        - "excessive_drinking"
+        - "alcoholimpaired_driving_deaths"
+      default: "adult_smoking"
+    description: "Here are the <<level child=True|dataset=chr|plural=True>> in <<name dataset=chr>>, colored by <span class='select-text'>Adult Smoking Prevalence</span>."
+    stat:
+      - title: "<<level child=True|dataset=chr|uppercase=True>> with the highest prevalence"
+        value: "<<var namespace=smoking|key=geo|row=0>>"
+        subvalues:
+          - "<<var namespace=smoking|key=geo|row=1>>"
+          - "<<var namespace=smoking|key=geo|row=2>>"
+    viz:
+      attrs: "geo"
+      color: "adult_smoking"
+      coords:
+          solo: "<<children dataset=chr>>"
+          value: "<<sumlevel child=True|dataset=chr|plural=True>>"
+      data:
+        show: "geo"
+        sumlevel: <<sumlevel child=True|dataset=chr>>
+        where: "geo:<<children prefix=True|dataset=chr>>"
+        required: "adult_smoking,excessive_drinking,alcoholimpaired_driving_deaths"
+      height: 400
+      id: "geo"
+      type: "geo_map"
+  - title: "Sexually Transmitted Diseases"
+    subtitle: "<<sub dataset=chr>>"
+    slug: "stds"
+    description: "Here we can compare number of people living with a diagnosis of HIV per 100,000 and the number of newly diagnosed chlamydia cases per 100,000 for all of the <<level child=True|dataset=chr|plural=True>> in <<name dataset=chr>>, sized by the estimated population."
+    stat_stack: YES
+    stat:
+      - title: "<<level child=True|dataset=chr|uppercase=True|plural=True>> by HIV prevalence"
+        value: "<<var namespace=hiv|key=geo|row=0>>"
+        subvalues:
+          - "<<var namespace=hiv|key=geo|row=1>>"
+          - "<<var namespace=hiv|key=geo|row=2>>"
+      - title: "<<level child=True|dataset=chr|uppercase=True|plural=True>> by chlamydia prevalence"
+        value: "<<var namespace=sti|key=geo|row=0>>"
+        subvalues:
+          - "<<var namespace=sti|key=geo|row=1>>"
+          - "<<var namespace=sti|key=geo|row=2>>"
+    viz:
+      attrs: "geo"
+      data:
+        show: "geo"
+        sumlevel: <<sumlevel child=True|dataset=chr>>
+        where: "geo:<<children prefix=True|dataset=chr>>"
+        required: "sexually_transmitted_infections,hiv_prevalence_rate,population_estimate"
+      highlight: "<<id dataset=chr>>"
+      id: "geo"
+      size: "population_estimate"
+      type: "scatter"
+      x: "sexually_transmitted_infections"
+      y: "hiv_prevalence_rate"
+  - category: "Crime"
+    subtitle: "<<sub dataset=chr>>"
+    title: "Crime and Safety"
+    slug: "crime"
+    select:
+      method: "color"
+      data:
+        - "homicide_rate"
+        - "violent_crime"
+        - "motor_vehicle_crash_deaths"
+      default: "homicide_rate"
+    description: "Here are the <<level child=True|dataset=chr|plural=True>> in <<name dataset=chr>>, colored by the number of <span class='select-text'>Homicide Deaths</span> per 100,000 people."
+    stat:
+      - title: "<<level child=True|dataset=chr|uppercase=True>> with the highest prevalence"
+        value: "<<var namespace=homicide_rate|key=geo|row=0>>"
+        subvalues:
+          - "<<var namespace=homicide_rate|key=geo|row=1>>"
+          - "<<var namespace=homicide_rate|key=geo|row=2>>"
+    viz:
+      attrs: "geo"
+      color: "homicide_rate"
+      coords:
+          solo: "<<children dataset=chr>>"
+          value: "<<sumlevel child=True|dataset=chr|plural=True>>"
+      data:
+        show: "geo"
+        sumlevel: <<sumlevel child=True|dataset=chr>>
+        where: "geo:<<children prefix=True|dataset=chr>>"
+        required: "homicide_rate,violent_crime,motor_vehicle_crash_deaths"
+      height: 400
+      id: "geo"
+      type: "geo_map"
