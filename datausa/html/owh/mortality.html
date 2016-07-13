@@ -4,120 +4,163 @@
 {% block body %}
 <a name="top"></a>
 <div class="bound">
+    <div class="col-sm-12 col-md-12" id="header-img">
+        <div id="header-bg-img-mortality"></div>
+        <div class="splash-titles">
+        <div class="col-sm-2 col-md-2"></div>
+        <div class="col-sm-6 col-md-6 text-center" id="risk-header">
+            <h1><i class="fa fa-bars" aria-hidden="true"></i> &nbsp;&nbsp; Mortality</h1>
+        </div>
+        <div class="col-sm-4 col-md-4"></div>
+
+        </div>
+    </div>
+
   <div id="show-bg">
     <div><i class="fa fa-camera"></i></div>
   </div>
 
-  <article id="splash">
-    <div id="splash-image" style="background-image: url('/static/img/splash/geo/04000US46.jpg');"></div>
+  <article id="splash-risk">
+    <div id="risk-bg"></div>
+{#    <div class="col-sm-12 col-md-12" id="topicLabel">Topic</div>#}
+    <div class="col-sm-1 col-md-1"></div>
+    <div class="col-sm-10 col-md-10 text-right" id="risk-selector">
+        <div class="dropdown" id="refsd">
+          <button class="btn btn-wide dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="" style="font-size: 26px; align: center;">
+              Choose a topic
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+            <li class="dropdown-header">2014 Mortality</li>
+              <li><a href="#" data-table-id="vs2014mort" value="resident_status">Resident Status</a></li>
+              <li><a href="#" data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</a></li>
+              <li><a href="#" data-table-id="vs2014mort" value="injury_at_work">Injury At Work</a></li>
+              <li><a href="#" data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</a></li>
+              <li><a href="#" data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</a></li>
+              <li><a href="#" data-table-id="vs2014mort" value="activity_code">Activity Code</a></li>
+              <li><a href="#" data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</a></li>
+              <li><a href="#" data-table-id="vs2014mort" value="cause">Cause</a></li>
 
-    <div class="col-sm-4 col-md-4">
-    <div class="content">
-    <div class="f"></div>
+          </ul>
+            <hr width="71%" align="right">
+        </div>
 
-    <div class="splash-titles">
+    </div>
 
+
+    <div class="col-sm-1 col-md-1"></div>
+    <div class="col-sm-2 col-md-2 text-center">
+        <div id="filtering-pane" >
+        <div id="filter-hdg"> Filters </div>
+        <div class="content" id="filter-content">
+        State <span class="caret"></span>
         <div class="row spacer">
 
         </div>
-        <h3>Select a Topic</h3>
-     <span> 
-     <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="">
-    Topics
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li class="dropdown-header">Youth Risky Behaviors - National Level 2015</li>
-        <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</a></li>
-        <li><a href="#" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</a></li>
-    <li role="separator" class="divider"></li>
-    <li class="dropdown-header">2014 Mortality</li>
-      <li><a href="#" data-table-id="vs2014mort" value="resident_status">Resident Status</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="injury_at_work">Injury At Work</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="activity_code">Activity Code</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="cause">Cause</a></li>
-      <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Youth Risky Behaviors - State Level 2000 - 2013</li>
-      <li><a href="#" data-table-id="yrbs2013state" value="sexual_contact">Sexual Contact</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="texted_or_emailed_while_driving">Texted Or Emailed While Driving</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="electronically_bullied_in_past_year">Electronically Bullied In Past Year</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="smoked_in_past_30_days">Smoked In Past 30 Days</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="had_sex_with_4_or_more_people">Had Sex With 4 Or More People during lifetime</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="had_8_or_more_hours_of_sleep">Regularly Gets 8 Or More Hours Of Sleep</a></li>
+        Gender <span class="caret"></span>
+        <br>
+        <div class="row spacer">
+
+        </div>
+        Age <span class="caret"></span>
+        <br>
+        <div class="row spacer">
+
+        </div>
+        Race <span class="caret"></span>
+        <br>
+        <div class="row spacer">
+
+        </div>
 
 
-  </ul>
-</div>
- <div class="row spacer">
+        <div class="f"></div>
 
- </div>
-<h3>Filter by:</h3>
-    <select id="selecttest" class="form-control" placeholder="Add a filter">
-      <option selected disabled>Select a filter</option>
-      <option class="hidden" data-table-id="yrbs2015" value="sex">Gender</option>
-      <option class="hidden" data-table-id="yrbs2015" value="age">Age</option>
-      <option class="hidden" data-table-id="yrbs2015" value="race_ethnicity">Race / Ethnicity</option>
-      <option class="hidden" data-table-id="yrbs2015" value="grade">Grade</option>
-      <option class="hidden" data-table-id="vs2014mort" value="education_2003_revision">Education</option>
-      <option class="hidden" data-table-id="vs2014mort" value="month_of_death">Month of Death</option>
-      <option class="hidden" data-table-id="vs2014mort" value="sex">Gender</option>
-      <option class="hidden" data-table-id="vs2014mort" value="age">Age</option>
-      <option class="hidden" data-table-id="vs2014mort" value="day_of_week_of_death">Day Of Week Of Death</option>
-      <option class="hidden" data-table-id="vs2014mort" value="autopsy">Autopsy</option>
-      <option class="hidden" data-table-id="vs2014mort" value="race_ethnicity">Race / Ethnicity</option>
-      <option class="hidden" data-table-id="vs2014mort" value="marital_status">Marital Status</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="state">State</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="year">Year</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="age">Age</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="sex">Gender</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="grade">Grade</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="race_breakdown_seven">Race Breakdown Seven</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="sexual_identity">Sexual Identity</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="obesity_indicator">Obesity Indicator</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="overweight_indicator">Overweight Indicator</option>
-    </select>
-    <div class="hidden issex">Gender <a href="#" class="remove" rel="sex" style="color: grey">remove</a></div>
-    <div class="hidden isage">Age <a href="#" class="remove" rel="age" style="color: grey">remove</a></div>
-    <div class="hidden israce_ethnicity">Race / Ethnicity <a href="#" class="remove" rel="race_ethnicity" style="color: grey">remove</a></div>
-    <div class="hidden isgrade">Grade <a href="#" class="remove" rel="grade" style="color: grey">remove</a></div>
-    <div class="hidden iseducation_2003_revision">Education <a href="#" class="remove" rel="education_2003_revision" style="color: grey">remove</a></div>
-    <div class="hidden ismonth_of_death">Month of Death <a href="#" class="remove" rel="month_of_death" style="color: grey">remove</a></div>
-    <div class="hidden isday_of_week_of_death">Day of Week of Death <a href="#" class="remove" rel="day_of_week_of_death" style="color: grey">remove</a></div>
-    <div class="hidden isautopsy">Autopsy <a href="#" class="remove" rel="autopsy" style="color: grey">remove</a></div>
-    <div class="hidden ismarital_status">Marital Status <a href="#" class="remove" rel="marital_status" style="color: grey">remove</a></div>
-    <div class="hidden isstate">State <a href="#" class="remove" rel="state" style="color: grey">remove</a></div>
-    <div class="hidden isyear">Year <a href="#" class="remove" rel="year" style="color: grey">remove</a></div>
-    <div class="hidden israce_breakdown_seven">Race / Ethnicity <a href="#" class="remove" rel="race_breakdown_seven" style="color: grey">remove</a></div>
-    <div class="hidden issexual_identity">Sexual Identity <a href="#" class="remove" rel="sexual_identity" style="color: grey">remove</a></div>
-    <div class="hidden isobesity_indicator">Obsese <a href="#" class="remove" rel="obesity_indicator" style="color: grey">remove</a></div>
-    <div class="hidden isoverweight_indicator">Overweight <a href="#" class="remove" rel="overweight_indicator" style="color: grey">remove</a></div>
 
-     <br>
-    <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
-      Execute Query
-    </button>
+        <div class="splash-titles">
+
+
+        <span>
+
+
+
+
+
+
+{#    <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">#}
+{#      Execute Query#}
+{#    </button>#}
     </span>
 
     </div>
     </div>
     </div>
+    </div>
 
-    <div class="col-sm-8 col-md-8">
-    <div class="content">
+
+    <div class="col-sm-9 col-md-9">
+        <div class="content">
+        <div class="splash-titles">
+{#        <h1>Health Data Analysis</h1>#}
+
       <div class="f"></div>
 
-      <div class="splash-titles">
-      <h1>Health Data Analysis</h1>
-      <div id="test_viz2"></div>
+
+
+      <div id="mortality-viz">
+          <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12 dc-data-count dc-chart" id="data-count">
+                  <h2>Mortality
+                    <small>
+                      <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
+                       <a id="all" href="#">Reset All</a>
+                      </span>
+                    </small>
+                  </h2>
+                </div>
+              </div>
+              <div class="row" id="control-row">
+                <div class="col-xs-5 col-md-5 pie-chart">
+                  <h4>Gender <small><a id="gender">reset</a></small></h4>
+                  <div class="dc-chart" id="chart-ring-gender"></div>
+                </div>
+                <div class="col-xs-2 col-md-2"></div>
+                <div class="col-xs-5 col-md-5 pie-chart">
+                  <h4>Race <small><a id="race">reset</a></small></h4>
+                  <div class="dc-chart" id="chart-ring-race"></div>
+                </div>
+
+
+
+              </div>
+
+
+              <div class="row" id="mortality-viz-row-2">
+                  <div class="col-xs-2 col-md-2"></div>
+                  <div class="col-xs-8 col-md-8">
+                    <!--"Age Recode 27"-->
+                  <h4>Age <small><a id="age" href="#">reset</a></small></h4>
+                  <div class="dc-chart" id="chart-age"></div>
+                  </div>
+
+{#              <div class="row">#}
+{#                <div class="col-xs-1 col-md-1"></div>#}
+{#                <div class="col-xs-5 col-md-5 pie-chart">#}
+{#                    <!--"Manner of Death"-->#}
+{#                  <h4>Manner of Death <small><a id="manner" href="#">reset</a></small></h4>#}
+{#                  <div class="dc-chart" id="chart-ring-manner"></div>#}
+{#                </div>#}
+{#                <div class="col-xs-1 col-md-1"></div>#}
+{#                <div class="col-xs-5 col-md-5 pie-chart">#}
+{#                    <!--"39 Cause Recode"-->#}
+{#                  <h4>Cause <small><a id="cause" href="#">reset</a></small></h4>#}
+{#                  <div class="dc-chart" id="chart-ring-cause"></div>#}
+{#                </div>#}
+{#              </div>#}
+
+            </div>
+      </div>
 
 <br>
 <br>
@@ -137,12 +180,157 @@
       </div>
         </div>
 
-      </article>
+
+    </div>
 {% endblock %}
 
 {% block js %}
 
 <script>
+
+
+d3.text("/static/data/mortality_20k_n.csv", function(text) {
+  var mortalityData = d3.csv.parseRows(text).map(function(row) {
+    return row.map(function(value) {
+      return value;
+    });
+  });
+
+  // normalize/parse data so dc can correctly sort & bin them
+  // I like to think of each "d" as a row in a spreadsheet
+  _.each(mortalityData, function(d) {
+    d.count = +d.count;
+    // round to nearest 0.25
+  });
+
+  // set crossfilter
+  var ndx = crossfilter(mortalityData);
+
+  // create dimensions (x-axis values)
+  var genderDim  = ndx.dimension(function(d) {return d[1];}),
+      // dc.pluck: short-hand for same kind of anon. function we used for yearDim
+      raceDim  = ndx.dimension(function(d) {return d[5];}),
+{#      monthDim = ndx.dimension(function(d) {return d[0];}),#}
+//      dayDim = ndx.dimension(function(d) {return d[3];}),
+      ageDim = ndx.dimension(function(d) {return d[2];}),
+      mannerDim = ndx.dimension(function(d) {return d[4];}),
+      causeDim = ndx.dimension(function(d) {return d[6];}),
+      allDim = ndx.dimension(function(d) {return d;});
+
+  // create groups (y-axis values)
+  var all = ndx.groupAll();
+  var countPerGender = genderDim.group().reduceCount(),
+      countPerRace = raceDim.group().reduceCount(),
+{#      countPerMonth = monthDim.group().reduceCount(),#}
+//      countPerDay = dayDim.group().reduceCount(),
+      countPerAge = ageDim.group().reduceCount();
+{#      countPerManner = mannerDim.group().reduceCount(),#}
+{#      countPerCause = causeDim.group().reduceCount();#}
+
+  // specify charts
+  var genderChart   = dc.pieChart('#chart-ring-gender'),
+      raceChart   = dc.pieChart('#chart-ring-race'),
+{#      monthChart   = dc.barChart('#chart-month'),#}
+//      dayChart  = dc.pieChart('#chart-ring-day'),
+      ageChart  = dc.barChart('#chart-age'),
+{#      mannerChart  = dc.pieChart('#chart-ring-manner'),#}
+{#      causeChart  = dc.barChart('#chart-ring-cause'),#}
+      dataCount = dc.dataCount('#data-count');
+//      dataTable = dc.dataTable('#data-table');
+
+  genderChart
+      .width(250)
+      .height(250)
+      .dimension(genderDim)
+      .group(countPerGender)
+      .innerRadius(40);
+
+  raceChart
+      .width(250)
+      .height(250)
+      .dimension(raceDim)
+      .group(countPerRace)
+      .innerRadius(40);
+
+{#    monthChart#}
+{#      .width(300)#}
+{#      .height(300)#}
+{#      .dimension(monthDim)#}
+{#      .group(countPerMonth)#}
+{#      .x(d3.scale.ordinal())#}
+{#      .xUnits(dc.units.ordinal)#}
+{#      .elasticY(true)#}
+{#      .centerBar(true)#}
+{#      .barPadding(5)#}
+{#      .xAxisLabel('Month')#}
+{#      .yAxisLabel('Count')#}
+{#        .ordering(function (d) {#}
+{#        var order = {#}
+{#          'January': 1, 'February': 2, 'March': 3, 'April': 4,#}
+{#          'May': 5, 'June': 6, 'July': 7, 'August': 8,#}
+{#          'September': 9, 'October': 10, 'November': 11, 'December': 12#}
+{#        };#}
+{#        return order[d.key];#}
+{#      })#}
+{#      .margins({top: 10, right: 20, bottom: 50, left: 50});#}
+{#  monthChart.xAxis().tickValues([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);#}
+
+
+  ageChart
+      .width(500)
+      .height(250)
+      .dimension(ageDim)
+      .group(countPerAge)
+      .x(d3.scale.ordinal())
+      .xUnits(dc.units.ordinal)
+      .elasticY(true)
+//      .centerBar(true)
+//      .barPadding(5)
+      .xAxisLabel('Age')
+      .yAxisLabel('Count')
+      .margins({top: 10, right: 20, bottom: 50, left: 50});
+
+
+{#  mannerChart#}
+{#      .width(200)#}
+{#      .height(200)#}
+{#      .dimension(mannerDim)#}
+{#      .group(countPerManner)#}
+{#      .innerRadius(40);#}
+{##}
+{#  causeChart#}
+{#      .width(500)#}
+{#      .height(280)#}
+{#      .dimension(causeDim)#}
+{#      .group(countPerCause)#}
+{#      .x(d3.scale.ordinal())#}
+{#      .xUnits(dc.units.ordinal)#}
+{#      .elasticY(true)#}
+{#    //      .centerBar(true)#}
+{#    //      .barPadding(5)#}
+{#      .xAxisLabel('Cause')#}
+{#      .yAxisLabel('Count')#}
+{#      .ordering(function(d) { return +d.value; })#}
+{#      .margins({top: 10, right: 20, bottom: 50, left: 50});#}
+
+  dataCount
+      .dimension(ndx)
+      .group(all);
+
+
+  // register handlers
+  d3.selectAll('a#all').on('click', function () {
+    dc.filterAll();
+    dc.renderAll();
+  });
+
+
+  // showtime!
+  dc.renderAll();
+
+});
+
+
 
 var idorder = [];
 

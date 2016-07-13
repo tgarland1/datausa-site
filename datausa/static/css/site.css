@@ -658,6 +658,21 @@
     z-index: 1;
   }
 
+  #topicLabel {
+    width: 46px;
+    height: 35px;
+    font-family: Palanquin;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2.5;
+    letter-spacing: 1.2px;
+    color: #ffffff;
+    position: relative;
+    left: 14vw;
+    top: -8vh;
+    }
+
+
   .btn-wide {
     padding: 18px 28px;
     font-size: 70px;
@@ -672,8 +687,10 @@
     /*border:none;*/
     box-shadow:none;
     text-align: left;
-    padding-left:200px
+    padding-left:200px;
   }
+
+
 
   #risk-header {
     width: 500px;
@@ -685,37 +702,18 @@
     letter-spacing: 3px;
     color: #ffffff;
     position: absolute;
-    top: 8vh;
-    left: 27vw;
+    top: 10vh;
+    left: 35vw;
     }
 
-  #filter-hdg {
-
-    width: 60px;
-    height: 35px;
-    font-family: Palanquin;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 2.5;
-    letter-spacing: 1.2px;
-    color: #9595a5;
-    position: relative;
-    top: -1vh;
 
 
-    /*text-align: left;*/
-    }
-
-  #filtering-pane {
-    position: relative;
-    left: 1vw;
-    top: -3vh;
-    height: 70vh;
-    border-right: solid #ffffff;
+  .spacer {
+    height: 20px
   }
 
   #risk-selector {
-    width:100%;
+    width:40vw;
     /*height: 65px;*/
     /*font-family: PathwayGothicOne-Book;*/
     /*font-size: 90px;*/
@@ -724,8 +722,77 @@
     letter-spacing: 2px;
     color: #ffffff;
     position: relative;
-    top: -8vh;
-    left: -19vw;
+    top: -10vh;
+    left: 8vw;
+    }
+      #yrbs_topic {
+        /*width: 46px;*/
+        /*height: 35px;*/
+        /*font-family: Palanquin;*/
+        /*font-size: 14px;*/
+        /*font-weight: bold;*/
+        /*line-height: 2.5;*/
+        /*letter-spacing: 1.2px;*/
+        /*color: #ffffff;*/
+        position: relative;
+        right: 12vw;
+        top: 3vh;
+        }
+      #filter-hdg {
+
+      width: 60px;
+      height: 35px;
+      font-family: Palanquin;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 2.5;
+      letter-spacing: 1.2px;
+      color: #9595a5;
+      position: relative;
+      left: 5vw;
+      top: -2vh;
+      }
+      #filtering-pane {
+        position: relative;
+
+        top: 5vh;
+        left: -45vw;
+        height: 70vh;
+        border-right: solid #ffffff;
+        font-family: Palanquin;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 2.5;
+        letter-spacing: 1.2px;
+        color: #ffffff;
+      }
+
+  #mortality-viz {
+    /*width:100%;*/
+    /*height: 65px;*/
+    /*font-family: PathwayGothicOne-Book;*/
+    /*font-size: 90px;*/
+    font-family: Palanquin;
+    font-size: 35px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    position: relative;
+    top: -72vh;
+    left: 31vw;
+    }
+
+  #mortality-viz-row-2 {
+    /*width:100%;*/
+    /*height: 65px;*/
+    /*font-family: PathwayGothicOne-Book;*/
+    /*font-size: 90px;*/
+    font-family: Palanquin;
+    font-size: 35px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    position: relative;
+    top: 9vh;
+    left: 4vw;
     }
 
 
@@ -737,11 +804,28 @@
     z-index: -1;
   }
 
-  #header-bg-img {
+  #header-bg-img-risk {
     position: relative;
     height: 40vh;
-    width: 100%;
-    background-image: url('/static/img/home/smoking.png');
+    width: 100vw;
+    background-image: url('/static/img/home/smoking2x.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+    padding:0;
+    margin:0;
+    /*object-fit: contain;*/
+    /*background-image: linear-gradient(to bottom, rgba(67, 44, 90, 0), #20142e);*/
+    /*background-image: linear-gradient(to bottom, rgba(67, 44, 90, 0), var(--darkPurple));*/
+  }
+
+  #header-bg-img-mortality {
+    position: relative;
+    height: 40vh;
+    width: 100vw;
+    background-image: url('/static/img/home/mortality2x.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
     z-index: -1;
     padding:0;
     margin:0;
