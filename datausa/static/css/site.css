@@ -49,7 +49,8 @@
       font-family: "Palanquin", sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-font-smoothing: antialiased;
-      font-smoothing: antialiased; }
+      font-smoothing: antialiased;
+    }
 
       h1 {
         color: #132332;
@@ -650,6 +651,11 @@
   body.home .btn {
     border-color: #FFFFFF;
     background: none;
+    width: 40vw;
+  }
+
+  #splash-risk {
+    z-index: 1;
   }
 
   .btn-wide {
@@ -662,50 +668,86 @@
     width: 70vw;
     font-family: Palanquin;
     color: #ffffff;
-    z-index: 2;
     background:none;
     /*border:none;*/
     box-shadow:none;
+    text-align: left;
+    padding-left:200px
   }
 
   #risk-header {
     width: 500px;
     height: 65px;
-    /*font-family: PathwayGothicOne-Book;*/
-    /*font-size: 90px;*/
+    font-family: PathwayGothicOne-Book;
+    font-size: 80px;
     /*font-weight: normal;*/
     /*line-height: 0.63;*/
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: #ffffff;
     position: absolute;
-    top: 12vh;
-    left: 40vw;
+    top: 8vh;
+    left: 27vw;
     }
 
+  #filter-hdg {
+
+    width: 60px;
+    height: 35px;
+    font-family: Palanquin;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2.5;
+    letter-spacing: 1.2px;
+    color: #9595a5;
+    position: relative;
+    top: -1vh;
+
+
+    /*text-align: left;*/
+    }
+
+  #filtering-pane {
+    position: relative;
+    left: 1vw;
+    top: -3vh;
+    height: 70vh;
+    border-right: solid #ffffff;
+  }
 
   #risk-selector {
     width:100%;
     /*height: 65px;*/
     /*font-family: PathwayGothicOne-Book;*/
     /*font-size: 90px;*/
-    /*font-weight: normal;*/
-    /*line-height: 0.63;*/
+    font-family: Palanquin;
+      font-size: 35px;
     letter-spacing: 2px;
     color: #ffffff;
-    position: absolute;
-    left: 12vw;
-    top: 35vh;
-    z-index: 1;
+    position: relative;
+    top: -8vh;
+    left: -19vw;
     }
 
 
-  #risky-container {
-    position: relative;
-    height: 100vh;
-    /*top: 40vh;*/
+  #risk-bg {
+    position: absolute;
+    height: 500vh;
     width: 100%;
     background-color: #20142e;
     z-index: -1;
+  }
+
+  #header-bg-img {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    background-image: url('/static/img/home/smoking.png');
+    z-index: -1;
+    padding:0;
+    margin:0;
+    /*object-fit: contain;*/
+    /*background-image: linear-gradient(to bottom, rgba(67, 44, 90, 0), #20142e);*/
+    /*background-image: linear-gradient(to bottom, rgba(67, 44, 90, 0), var(--darkPurple));*/
   }
 
   #header-img {
@@ -722,7 +764,7 @@
     /*-moz-background-size: cover;*/
     /*-o-background-size: cover;*/
     /*background-size: cover;*/
-    background-image: url('/static/img/home/smoking.png');
+    /*background-image: url('/static/img/home/smoking.png');*/
     z-index: 0;
     padding:0;
     margin:0;
