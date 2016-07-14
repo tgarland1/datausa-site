@@ -212,12 +212,13 @@
 
 <!-- Put ALL HTML STUFF HERE!!!!-->
 
-
+{#{% if profile.attr_type == "geo" and profile.attr.id == '040' %}#}
 
 <section class="profile-section">
   {% include "templates/includes/mortality.html" %}
 </section>
 
+{#{% endif %}#}
 
 {% for section in sections %}
 

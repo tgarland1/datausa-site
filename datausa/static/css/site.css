@@ -10336,7 +10336,7 @@ body.profile #profile-nav, body.map #profile-nav, body.story #profile-nav {
     body.story .stat-value a:hover {
       color: #999;
       border-color: #999; }
-body.profile.geo .economy, body.profile.geo .education, body.profile.geo .health,
+body.profile.geo .economy, body.profile.geo .mortality, body.profile.geo .education, body.profile.geo .health,
 body.map.geo .economy, body.map.geo .education, body.map.geo .health,
 body.story.geo .economy, body.story.geo .education, body.story.geo .health {
   background-color: #E9E9E9; }
