@@ -65,12 +65,23 @@
           <img src="/static/img/icons/about.svg" />
           <span>About</span>
         </a>
+        <a href="#mortality" data-ga="splash mortality" data-ga-cat="navigation" data-ga-label="User click">
+          <img src="/static/img/icons/mortality.svg" />
+          <span>Mortality</span>
+        </a>
+        <a href="#risky" data-ga="splash risky" data-ga-cat="navigation" data-ga-label="User click">
+          <img src="/static/img/icons/risky.svg" />
+          <span>Risky Behavior</span>
+        </a>
         {% for section in sections %}
+        {% if section.anchor != 'Economy' and section.title != 'Education' and section.title != 'Housing' %}
         <a href="#{{ section.anchor }}" data-ga="splash {{ section.title|safe|lower }}" data-ga-cat="navigation" data-ga-label="User click">
           <img src="/static/img/icons/{{ section.anchor }}.svg" />
           <span>{{ section.title|safe }}</span>
         </a>
+        {% endif %}
         {% endfor %}
+
       </div>
 
     </div>
@@ -138,6 +149,23 @@
     </div>
 
     <div id="profile-toc">
+        <div class="profile-toc-section">
+        <h2><a href="#mortality" data-ga="toc mortality" data-ga-cat="navigation" data-ga-label="User click"><img src="/static/img/icons/mortality.svg" /> Mortality</a></h2>
+        <p>The CDC collects data on all of the mortalities that occur in a given year within California</p>
+        <ul>
+            <li><a class="pri-link" href="#cause" data-anchor="cause" data-ga="toc mortality topic" data-ga-cat="navigation" data-ga-label="User click">By Cause</a></li>
+            <li><a class="pri-link" href="#manner" data-anchor="cause" data-ga="toc mortality topic" data-ga-cat="navigation" data-ga-label="User click">By Manner</a></li>
+        </ul>
+        </div>
+        <div class="profile-toc-section">
+        <h2><a href="#risky" data-ga="toc risky" data-ga-cat="navigation" data-ga-label="User click"><img src="/static/img/icons/risky.svg" /> Risky Behavior</a></h2>
+        <p>The CDC collects data on all of the risky behavior that California youth partake in</p>
+        <ul>
+            <li><a class="pri-link" href="#smoking" data-anchor="cause" data-ga="toc risky topic" data-ga-cat="navigation" data-ga-label="User click">Smoking</a></li>
+            <li><a class="pri-link" href="#texting" data-anchor="cause" data-ga="toc risky topic" data-ga-cat="navigation" data-ga-label="User click">Texting While Driving</a></li>
+        </ul>
+        </div>
+
     {% for section in sections %}
       <div class="profile-toc-section">
         <h2><a href="#{{ section.anchor }}" data-ga="toc {{ section.anchor }}" data-ga-cat="navigation" data-ga-label="User click"><img src="/static/img/icons/{{ section.anchor }}.svg" /> {{ section.title|safe }}</a></h2>

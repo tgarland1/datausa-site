@@ -129,9 +129,14 @@
     .container(container)
     .id("geo")
     .messages({"background": "#cdd1d3"})
-    .zoom({"scroll": true, "pan": true})
+
     .width(window.innerWidth - sidebarWidth)
     // .coords({"solo": "04000US48"})
+{#    .mouse(false)#}
+{#    .zoom({"click": false})#}
+    .mouse({"click": function(d, vars){
+    	alert("hello!");
+    }})
     .draw();
 
   function makeURL() {
@@ -198,6 +203,15 @@
       .width(window.innerWidth - sidebarWidth)
       .draw();
   });
+
+
+  $("body").on("click", ".d3plus_rect", function() {
+                            var lcClassID = this.__data__["LC ClassID"];
+                            var classDescription = this.__data__["Class Description"];
+                            var fullName = lcClassID + ": " + classDescription;
+                            d3.select('.d3plus_title.sub').attr('class', 'newID').select('tspan').text(fullName);
+    });
+
 
   d3.select("#map-sharing").selectAll("a").on("click.share", function(){
     d3.event.preventDefault();
