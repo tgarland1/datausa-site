@@ -138,7 +138,9 @@
           </div>
       </div>
       </div>
-      <div id="test" class="col-sm-8"
+      <div id="test" class="col-sm-8">
+          <iframe src="http://127.0.0.1:5000/static/tree_map.html/" background="black" width="80%" height="600" id="frameDemo"></iframe>
+
 {#      <div class="viz">#}
 {#        <div id="chart-gender">#}
     {#          <h4>Gender <small><a id="gender">reset</a></small></h4>#}
@@ -200,7 +202,7 @@
           <div class="stat">
             <div class="stat-text">2014 Deaths</div>
             <div class="stat-value">6,000,000</div>
-            <p>People be dying, bro!</p>
+            <p></p>
 
           </div>
           </div>
@@ -219,95 +221,96 @@
 
 
 
-{#    <div class="col-sm-12 col-md-12 text-center">#}
-{#    </div>#}
-{#    <div class="col-sm-2 col-md-2 text-center">#}
-{#        <div id="filtering-pane" >#}
-{#        <div class="row spacer">#}
-{##}
-{#        </div>#}
-{#        <h3>Select a Topic</h3>#}
-{#     <span>#}
-{#     <div class="dropdown">#}
-{##}
-{#  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="">#}
-{#    Topics#}
-{#    <span class="caret"></span>#}
-{#  </button>#}
-{#  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">#}
-{#    <li class="dropdown-header">Youth Risky Behaviors - National Level 2015</li>#}
-{#        <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</a></li>#}
-{#        <li><a href="#" data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</a></li>#}
-{#        <li><a href="#" data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</a></li>#}
-{#        <li><a href="#" data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</a></li>#}
-{#        <li><a href="#" data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</a></li>#}
-{#        <li><a href="#" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</a></li>#}
-{#    <li role="separator" class="divider"></li>#}
-{#    <li class="dropdown-header">2014 Mortality</li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="resident_status">Resident Status</a></li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</a></li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="injury_at_work">Injury At Work</a></li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</a></li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</a></li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="activity_code">Activity Code</a></li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</a></li>#}
-{#      <li><a href="#" data-table-id="vs2014mort" value="cause">Cause</a></li>#}
-{#      <li role="separator" class="divider"></li>#}
-{#    <li class="dropdown-header">Youth Risky Behaviors - State Level 2000 - 2013</li>#}
-{#      <li><a href="#" data-table-id="yrbs2013state" value="sexual_contact">Sexual Contact</a></li>#}
-{#      <li><a href="#" data-table-id="yrbs2013state" value="texted_or_emailed_while_driving">Texted Or Emailed While Driving</a></li>#}
-{#      <li><a href="#" data-table-id="yrbs2013state" value="electronically_bullied_in_past_year">Electronically Bullied In Past Year</a></li>#}
-{#      <li><a href="#" data-table-id="yrbs2013state" value="smoked_in_past_30_days">Smoked In Past 30 Days</a></li>#}
-{#      <li><a href="#" data-table-id="yrbs2013state" value="had_sex_with_4_or_more_people">Had Sex With 4 Or More People during lifetime</a></li>#}
-{#      <li><a href="#" data-table-id="yrbs2013state" value="had_8_or_more_hours_of_sleep">Regularly Gets 8 Or More Hours Of Sleep</a></li>#}
-{##}
-{#  </ul>#}
-{#</div>#}
-{# <div class="row spacer">#}
-{##}
-{# </div>#}
-{#<h3>Filter by:</h3>#}
-{#    <select id="selecttest" class="form-control" placeholder="Add a filter">#}
-{#      <option selected disabled>Select a filter</option>#}
-{#      <option class="hidden" data-table-id="yrbs2015" value="sex">Gender</option>#}
-{#      <option class="hidden" data-table-id="yrbs2015" value="age">Age</option>#}
-{#      <option class="hidden" data-table-id="yrbs2015" value="race_ethnicity">Race / Ethnicity</option>#}
-{#      <option class="hidden" data-table-id="yrbs2015" value="grade">Grade</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="education_2003_revision">Education</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="month_of_death">Month of Death</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="sex">Gender</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="age">Age</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="day_of_week_of_death">Day Of Week Of Death</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="autopsy">Autopsy</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="race_ethnicity">Race / Ethnicity</option>#}
-{#      <option class="hidden" data-table-id="vs2014mort" value="marital_status">Marital Status</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="state">State</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="year">Year</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="age">Age</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="sex">Gender</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="grade">Grade</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="race_breakdown_seven">Race Breakdown Seven</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="sexual_identity">Sexual Identity</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="obesity_indicator">Obesity Indicator</option>#}
-{#      <option class="hidden" data-table-id="yrbs2013state" value="overweight_indicator">Overweight Indicator</option>#}
-{#    </select>#}
-{#    <div class="hidden issex">Gender <a href="#" class="remove" rel="sex" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isage">Age <a href="#" class="remove" rel="age" style="color: grey">remove</a></div>#}
-{#    <div class="hidden israce_ethnicity">Race / Ethnicity <a href="#" class="remove" rel="race_ethnicity" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isgrade">Grade <a href="#" class="remove" rel="grade" style="color: grey">remove</a></div>#}
-{#    <div class="hidden iseducation_2003_revision">Education <a href="#" class="remove" rel="education_2003_revision" style="color: grey">remove</a></div>#}
-{#    <div class="hidden ismonth_of_death">Month of Death <a href="#" class="remove" rel="month_of_death" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isday_of_week_of_death">Day of Week of Death <a href="#" class="remove" rel="day_of_week_of_death" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isautopsy">Autopsy <a href="#" class="remove" rel="autopsy" style="color: grey">remove</a></div>#}
-{#    <div class="hidden ismarital_status">Marital Status <a href="#" class="remove" rel="marital_status" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isstate">State <a href="#" class="remove" rel="state" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isyear">Year <a href="#" class="remove" rel="year" style="color: grey">remove</a></div>#}
-{#    <div class="hidden israce_breakdown_seven">Race / Ethnicity <a href="#" class="remove" rel="race_breakdown_seven" style="color: grey">remove</a></div>#}
-{#    <div class="hidden issexual_identity">Sexual Identity <a href="#" class="remove" rel="sexual_identity" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isobesity_indicator">Obsese <a href="#" class="remove" rel="obesity_indicator" style="color: grey">remove</a></div>#}
-{#    <div class="hidden isoverweight_indicator">Overweight <a href="#" class="remove" rel="overweight_indicator" style="color: grey">remove</a></div>#}
-{##}
-{#     <br>#}
+    <div class="col-sm-12 col-md-12 text-center">
+    </div>
+    <div class="col-sm-2 col-md-2 text-center">
+        <div id="filtering-pane" >
+        <div class="row spacer">
+
+        </div>
+        <h3>Select a Topic</h3>
+     <span>
+     <div class="dropdown">
+
+  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="">
+    Topics
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li class="dropdown-header">Youth Risky Behaviors - National Level 2015</li>
+        <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</a></li>
+        <li><a href="#" data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</a></li>
+        <li><a href="#" data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</a></li>
+        <li><a href="#" data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</a></li>
+        <li><a href="#" data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</a></li>
+        <li><a href="#" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</a></li>
+    <li role="separator" class="divider"></li>
+    <li class="dropdown-header">2014 Mortality</li>
+      <li><a href="#" data-table-id="vs2014mort" value="resident_status">Resident Status</a></li>
+      <li><a href="#" data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</a></li>
+      <li><a href="#" data-table-id="vs2014mort" value="injury_at_work">Injury At Work</a></li>
+      <li><a href="#" data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</a></li>
+      <li><a href="#" data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</a></li>
+      <li><a href="#" data-table-id="vs2014mort" value="activity_code">Activity Code</a></li>
+      <li><a href="#" data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</a></li>
+      <li><a href="#" data-table-id="vs2014mort" value="cause">Cause</a></li>
+      <li role="separator" class="divider"></li>
+    <li class="dropdown-header">Youth Risky Behaviors - State Level 2000 - 2013</li>
+      <li><a href="#" data-table-id="yrbs2013state" value="sexual_contact">Sexual Contact</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="texted_or_emailed_while_driving">Texted Or Emailed While Driving</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="electronically_bullied_in_past_year">Electronically Bullied In Past Year</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="smoked_in_past_30_days">Smoked In Past 30 Days</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="had_sex_with_4_or_more_people">Had Sex With 4 Or More People during lifetime</a></li>
+      <li><a href="#" data-table-id="yrbs2013state" value="had_8_or_more_hours_of_sleep">Regularly Gets 8 Or More Hours Of Sleep</a></li>
+
+  </ul>
+</div>
+ <div class="row spacer">
+
+ </div>
+<h3>Filter by:</h3>
+    <select id="selecttest" class="form-control" placeholder="Add a filter">
+      <option selected disabled>Select a filter</option>
+      <option class="hidden" data-table-id="yrbs2015" value="sex">Gender</option>
+      <option class="hidden" data-table-id="yrbs2015" value="age">Age</option>
+      <option class="hidden" data-table-id="yrbs2015" value="race_ethnicity">Race / Ethnicity</option>
+      <option class="hidden" data-table-id="yrbs2015" value="grade">Grade</option>
+      <option class="hidden" data-table-id="vs2014mort" value="education_2003_revision">Education</option>
+      <option class="hidden" data-table-id="vs2014mort" value="month_of_death">Month of Death</option>
+      <option class="hidden" data-table-id="vs2014mort" value="sex">Gender</option>
+      <option class="hidden" data-table-id="vs2014mort" value="age">Age</option>
+      <option class="hidden" data-table-id="vs2014mort" value="day_of_week_of_death">Day Of Week Of Death</option>
+      <option class="hidden" data-table-id="vs2014mort" value="autopsy">Autopsy</option>
+      <option class="hidden" data-table-id="vs2014mort" value="race_ethnicity">Race / Ethnicity</option>
+      <option class="hidden" data-table-id="vs2014mort" value="marital_status">Marital Status</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="state">State</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="year">Year</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="age">Age</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="sex">Gender</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="grade">Grade</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="race_breakdown_seven">Race Breakdown Seven</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="sexual_identity">Sexual Identity</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="obesity_indicator">Obesity Indicator</option>
+      <option class="hidden" data-table-id="yrbs2013state" value="overweight_indicator">Overweight Indicator</option>
+    </select>
+    <div class="hidden issex">Gender <a href="#" class="remove" rel="sex" style="color: grey">remove</a></div>
+    <div class="hidden isage">Age <a href="#" class="remove" rel="age" style="color: grey">remove</a></div>
+    <div class="hidden israce_ethnicity">Race / Ethnicity <a href="#" class="remove" rel="race_ethnicity" style="color: grey">remove</a></div>
+    <div class="hidden isgrade">Grade <a href="#" class="remove" rel="grade" style="color: grey">remove</a></div>
+    <div class="hidden iseducation_2003_revision">Education <a href="#" class="remove" rel="education_2003_revision" style="color: grey">remove</a></div>
+    <div class="hidden ismonth_of_death">Month of Death <a href="#" class="remove" rel="month_of_death" style="color: grey">remove</a></div>
+    <div class="hidden isday_of_week_of_death">Day of Week of Death <a href="#" class="remove" rel="day_of_week_of_death" style="color: grey">remove</a></div>
+    <div class="hidden isautopsy">Autopsy <a href="#" class="remove" rel="autopsy" style="color: grey">remove</a></div>
+    <div class="hidden ismarital_status">Marital Status <a href="#" class="remove" rel="marital_status" style="color: grey">remove</a></div>
+    <div class="hidden isstate">State <a href="#" class="remove" rel="state" style="color: grey">remove</a></div>
+    <div class="hidden isyear">Year <a href="#" class="remove" rel="year" style="color: grey">remove</a></div>
+    <div class="hidden israce_breakdown_seven">Race / Ethnicity <a href="#" class="remove" rel="race_breakdown_seven" style="color: grey">remove</a></div>
+    <div class="hidden issexual_identity">Sexual Identity <a href="#" class="remove" rel="sexual_identity" style="color: grey">remove</a></div>
+    <div class="hidden isobesity_indicator">Obsese <a href="#" class="remove" rel="obesity_indicator" style="color: grey">remove</a></div>
+    <div class="hidden isoverweight_indicator">Overweight <a href="#" class="remove" rel="overweight_indicator" style="color: grey">remove</a></div>
+
+    </span>
+     <br>
 
 
 
@@ -350,10 +353,10 @@ var currentState = res[urlrsz-2];
 console.log(currentState);
 
 
-{#var gen = [#}
-{#    {id: "'Male'", gen: 'Male'},#}
-{#    {id: "'Female'", gen: 'Female'},#}
-{#];#}
+var gen = [
+    {id: "'Male'", gen: 'Male'},
+    {id: "'Female'", gen: 'Female'},
+];
 
 {#var url = 'http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=texted_or_emailed_while_driving&column=age&column=race&group=texted_or_emailed_while_driving,age,race';#}
 
@@ -490,148 +493,148 @@ console.log(currentState);
 
 
 
-{#var genSelect = $("#gen").selectize({#}
-{#    placeholder: 'Gender',#}
-{#    maxItems: null,#}
-{#    valueField: 'id',#}
-{#    labelField: 'gen',#}
-{#    searchField: 'gen',#}
-{#    options: gen#}
+var genSelect = $("#gen").selectize({
+    placeholder: 'Gender',
+    maxItems: null,
+    valueField: 'id',
+    labelField: 'gen',
+    searchField: 'gen',
+    options: gen});
 
-{#var genControl = genSelect[0].selectize;#}
-{##}
-{#var topicarray = [#}
-{#    {id:"cause", topic:'Cause'},#}
-{#{id:"resident_status", topic:'Resident Status'},#}
-{#{id:"place_of_death_and_decedents_status", topic:'Place Of Death And Decedents Status'},#}
-{#{id:"injury_at_work", topic:'Injury At Work'},#}
-{#{id:"manner_of_death", topic:'Manner Of Death'},#}
-{#{id:"method_of_disposition", topic:'Method Of Disposition'},#}
-{#{id:"activity_code", topic:'Activity Code'},#}
-{#{id:"place_of_injury", topic:'Place Of Injury'}#}
-{#];#}
+var genControl = genSelect[0].selectize;
 
-{#var topicSelect = $("#topicBox").selectize({#}
-{#    placeholder: 'Topic',#}
-{#    maxItems: 1,#}
-{#    valueField: 'id',#}
-{#    labelField: 'topic',#}
-{#    searchField: 'topic',#}
-{#    options: topicarray#}
+var topicarray = [
+    {id:"cause", topic:'Cause'},
+{id:"resident_status", topic:'Resident Status'},
+{id:"place_of_death_and_decedents_status", topic:'Place Of Death And Decedents Status'},
+{id:"injury_at_work", topic:'Injury At Work'},
+{id:"manner_of_death", topic:'Manner Of Death'},
+{id:"method_of_disposition", topic:'Method Of Disposition'},
+{id:"activity_code", topic:'Activity Code'},
+{id:"place_of_injury", topic:'Place Of Injury'}
+];
 
-{#var topicControl = topicSelect[0].selectize;#}
+var topicSelect = $("#topicBox").selectize({
+    placeholder: 'Topic',
+    maxItems: 1,
+    valueField: 'id',
+    labelField: 'topic',
+    searchField: 'topic',
+    options: topicarray});
 
-{#var race = [#}
-{#{id: "'Black'", race: 'Black'},#}
-{#{id: "'Samoan'", race: 'Samoan'},#}
-{#{id: "'Hawaiian (includes Part-Hawaiian)'", race: 'Hawaiian (includes Part-Hawaiian)'},#}
-{#{id: "'Asian Indian'", race: 'Asian Indian'},#}
-{#{id: "'White'", race: 'White'},#}
-{#{id: "'Guamanian'", race: 'Guamanian'},#}
-{#{id: "'American Indian (includes Aleuts and Eskimos)'", race: 'American Indian (includes Aleuts and Eskimos)'},#}
-{#{id: "'Other Asian or Pacific Islander in areas reporting codes 18-58'", race: 'Other Asian or Pacific Islander in areas reporting codes 18-58'},#}
-{#{id: "'Combined other Asian or Pacific Islander, includes codes 18-68 for areas that do not report them separately'", race: 'Combined other Asian or Pacific Islander, includes codes 18-68 for areas that do not report them separately'},#}
-{#{id: "'Korean'", race: 'Korean'},#}
-{#{id: "'Filipino'", race: 'Filipino'},#}
-{#{id: "'Chinese'", race: 'Chinese'},#}
-{#{id: "'Japanese'", race: 'Japanese'},#}
-{#{id: "'Vietnamese'", race: 'Vietnamese'}#}
-{#];#}
+var topicControl = topicSelect[0].selectize;
 
-{#var raceSelect = $("#raceethnicity").selectize({#}
-{#    placeholder: 'Race / Ethnicity',#}
-{#    maxItems: null,#}
-{#    valueField: 'id',#}
-{#    labelField: 'race',#}
-{#    searchField: 'race',#}
-{#    options: race#}
-{##}
+var race = [
+{id: "'Black'", race: 'Black'},
+{id: "'Samoan'", race: 'Samoan'},
+{id: "'Hawaiian (includes Part-Hawaiian)'", race: 'Hawaiian (includes Part-Hawaiian)'},
+{id: "'Asian Indian'", race: 'Asian Indian'},
+{id: "'White'", race: 'White'},
+{id: "'Guamanian'", race: 'Guamanian'},
+{id: "'American Indian (includes Aleuts and Eskimos)'", race: 'American Indian (includes Aleuts and Eskimos)'},
+{id: "'Other Asian or Pacific Islander in areas reporting codes 18-58'", race: 'Other Asian or Pacific Islander in areas reporting codes 18-58'},
+{id: "'Combined other Asian or Pacific Islander, includes codes 18-68 for areas that do not report them separately'", race: 'Combined other Asian or Pacific Islander, includes codes 18-68 for areas that do not report them separately'},
+{id: "'Korean'", race: 'Korean'},
+{id: "'Filipino'", race: 'Filipino'},
+{id: "'Chinese'", race: 'Chinese'},
+{id: "'Japanese'", race: 'Japanese'},
+{id: "'Vietnamese'", race: 'Vietnamese'}
+];
 
-{#var raceControl = raceSelect[0].selectize;#}
+var raceSelect = $("#raceethnicity").selectize({
+    placeholder: 'Race / Ethnicity',
+    maxItems: null,
+    valueField: 'id',
+    labelField: 'race',
+    searchField: 'race',
+    options: race});
 
-{#var states = [#}
-{#{id:"'Alabama'", state:'Alabama'},#}
-{#{id:"'Alaska'", state:'Alaska'},#}
-{#{id:"'Arizona'", state:'Arizona'},#}
-{#{id:"'Arkansas'", state:'Arkansas'},#}
-{#{id:"'California'", state:'California'},#}
-{#{id:"'Colorado'", state:'Colorado'},#}
-{#{id:"'Connecticut'", state:'Connecticut'},#}
-{#{id:"'Delaware'", state:'Delaware'},#}
-{#{id:"'District of Columbia'", state:'District of Columbia'},#}
-{#{id:"'Florida'", state:'Florida'},#}
-{#{id:"'Georgia'", state:'Georgia'},#}
-{#{id:"'Hawaii'", state:'Hawaii'},#}
-{#{id:"'Idaho'", state:'Idaho'},#}
-{#{id:"'Illinois'", state:'Illinois'},#}
-{#{id:"'Indiana'", state:'Indiana'},#}
-{#{id:"'Iowa'", state:'Iowa'},#}
-{#{id:"'Kansas'", state:'Kansas'},#}
-{#{id:"'Kentucky'", state:'Kentucky'},#}
-{#{id:"'Louisiana'", state:'Louisiana'},#}
-{#{id:"'Maine'", state:'Maine'},#}
-{#{id:"'Maryland'", state:'Maryland'},#}
-{#{id:"'Massachusetts'", state:'Massachusetts'},#}
-{#{id:"'Michigan'", state:'Michigan'},#}
-{#{id:"'Minnesota'", state:'Minnesota'},#}
-{#{id:"'Mississippi'", state:'Mississippi'},#}
-{#{id:"'Missouri'", state:'Missouri'},#}
-{#{id:"'Montana'", state:'Montana'},#}
-{#{id:"'Nebraska'", state:'Nebraska'},#}
-{#{id:"'Nevada'", state:'Nevada'},#}
-{#{id:"'New Hampshire'", state:'New Hampshire'},#}
-{#{id:"'New Jersey'", state:'New Jersey'},#}
-{#{id:"'New Mexico'", state:'New Mexico'},#}
-{#{id:"'New York'", state:'New York'},#}
-{#{id:"'North Carolina'", state:'North Carolina'},#}
-{#{id:"'North Dakota'", state:'North Dakota'},#}
-{#{id:"'Ohio'", state:'Ohio'},#}
-{#{id:"'Oklahoma'", state:'Oklahoma'},#}
-{#{id:"'Oregon'", state:'Oregon'},#}
-{#{id:"'Pennsylvania'", state:'Pennsylvania'},#}
-{#{id:"'Rhode Island'", state:'Rhode Island'},#}
-{#{id:"'South Carolina'", state:'South Carolina'},#}
-{#{id:"'South Dakota'", state:'South Dakota'},#}
-{#{id:"'Tennessee'", state:'Tennessee'},#}
-{#{id:"'Texas'", state:'Texas'},#}
-{#{id:"'Utah'", state:'Utah'},#}
-{#{id:"'Vermont'", state:'Vermont'},#}
-{#{id:"'Virginia'", state:'Virginia'},#}
-{#{id:"'Washington'", state:'Washington'},#}
-{#{id:"'West Virginia'", state:'West Virginia'},#}
-{#{id:"'Wisconsin'", state:'Wisconsin'},#}
-{#{id:"'Wyoming'", state:'Wyoming'}#}
-{##}
-{#];#}
-{##}
-{#var stateSelect = $("#stateofdeath").selectize({#}
-{#    placeholder: 'State of Death',#}
-{#    maxItems: null,#}
-{#    valueField: 'state',#}
-{#    labelField: 'state',#}
-{#    searchField: 'state',#}
-{#    options: states#}
-{#var stateControl = stateSelect[0].selectize;#}
+
+var raceControl = raceSelect[0].selectize;
+
+var states = [
+{id:"'Alabama'", state:'Alabama'},
+{id:"'Alaska'", state:'Alaska'},
+{id:"'Arizona'", state:'Arizona'},
+{id:"'Arkansas'", state:'Arkansas'},
+{id:"'California'", state:'California'},
+{id:"'Colorado'", state:'Colorado'},
+{id:"'Connecticut'", state:'Connecticut'},
+{id:"'Delaware'", state:'Delaware'},
+{id:"'District of Columbia'", state:'District of Columbia'},
+{id:"'Florida'", state:'Florida'},
+{id:"'Georgia'", state:'Georgia'},
+{id:"'Hawaii'", state:'Hawaii'},
+{id:"'Idaho'", state:'Idaho'},
+{id:"'Illinois'", state:'Illinois'},
+{id:"'Indiana'", state:'Indiana'},
+{id:"'Iowa'", state:'Iowa'},
+{id:"'Kansas'", state:'Kansas'},
+{id:"'Kentucky'", state:'Kentucky'},
+{id:"'Louisiana'", state:'Louisiana'},
+{id:"'Maine'", state:'Maine'},
+{id:"'Maryland'", state:'Maryland'},
+{id:"'Massachusetts'", state:'Massachusetts'},
+{id:"'Michigan'", state:'Michigan'},
+{id:"'Minnesota'", state:'Minnesota'},
+{id:"'Mississippi'", state:'Mississippi'},
+{id:"'Missouri'", state:'Missouri'},
+{id:"'Montana'", state:'Montana'},
+{id:"'Nebraska'", state:'Nebraska'},
+{id:"'Nevada'", state:'Nevada'},
+{id:"'New Hampshire'", state:'New Hampshire'},
+{id:"'New Jersey'", state:'New Jersey'},
+{id:"'New Mexico'", state:'New Mexico'},
+{id:"'New York'", state:'New York'},
+{id:"'North Carolina'", state:'North Carolina'},
+{id:"'North Dakota'", state:'North Dakota'},
+{id:"'Ohio'", state:'Ohio'},
+{id:"'Oklahoma'", state:'Oklahoma'},
+{id:"'Oregon'", state:'Oregon'},
+{id:"'Pennsylvania'", state:'Pennsylvania'},
+{id:"'Rhode Island'", state:'Rhode Island'},
+{id:"'South Carolina'", state:'South Carolina'},
+{id:"'South Dakota'", state:'South Dakota'},
+{id:"'Tennessee'", state:'Tennessee'},
+{id:"'Texas'", state:'Texas'},
+{id:"'Utah'", state:'Utah'},
+{id:"'Vermont'", state:'Vermont'},
+{id:"'Virginia'", state:'Virginia'},
+{id:"'Washington'", state:'Washington'},
+{id:"'West Virginia'", state:'West Virginia'},
+{id:"'Wisconsin'", state:'Wisconsin'},
+{id:"'Wyoming'", state:'Wyoming'}
+
+];
+
+var stateSelect = $("#stateofdeath").selectize({
+    placeholder: 'State of Death',
+    maxItems: null,
+    valueField: 'state',
+    labelField: 'state',
+    searchField: 'state',
+    options: states
+var stateControl = stateSelect[0].selectize;
 
 </script>
-<script>
-$( document ).ready(function() {
-    console.log( "ready!" );
-    mainDiv = document.getElementById("test");
-    $('#test').append('<div id="putMeHere"></div>');
-    console.log("finished creatng div");
-});
-    var visuali = d3plus.viz()
-console.log(visuali);
-         d3.json("http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&group=sex", function(data) {
-             console.log(data.data)
-             visuali
-                 .container("#putMeHere")
-                 .data(data.data)
-                 .type("bar")
-                 .id("age")
-                 .x("sex")
-                 .y("count")
-                 .draw()
-     });
+<script
+//$( document ).ready(function() {
+//    console.log( "ready!" );
+//    mainDiv = document.getElementById("test");
+//    $('#test').append('<div id="putMeHere"></div>');
+ //   console.log("finished creatng div");
+//});
+//    var visuali = d3plus.viz()
+//console.log(visuali);
+//         d3.json("http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&group=sex", function(data) {
+//             console.log(data.data)
+//             visuali
+//                 .container("#putMeHere")
+//                 .data(data.data)
+//                 .type("bar")
+//                 .id("age")
+//                 .x("sex")
+//                 .y("count")
+//                 .draw()
+//     });
 </script>
