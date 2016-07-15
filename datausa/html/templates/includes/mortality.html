@@ -134,6 +134,7 @@
           </div>
       </div>
       </div>
+      <div class="col-sm-1"></div>
       <div class="col-sm-8">
       <div class="viz">
         <div id="chart-gender">
@@ -144,7 +145,6 @@
       </div>
       </div>
     {#        {% endfor %}#}
-      </div>
 
     </article>
 
@@ -159,7 +159,7 @@
           <div class="stat">
             <div class="stat-text">2014 Deaths</div>
             <div class="stat-value">6,000,000</div>
-            <p>People be dying, bro!</p>
+            <p></p>
 
           </div>
           </div>
@@ -172,6 +172,7 @@
           </div>
       </div>
       </div>
+      <div class="col-sm-1"></div>
       <div class="col-sm-8">
       <div class="viz">
         <div id="chart-race">
@@ -196,7 +197,7 @@
           <div class="stat">
             <div class="stat-text">2014 Deaths</div>
             <div class="stat-value">6,000,000</div>
-            <p>People be dying, bro!</p>
+            <p></p>
 
           </div>
           </div>
@@ -205,6 +206,36 @@
       <div class="col-sm-9">
       <div class="viz">
         <div id="chart-age">
+    {#          <h4>Gender <small><a id="gender">reset</a></small></h4>#}
+    {#          <div class="dc-chart" ></div>#}
+        </div>
+        </div>
+      </div>
+    {#        {% endfor %}#}
+      </div>
+
+
+    </article>
+
+
+    <article class="topic">
+      <h2 class="embed-title"> Mortality by Cause</h2>
+      <div class="col-sm-12">
+      <div class="topic-stats">
+{#        {% for stat in topic.stat %}#}
+          <div class="col-sm-3">
+          <div class="stat">
+            <div class="stat-text">2014 Deaths</div>
+            <div class="stat-value">6,000,000</div>
+            <p></p>
+
+          </div>
+          </div>
+
+      </div>
+      <div class="col-sm-9">
+      <div class="viz">
+        <div id="chart-cause">
     {#          <h4>Gender <small><a id="gender">reset</a></small></h4>#}
     {#          <div class="dc-chart" ></div>#}
         </div>
@@ -327,114 +358,156 @@ var gen = [
     {id: "'Female'", gen: 'Female'},
 ];
 
-var url = 'http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&column=race&group=sex,age,race';
+var url = 'http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&group=sex';
 
 d3.json(url, function(data) {
-  var mortalityData = data.data;
+    var mortalityData = data.data;
+
+    var visualization = d3plus.viz()
+    .container("#chart-gender")
+    .data(mortalityData)
+    .type("bar")
+    .id("sex")
+    .x("sex")
+    .y("count")
+    .draw()
 
   // normalize/parse data so dc can correctly sort & bin them
   // I like to think of each "d" as a row in a spreadsheet
-  _.each(mortalityData, function(d) {
-    d.count = +d.count;
-    // round to nearest 0.25
-  });
+{#  _.each(mortalityData, function(d) {#}
+{#    d.count = +d.count;#}
+{#    // round to nearest 0.25#}
+{#  });#}
 
-  // set crossfilter
-  var ndx = crossfilter(mortalityData);
-
-  // create dimensions (x-axis values)
-  var genderDim  = ndx.dimension(function(d) {return d.sex;}),
-      // dc.pluck: short-hand for same kind of anon. function we used for yearDim
-      raceDim  = ndx.dimension(function(d) {return d.race;}),
-      ageDim = ndx.dimension(function(d) {return d.age;}),
-      allDim = ndx.dimension(function(d) {return d;});
+{#  // set crossfilter#}
+{#  var ndx = crossfilter(mortalityData);#}
+{##}
+{#  // create dimensions (x-axis values)#}
+{#  var genderDim  = ndx.dimension(function(d) {return d.sex;}),#}
+{#      // dc.pluck: short-hand for same kind of anon. function we used for yearDim#}
+{#      raceDim  = ndx.dimension(function(d) {return d.race;}),#}
+{#      ageDim = ndx.dimension(function(d) {return d.age;}),#}
+{#      causeDim = ndx.dimension(function(d) {return d.cause;}),#}
+{#      allDim = ndx.dimension(function(d) {return d;});#}
 
   // create groups (y-axis values)
-  var all = ndx.groupAll();
-  var countPerGender = genderDim.group().reduceSum(function(fact) { return fact.count; }),
-      countPerRace = raceDim.group().reduceSum(function(fact) { return fact.count; }),
-      countPerAge = ageDim.group().reduceSum(function(fact) { return fact.count; });
+{#  var all = ndx.groupAll();#}
+{#  var countPerGender = genderDim.group().reduceSum(function(fact) { return fact.count; }),#}
+{#      countPerRace = raceDim.group().reduceSum(function(fact) { return fact.count; }),#}
+{#      countPerAge = ageDim.group().reduceSum(function(fact) { return fact.count; }),#}
+{#      countPerCause = causeDim.group().reduceSum(function(fact) { return fact.count; });#}
 
   // specify charts
-  var genderChart   = dc.rowChart('#chart-gender'),
-      raceChart   = dc.barChart('#chart-race'),
+{#  var genderChart   = dc.barChart('#chart-gender'),#}
+{#      raceChart   = dc.barChart('#chart-race'),#}
 {#      monthChart   = dc.barChart('#chart-month'),#}
-//      dayChart  = dc.pieChart('#chart-ring-day'),
-      ageChart  = dc.barChart('#chart-age'),
+{#//      dayChart  = dc.pieChart('#chart-ring-day'),#}
+{#      ageChart  = dc.barChart('#chart-age'),#}
 {#      mannerChart  = dc.pieChart('#chart-ring-manner'),#}
-{#      causeChart  = dc.barChart('#chart-ring-cause'),#}
-      dataCount = dc.dataCount('#data-count');
-//      dataTable = dc.dataTable('#data-table');
-
-  genderChart
-    .width(800)
-    .height(310)
-    .x(d3.scale.ordinal())
-    .elasticX(true)
-    .ordinalColors(['#FF0000', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-    .dimension(genderDim)
-    .group(countPerGender)
-    .title(function (d) {
-                return d.value;
-            })
-    .xAxis().ticks(4);
-
-  genderChart = d3plus.viz()
-    .container("#viz")
-    .data(data)
-    .type("bar")
-    .id("name")
-    .x("year")
-    .y("value")
-    .draw();
+{#      causeChart  = dc.barChart('#chart-cause'),#}
+{#      dataCount = dc.dataCount('#data-count');#}
+{#//      dataTable = dc.dataTable('#data-table');#}
 
 
-  raceChart
-    .width(800)
-    .height(310)
-    .dimension(raceDim)
-    .group(countPerRace)
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .elasticY(true)
-    .margins({top: 20, left: 75, right: 10, bottom: 20})
+{#  genderChart#}
+{#    .width(715)#}
+{#    .height(270)#}
+{#    .dimension(genderDim)#}
+{#    .group(countPerGender)#}
+{#    .ordinalColors(['#FF0000', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])#}
+{#    .x(d3.scale.ordinal())#}
+{#    .xUnits(dc.units.ordinal)#}
+{#    .elasticY(true)#}
+{#    .margins({top: 20, left: 75, right: 10, bottom: 20}#}
+{#    .title(function (d) {#}
+{#                return d.value;#}
+{#            })#}
+{#    .yAxis().ticks(4);#}
 
 
-    .title(function (d) {
-                return d.value;
-            })
-    .yAxis().ticks(4);
-
-  ageChart
-    .width(800)
-    .height(310)
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .elasticY(true)
-    .dimension(ageDim)
-    .margins({top: 20, left: 75, right: 10, bottom: 20})
-    .group(countPerAge)
-    .title(function (d) {
-                return d.value;
-            })
-    .yAxis().ticks(4);
+{#  genderChart#}
+{#    .width(715)#}
+{#    .height(270)#}
+{#    .x(d3.scale.ordinal())#}
+{#    .elasticX(true)#}
+{#    .dimension(genderDim)#}
+{#    .group(countPerGender)#}
+{#    .ordinalColors(['#2F4F6F', '#CD4646', '#9ecae1', '#c6dbef', '#dadaeb'])#}
+{#    .colors(d3.scale.ordinal().domain(["Male","Female"])#}
+{#                                .range(["#2F4F6F","#CD4646"]))#}
+{#    .colorAccessor(function(d) {#}
+{#            return d.value;})#}
+{#    .legend(dc.legend().x(200).y(-300).itemHeight(30).gap(5))#}
+{#    .title(function (d) {#}
+{#                return d.value;#}
+{#            })#}
+{#    .yAxisLabel('2014 Mortalities by Gender')#}
+{#    .xAxis().ticks(4);#}
 
 
 
-  dataCount
-      .dimension(ndx)
-      .group(all);
 
 
-  // register handlers
-  d3.selectAll('a#all').on('click', function () {
-    dc.filterAll();
-    dc.renderAll();
-  });
+{#  raceChart#}
+{#    .width(800)#}
+{#    .height(310)#}
+{#    .dimension(raceDim)#}
+{#    .group(countPerRace)#}
+{#    .colors(d3.scale.ordinal().domain(["Black","White","Chinese"])#}
+{#                                .range(["#FF8166","#FFB563","#C19A1F","#82A8E7",""]))#}
+{#    .colorAccessor(function(d) {#}
+{#            return d.value;})#}
+{#    .x(d3.scale.ordinal())#}
+{#    .xUnits(dc.units.ordinal)#}
+{#    .elasticY(true)#}
+{#    .margins({top: 20, left: 75, right: 10, bottom: 20})#}
+{##}
+{#  ageChart#}
+{#    .width(800)#}
+{#    .height(310)#}
+{#    .x(d3.scale.ordinal())#}
+{#    .xUnits(dc.units.ordinal)#}
+{#    .ordinalColors(['#FF0000', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])#}
+{#    .elasticY(true)#}
+{#    .dimension(ageDim)#}
+{#    .margins({top: 20, left: 75, right: 10, bottom: 20})#}
+{#    .group(countPerAge)#}
+{#    .title(function (d) {#}
+{#                return d.value;#}
+{#            })#}
+{#    .yAxis().ticks(4);#}
+{##}
+{##}
+{#    causeChart#}
+{#    .width(800)#}
+{#    .height(310)#}
+{#    .x(d3.scale.ordinal())#}
+{#    .xUnits(dc.units.ordinal)#}
+{#    .ordinalColors(['#FF0000', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])#}
+{#    .elasticY(true)#}
+{#    .dimension(causeDim)#}
+{#    .margins({top: 20, left: 75, right: 10, bottom: 20})#}
+{#    .group(countPerCause)#}
+{#    .title(function (d) {#}
+{#                return d.value;#}
+{#            })#}
+{#    .yAxis().ticks(4);#}
 
 
-  // showtime!
-  dc.renderAll();
+{#  dataCount#}
+{#      .dimension(ndx)#}
+{#      .group(all);#}
+{##}
+{##}
+{#  // register handlers#}
+{#  d3.selectAll('a#all').on('click', function () {#}
+{#    dc.filterAll();#}
+{#    dc.renderAll();#}
+{#  });#}
+{##}
+{##}
+{#  // showtime!#}
+{#  dc.renderAll();#}
 
 });
 
