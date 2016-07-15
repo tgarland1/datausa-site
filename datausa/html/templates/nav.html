@@ -54,7 +54,7 @@
             <a href="/search/?kind=geo">Locations</a>
           </li>
           <li class="naics-sum">
-            <a href="/qhod/">Risky Behaviors</a>
+            <a href="#" id="riskylink"> Risky Behaviors</a>
           </li>
           <li class="soc-sum">
             <a href="/analysis/mortality">Mortality</a>
@@ -67,8 +67,8 @@
 {#          </li>#}
         </ul>
       </li>
-      <li class="story-sum">
-        <a href="/story/"><h2>Stories</h2></a>
+      <li class="story-sum" id="storyLink">
+        <a href='' class="deadLink"><h2>Stories</h2></a>
       </li>
       <li class="map-sum">
         <a href="/map/"><h2>Maps</h2></a>
@@ -103,6 +103,25 @@
 </div>
 
 {% block body %}
+<div id="comingSoonModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Coming soon!</h4>
+      </div>
+      <div class="modal-body">
+        <p>This feature will be included in an upcoming release - be sure to check back soon!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 {% endblock %}
 
 <footer>
@@ -151,6 +170,20 @@
 </footer>
 
 <script>
+
+var modal = document.getElementById('comingSoonModal');
+var btn = document.getElementById("storyLink");
+
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+$("#riskylink").click(function() {
+    $('#comingSoonModal').modal('show')
+});
+
+
+
+
 
 d3.select("#menu-btn").on(d3plus.client.pointer.click, function(){
   d3.event.preventDefault();
