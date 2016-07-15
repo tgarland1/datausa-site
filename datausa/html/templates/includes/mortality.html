@@ -64,7 +64,7 @@
       <p>The Center for Disease Control collects mortality data over time.
 
 
-      <div class="col-sm-12 text-center">
+      <div class="row">
         <div class="col-sm-4">
             <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#topicBox').slideToggle()">Topic</button>
 {#            <div id="topicBox" class="mdl-card__supporting-text" style="width:100%">#}
@@ -118,44 +118,47 @@
 
 
     <article class="topic">
-{#      <h2 class="embed-title"> Mortality by Gender</h2>#}
+      <h2 class="embed-title"> Mortality by Gender</h2>
 
       <div class="col-sm-12">
-          <div id="snip-container">
-             <img src="/static/img/home/SnipImage.JPG" alt="" />
+{#          <div id="snip-container">#}
+{#             <img src="/static/img/home/SnipImage.JPG" alt="" />#}
+{#          </div>#}
+          <div class="topic-stats">
+{#            {% for stat in topic.stat %}#}
+          <div class="col-sm-3">
+              <div class="col-sm-6">
+              <div class="stat">
+                <div class="stat-text">2014 Male Deaths</div>
+                <div class="stat-value">6,000,000</div>
+
+              </div>
+              </div>
+              <div class="col-sm-6">
+              <div class="stat">
+                <div class="stat-text">2014 Female Deaths</div>
+                <div class="stat-value">6,000,000</div>
+              </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="stat-value stat-small">This chart is displaying a comparison of the overall smoking (mortality) rates between males and females among the population of the state of California<span class="stat-text"></span> AAAA</div>
+              </div>
+            </div>
+
           </div>
-{#      <div class="topic-stats">#}
-{#        {% for stat in topic.stat %}#}
-{#          <div class="col-sm-3">#}
-{#          <div class="col-sm-6">#}
-{#          <div class="stat">#}
-{#            <div class="stat-text">2014 Deaths</div>#}
-{#            <div class="stat-value">6,000,000</div>#}
-{##}
-{#          </div>#}
-{#          </div>#}
-{#          <div class="col-sm-6">#}
-{#          <div class="stat">#}
-{#            <div class="stat-text">2014 Female Deaths</div>#}
-{#            <div class="stat-value">6,000,000</div>#}
-{#            <div class="stat-value stat-small"><span class="stat-text">BBB</span> AAAA</div>#}
-{#          </div>#}
-{#          </div>#}
+          <div id="test" class="col-sm-8">
+              <iframe src="http://127.0.0.1:5000/static/tree_map.html/" background="black" width="80%" height="600" id="frameDemo"></iframe>
+
+{#          <div class="viz">#}
+{#            <div id="chart-gender">#}
+{#                  <h4>Gender <small><a id="gender">reset</a></small></h4>#}
+{#                  <div class="dc-chart" ></div>#}
+{#            </div>#}
+{#            </div>#}
+          </div>
 {#      </div>#}
-{#      </div>#}
-{#      <div id="test" class="col-sm-8">#}
-{#          <iframe src="http://127.0.0.1:5000/static/tree_map.html/" background="black" width="80%" height="600" id="frameDemo"></iframe>#}
-{##}
-{#      <div class="viz">#}
-{#        <div id="chart-gender">#}
-    {#          <h4>Gender <small><a id="gender">reset</a></small></h4>#}
-    {#          <div class="dc-chart" ></div>#}
-{#        </div>#}
-{#        </div>#}
-{#      </div>#}
+{#            {% endfor %}#}
       </div>
-    {#        {% endfor %}#}
-{#      </div>#}
 
     </article>
 
@@ -362,139 +365,6 @@ var gen = [
     {id: "'Male'", gen: 'Male'},
     {id: "'Female'", gen: 'Female'},
 ];
-
-{#var url = 'http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=texted_or_emailed_while_driving&column=age&column=race&group=texted_or_emailed_while_driving,age,race';#}
-
-{#  var mortalityData = data.data;#}
-{##}
-{#  // normalize/parse data so dc can correctly sort & bin them#}
-{#  // I like to think of each "d" as a row in a spreadsheet#}
-{#  _.each(mortalityData, function(d) {#}
-{#    d.count = +d.count;#}
-{#    // round to nearest 0.25#}
-{#  });#}
-{##}
-{#    var visualization = d3plus.viz()#}
-{#    .container("#viz")#}
-{#    .data(data)#}
-{#    .type("bar")#}
-{#    .id("name")#}
-{#    .x("year")#}
-{#    .y("value")#}
-{#    .draw();#}
-{##}
-{#    var myViz = d3plus.viz()#}
-{#    .axes({"mirror": true})#}
-{#    .container("#viz")#}
-{#    .type("tree_map")#}
-{#    .data("currently_used_electronic_vapor_products.csv") //There are 6 CSVs corresponding to the 6 questions by state#}
-{#                                                          //Change to API queries if we have time, otherwise use static CSV#}
-{#    .id("state")#}
-{#    .text(["state", "count"])#}
-{#    .size("count")#}
-{#    .color(function(row){#}
-{#        if (row.state === "Vermont") {return "#FFFF00"} //Change "Vermont" to var for state name (*Cap first letter*)#}
-{#        else {return "#CCCCCC"};})#}
-{#    .draw();#}
-{##}
-{#  // set crossfilter#}
-{#  var ndx = crossfilter(mortalityData);#}
-{##}
-{#  // create dimensions (x-axis values)#}
-{#  var genderDim  = ndx.dimension(function(d) {return d.sex;}),#}
-{#      // dc.pluck: short-hand for same kind of anon. function we used for yearDim#}
-{#      raceDim  = ndx.dimension(function(d) {return d.race;}),#}
-{#      ageDim = ndx.dimension(function(d) {return d.age;}),#}
-{#      allDim = ndx.dimension(function(d) {return d;});#}
-{##}
-{#  // create groups (y-axis values)#}
-{#  var all = ndx.groupAll();#}
-{#  var countPerGender = genderDim.group().reduceSum(function(fact) { return fact.count; }),#}
-{#      countPerRace = raceDim.group().reduceSum(function(fact) { return fact.count; }),#}
-{#      countPerAge = ageDim.group().reduceSum(function(fact) { return fact.count; });#}
-{##}
-{#  // specify charts#}
-{#  var genderChart   = dc.rowChart('#chart-gender'),#}
-{#      raceChart   = dc.barChart('#chart-race'),#}
-{#      monthChart   = dc.barChart('#chart-month'),#}
-{#//      dayChart  = dc.pieChart('#chart-ring-day'),#}
-{#      ageChart  = dc.barChart('#chart-age'),#}
-{#      mannerChart  = dc.pieChart('#chart-ring-manner'),#}
-{#      causeChart  = dc.barChart('#chart-ring-cause'),#}
-{#      dataCount = dc.dataCount('#data-count');#}
-{#//      dataTable = dc.dataTable('#data-table');#}
-{##}
-{#  genderChart#}
-{#    .width(800)#}
-{#    .height(310)#}
-{#    .x(d3.scale.ordinal())#}
-{#    .elasticX(true)#}
-{#    .ordinalColors(['#FF0000', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])#}
-{#    .dimension(genderDim)#}
-{#    .group(countPerGender)#}
-{#    .title(function (d) {#}
-{#                return d.value;#}
-{#            })#}
-{#    .xAxis().ticks(4);#}
-{##}
-{#  genderChart = d3plus.viz()#}
-{#    .container("#viz")#}
-{#    .data(data)#}
-{#    .type("bar")#}
-{#    .id("name")#}
-{#    .x("year")#}
-{#    .y("value")#}
-{#    .draw();#}
-{##}
-{##}
-{#  raceChart#}
-{#    .width(800)#}
-{#    .height(310)#}
-{#    .dimension(raceDim)#}
-{#    .group(countPerRace)#}
-{#    .x(d3.scale.ordinal())#}
-{#    .xUnits(dc.units.ordinal)#}
-{#    .elasticY(true)#}
-{#    .margins({top: 20, left: 75, right: 10, bottom: 20})#}
-{##}
-{##}
-{#    .title(function (d) {#}
-{#                return d.value;#}
-{#            })#}
-{#    .yAxis().ticks(4);#}
-{##}
-{#  ageChart#}
-{#    .width(800)#}
-{#    .height(310)#}
-{#    .x(d3.scale.ordinal())#}
-{#    .xUnits(dc.units.ordinal)#}
-{#    .elasticY(true)#}
-{#    .dimension(ageDim)#}
-{#    .margins({top: 20, left: 75, right: 10, bottom: 20})#}
-{#    .group(countPerAge)#}
-{#    .title(function (d) {#}
-{#                return d.value;#}
-{#            })#}
-{#    .yAxis().ticks(4);#}
-{##}
-{##}
-{##}
-{#  dataCount#}
-{#      .dimension(ndx)#}
-{#      .group(all);#}
-{##}
-{##}
-{#  // register handlers#}
-{#  d3.selectAll('a#all').on('click', function () {#}
-{#    dc.filterAll();#}
-{#    dc.renderAll();#}
-{#  });#}
-{##}
-{##}
-{#  // showtime!#}
-{#  dc.renderAll();#}
-{##}
-
 
 
 
