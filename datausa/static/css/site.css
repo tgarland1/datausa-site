@@ -651,7 +651,17 @@
   body.home .btn {
     border-color: #FFFFFF;
     background: none;
-    width: 40vw;
+    padding: 6px 13%;
+    background: transparent;
+  }
+
+  body.home.btn:hover {
+
+    color: #333;
+
+    text-decoration: none;
+
+    background-color: rgba(255, 255, 255, 0.83);
   }
 
   /*#splash-risk {*/
@@ -1296,7 +1306,7 @@
                 display: -ms-flexbox;
                 display: -webkit-flex;
                 display: flex;
-                border-bottom: 1px solid white;
+                /*border-bottom: 1px solid white;*/
                 padding: 5px 0 10px; }
                 footer .content .footer-contact .footer-mailer .input-container i {
                   font-size: 16px;
@@ -2653,7 +2663,7 @@
 
   body.home {
     position: relative;
-    background-color: #141b2e; }
+    background-color: #20142E; }
     body.home #menu-btn {
       display: none; }
       body.home #menu {

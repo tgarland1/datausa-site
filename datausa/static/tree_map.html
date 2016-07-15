@@ -1,0 +1,62 @@
+<!--<!doctype html>-->
+<!--<html lang='en'>-->
+  <!--<head>-->
+    <!--<title>D3Plus</title>-->
+    <!--<script src='https://d3plus.org/js/d3plus.full.min.js'></script>-->
+  <!--</head>-->
+
+  <!--<body>-->
+    <!--<div id="viz"></div>-->
+  <!--</body>-->
+
+  <!--<script>-->
+  <!--var myViz = d3plus.viz()-->
+    <!--.axes({"mirror": true})-->
+    <!--.container("#viz")-->
+    <!--.type("tree_map")-->
+    <!--.data("currently_used_electronic_vapor_products.csv") //There are 6 CSVs corresponding to the 6 questions by state-->
+                                                          <!--//Change to API queries if we have time, otherwise use static CSV-->
+    <!--.id("state")-->
+    <!--.text(["state", "count"])-->
+    <!--.size("count")-->
+    <!--.color(function(row){-->
+        <!--if (row.state === "Vermont") {return "#FFFF00"} //Change "Vermont" to var for state name (*Cap first letter*)-->
+        <!--else {return "#CCCCCC"};})-->
+    <!--.draw();-->
+  <!--</script>-->
+
+<!--</html>-->
+
+<html>
+
+  <head>
+    <title>D3plus</title>
+    <!-- loading D3plus JS file -->
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script src="https://d3plus.org/js/d3plus.full.min.js"></script>
+  </head>
+
+  <body>
+    <div id="putMeHere"></div>
+  </body>
+
+{#  <script>#}
+{#    var visuali = d3plus.viz()#}
+{#console.log(visuali);#}
+{#         d3.json("http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&group=sex", function(data) {#}
+{#             console.log(data.data)#}
+{#             visuali#}
+{#                 .container("#putMeHere")#}
+{#                 .data(data.data)#}
+{#                 .type("bar")#}
+{#                 .id("sex")#}
+{#                 .x("age")#}
+{#                 .y("count")#}
+{#                 .draw()#}
+{#     });#}
+{#  </script>#}
+
+</html>

@@ -1,34 +1,10 @@
 <style>
-    #mortality-viz {
-    /*width:100%;*/
-    /*height: 65px;*/
-    /*font-family: PathwayGothicOne-Book;*/
-    /*font-size: 90px;*/
-    font-family: Palanquin;
-    font-size: 35px;
-    letter-spacing: 2px;
-    color: #000000;
-{#    position: relative;#}
-{#    top: -72vh;#}
-{#    left: 31vw;#}
-    }
 
-  #mortality-viz-row-2 {
-    /*width:100%;*/
-    /*height: 65px;*/
-    /*font-family: PathwayGothicOne-Book;*/
-    /*font-size: 90px;*/
-    font-family: Palanquin;
-    font-size: 35px;
-    letter-spacing: 2px;
-    color: #000000;
-    position: relative;
-    top: 9vh;
-    left: 2vw;
-    }
 
   #mortality-headr{
       background-color: #E9E9E9;
+      flex-wrap: wrap;
+      padding: 0 25px
   }
 
 {#  .mortality-chart{#}
@@ -38,11 +14,33 @@
 {#  .topic-stats, .viz {#}
 {#    display: inline-block;#}
 {#    vertical-align: middle;#}
-{#}#}
+
 
 {#  .viz {#}
 {#      margin-left: 300px;#}
 {#  }#}
+
+ .selectize-input > input
+
+{ padding: 0 !important;}
+
+    #snip-container{
+        width : 100vw;
+
+    }
+
+
+    .item {
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: "Palanquin", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    }
+
+
+
 
 
 </style>
@@ -57,6 +55,8 @@
 {#    <div class="container" id="mortality-container">#}
 
 
+
+
     <div class="col-sm-12 col-md-12 text-left">
     <header class="mortality prof-body" id="mortality-headr">
 
@@ -66,30 +66,32 @@
 
       <div class="col-sm-12 text-center">
         <div class="col-sm-4">
-            <div id="topicBox" class="mdl-card__supporting-text" style="width:100%">
-                <select id="topic"></select>
-            </div>
+            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#topicBox').slideToggle()">Topic</button>
+{#            <div id="topicBox" class="mdl-card__supporting-text" style="width:100%">#}
+{#                <select id="topic"></select>#}
+{#            </div>#}
         </div>
         <div class="col-sm-2">
             <div class="demo-card-wide mdl-shadow--2dp" style="width:100%">
-                <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#raceBox').slideToggle()">Race / Ethnicity</button>
-                <div id="raceBox" class="mdl-card__supporting-text" style="width:100%">
-                    <select id="raceethnicity"></select>
-                </div>
+                <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#raceBox').slideToggle()">Race</button>
+{#                <div id="raceBox" class="mdl-card__supporting-text" style="width:100%">#}
+{#                    <select id="raceethnicity"></select>#}
+{#                </div>#}
             </div>
         </div>
         <div class="col-sm-2">
          <div class="demo-card-wide mdl-shadow--2dp" style="width:100%">
             <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#stateBox').slideToggle()">State</button>
-            <div id="stateBox" class="mdl-card__supporting-text" style="width:100%">
-                <select id="stateofdeath"></select>
-            </div>
+{#            <div id="stateBox" class="mdl-card__supporting-text" style="width:100%">#}
+{#                <select id="stateofdeath"></select>#}
+{#            </div>#}
          </div>
         </div>
         <div class="col-sm-2">
-            <div id="demoBox" class="mdl-card__supporting-text" style="width:100%">
-                <select id="gen"></select>
-            </div>
+            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#genderBox').slideToggle()">Gender</button>
+{#            <div id="demoBox" class="mdl-card__supporting-text" style="width:100%">#}
+{#                <select id="gen"></select>#}
+{#            </div>#}
         </div>
         <div class="col-sm-2">
             <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
@@ -116,38 +118,41 @@
 
 
     <article class="topic">
-      <h2 class="embed-title"> Mortality by Gender</h2>
+{#      <h2 class="embed-title"> Mortality by Gender</h2>#}
 
       <div class="col-sm-12">
-      <div class="topic-stats">
+          <div id="snip-container">
+             <img src="/static/img/home/SnipImage.JPG" alt="" />
+          </div>
+{#      <div class="topic-stats">#}
 {#        {% for stat in topic.stat %}#}
-          <div class="col-sm-3">
-          <div class="col-sm-6">
-          <div class="stat">
-            <div class="stat-text">2014 Deaths</div>
-            <div class="stat-value">6,000,000</div>
-
-          </div>
-          </div>
-          <div class="col-sm-6">
-          <div class="stat">
-            <div class="stat-text">2014 Female Deaths</div>
-            <div class="stat-value">6,000,000</div>
-            <div class="stat-value stat-small"><span class="stat-text">BBB</span> AAAA</div>
-          </div>
-          </div>
-      </div>
-      </div>
-      <div id="test" class="col-sm-8">
-          <iframe src="http://127.0.0.1:5000/static/tree_map.html/" background="black" width="80%" height="600" id="frameDemo"></iframe>
-
+{#          <div class="col-sm-3">#}
+{#          <div class="col-sm-6">#}
+{#          <div class="stat">#}
+{#            <div class="stat-text">2014 Deaths</div>#}
+{#            <div class="stat-value">6,000,000</div>#}
+{##}
+{#          </div>#}
+{#          </div>#}
+{#          <div class="col-sm-6">#}
+{#          <div class="stat">#}
+{#            <div class="stat-text">2014 Female Deaths</div>#}
+{#            <div class="stat-value">6,000,000</div>#}
+{#            <div class="stat-value stat-small"><span class="stat-text">BBB</span> AAAA</div>#}
+{#          </div>#}
+{#          </div>#}
+{#      </div>#}
+{#      </div>#}
+{#      <div id="test" class="col-sm-8">#}
+{#          <iframe src="http://127.0.0.1:5000/static/tree_map.html/" background="black" width="80%" height="600" id="frameDemo"></iframe>#}
+{##}
 {#      <div class="viz">#}
 {#        <div id="chart-gender">#}
     {#          <h4>Gender <small><a id="gender">reset</a></small></h4>#}
     {#          <div class="dc-chart" ></div>#}
 {#        </div>#}
 {#        </div>#}
-      </div>
+{#      </div>#}
       </div>
     {#        {% endfor %}#}
 {#      </div>#}
@@ -193,124 +198,124 @@
 {##}
 {#    </article>#}
 
-    <article class="topic">
-      <h2 class="embed-title"> Mortality by Age</h2>
-      <div class="col-sm-12">
-      <div class="topic-stats">
+{#    <article class="topic">#}
+{#      <h2 class="embed-title"> Mortality by Age</h2>#}
+{#      <div class="col-sm-12">#}
+{#      <div class="topic-stats">#}
 {#        {% for stat in topic.stat %}#}
-          <div class="col-sm-3">
-          <div class="stat">
-            <div class="stat-text">2014 Deaths</div>
-            <div class="stat-value">6,000,000</div>
-            <p></p>
-
-          </div>
-          </div>
-
-      </div>
-      <div class="col-sm-9">
+{#          <div class="col-sm-3">#}
+{#          <div class="stat">#}
+{#            <div class="stat-text">2014 Deaths</div>#}
+{#            <div class="stat-value">6,000,000</div>#}
+{#            <p></p>#}
+{##}
+{#          </div>#}
+{#          </div>#}
+{##}
+{#      </div>#}
+{#      <div class="col-sm-9">#}
 {#      <div class="viz">#}
 {#        </div>#}
-      </div>
+{#      </div>#}
     {#        {% endfor %}#}
-      </div>
+{#      </div>#}
+{##}
+{##}
+{#    </article>#}
 
 
-    </article>
 
 
-
-
-    <div class="col-sm-12 col-md-12 text-center">
-    </div>
-    <div class="col-sm-2 col-md-2 text-center">
-        <div id="filtering-pane" >
-        <div class="row spacer">
-
-        </div>
-        <h3>Select a Topic</h3>
-     <span>
-     <div class="dropdown">
-
-  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="">
-    Topics
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li class="dropdown-header">Youth Risky Behaviors - National Level 2015</li>
-        <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</a></li>
-        <li><a href="#" data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</a></li>
-        <li><a href="#" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</a></li>
-    <li role="separator" class="divider"></li>
-    <li class="dropdown-header">2014 Mortality</li>
-      <li><a href="#" data-table-id="vs2014mort" value="resident_status">Resident Status</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="injury_at_work">Injury At Work</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="activity_code">Activity Code</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</a></li>
-      <li><a href="#" data-table-id="vs2014mort" value="cause">Cause</a></li>
-      <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Youth Risky Behaviors - State Level 2000 - 2013</li>
-      <li><a href="#" data-table-id="yrbs2013state" value="sexual_contact">Sexual Contact</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="texted_or_emailed_while_driving">Texted Or Emailed While Driving</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="electronically_bullied_in_past_year">Electronically Bullied In Past Year</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="smoked_in_past_30_days">Smoked In Past 30 Days</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="had_sex_with_4_or_more_people">Had Sex With 4 Or More People during lifetime</a></li>
-      <li><a href="#" data-table-id="yrbs2013state" value="had_8_or_more_hours_of_sleep">Regularly Gets 8 Or More Hours Of Sleep</a></li>
-
-  </ul>
-</div>
- <div class="row spacer">
-
- </div>
-<h3>Filter by:</h3>
-    <select id="selecttest" class="form-control" placeholder="Add a filter">
-      <option selected disabled>Select a filter</option>
-      <option class="hidden" data-table-id="yrbs2015" value="sex">Gender</option>
-      <option class="hidden" data-table-id="yrbs2015" value="age">Age</option>
-      <option class="hidden" data-table-id="yrbs2015" value="race_ethnicity">Race / Ethnicity</option>
-      <option class="hidden" data-table-id="yrbs2015" value="grade">Grade</option>
-      <option class="hidden" data-table-id="vs2014mort" value="education_2003_revision">Education</option>
-      <option class="hidden" data-table-id="vs2014mort" value="month_of_death">Month of Death</option>
-      <option class="hidden" data-table-id="vs2014mort" value="sex">Gender</option>
-      <option class="hidden" data-table-id="vs2014mort" value="age">Age</option>
-      <option class="hidden" data-table-id="vs2014mort" value="day_of_week_of_death">Day Of Week Of Death</option>
-      <option class="hidden" data-table-id="vs2014mort" value="autopsy">Autopsy</option>
-      <option class="hidden" data-table-id="vs2014mort" value="race_ethnicity">Race / Ethnicity</option>
-      <option class="hidden" data-table-id="vs2014mort" value="marital_status">Marital Status</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="state">State</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="year">Year</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="age">Age</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="sex">Gender</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="grade">Grade</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="race_breakdown_seven">Race Breakdown Seven</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="sexual_identity">Sexual Identity</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="obesity_indicator">Obesity Indicator</option>
-      <option class="hidden" data-table-id="yrbs2013state" value="overweight_indicator">Overweight Indicator</option>
-    </select>
-    <div class="hidden issex">Gender <a href="#" class="remove" rel="sex" style="color: grey">remove</a></div>
-    <div class="hidden isage">Age <a href="#" class="remove" rel="age" style="color: grey">remove</a></div>
-    <div class="hidden israce_ethnicity">Race / Ethnicity <a href="#" class="remove" rel="race_ethnicity" style="color: grey">remove</a></div>
-    <div class="hidden isgrade">Grade <a href="#" class="remove" rel="grade" style="color: grey">remove</a></div>
-    <div class="hidden iseducation_2003_revision">Education <a href="#" class="remove" rel="education_2003_revision" style="color: grey">remove</a></div>
-    <div class="hidden ismonth_of_death">Month of Death <a href="#" class="remove" rel="month_of_death" style="color: grey">remove</a></div>
-    <div class="hidden isday_of_week_of_death">Day of Week of Death <a href="#" class="remove" rel="day_of_week_of_death" style="color: grey">remove</a></div>
-    <div class="hidden isautopsy">Autopsy <a href="#" class="remove" rel="autopsy" style="color: grey">remove</a></div>
-    <div class="hidden ismarital_status">Marital Status <a href="#" class="remove" rel="marital_status" style="color: grey">remove</a></div>
-    <div class="hidden isstate">State <a href="#" class="remove" rel="state" style="color: grey">remove</a></div>
-    <div class="hidden isyear">Year <a href="#" class="remove" rel="year" style="color: grey">remove</a></div>
-    <div class="hidden israce_breakdown_seven">Race / Ethnicity <a href="#" class="remove" rel="race_breakdown_seven" style="color: grey">remove</a></div>
-    <div class="hidden issexual_identity">Sexual Identity <a href="#" class="remove" rel="sexual_identity" style="color: grey">remove</a></div>
-    <div class="hidden isobesity_indicator">Obsese <a href="#" class="remove" rel="obesity_indicator" style="color: grey">remove</a></div>
-    <div class="hidden isoverweight_indicator">Overweight <a href="#" class="remove" rel="overweight_indicator" style="color: grey">remove</a></div>
-
-    </span>
-     <br>
+{#    <div class="col-sm-12 col-md-12 text-center">#}
+{#    </div>#}
+{#    <div class="col-sm-2 col-md-2 text-center">#}
+{#        <div id="filtering-pane" >#}
+{#        <div class="row spacer">#}
+{##}
+{#        </div>#}
+{#        <h3>Select a Topic</h3>#}
+{#     <span>#}
+{#     <div class="dropdown">#}
+{##}
+{#  <button class="btn btn-default dropdown-toggle" type="button" id="yrbs_topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-table-id="">#}
+{#    Topics#}
+{#    <span class="caret"></span>#}
+{#  </button>#}
+{#  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">#}
+{#    <li class="dropdown-header">Youth Risky Behaviors - National Level 2015</li>#}
+{#        <li><a href="#" data-table-id="yrbs2015" value="texted_or_emailed_while_driving">Texted or emailed while driving in the last 30 days</a></li>#}
+{#        <li><a href="#" data-table-id="yrbs2015" value="currently_smoked_cigarettes">Currently smokes cigarettes</a></li>#}
+{#        <li><a href="#" data-table-id="yrbs2015" value="currently_used_electronic_vapor_products">Ever used an electronic vapor product</a></li>#}
+{#        <li><a href="#" data-table-id="yrbs2015" value="were_electronically_bullied">Been electronically bullied in the last 12 months</a></li>#}
+{#        <li><a href="#" data-table-id="yrbs2015" value="had_sex_with_four_or_more">Had sexual intercourse with four (4) or more people during lifetime</a></li>#}
+{#        <li><a href="#" value="had_8_or_more_hours_of_sleep">Regularly gets 8 or more hours of sleep</a></li>#}
+{#    <li role="separator" class="divider"></li>#}
+{#    <li class="dropdown-header">2014 Mortality</li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="resident_status">Resident Status</a></li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="place_of_death_and_decedents_status">Place Of Death And Decedents Status</a></li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="injury_at_work">Injury At Work</a></li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="manner_of_death">Manner Of Death</a></li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="method_of_disposition">Method Of Disposition</a></li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="activity_code">Activity Code</a></li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="place_of_injury">Place Of Injury</a></li>#}
+{#      <li><a href="#" data-table-id="vs2014mort" value="cause">Cause</a></li>#}
+{#      <li role="separator" class="divider"></li>#}
+{#    <li class="dropdown-header">Youth Risky Behaviors - State Level 2000 - 2013</li>#}
+{#      <li><a href="#" data-table-id="yrbs2013state" value="sexual_contact">Sexual Contact</a></li>#}
+{#      <li><a href="#" data-table-id="yrbs2013state" value="texted_or_emailed_while_driving">Texted Or Emailed While Driving</a></li>#}
+{#      <li><a href="#" data-table-id="yrbs2013state" value="electronically_bullied_in_past_year">Electronically Bullied In Past Year</a></li>#}
+{#      <li><a href="#" data-table-id="yrbs2013state" value="smoked_in_past_30_days">Smoked In Past 30 Days</a></li>#}
+{#      <li><a href="#" data-table-id="yrbs2013state" value="had_sex_with_4_or_more_people">Had Sex With 4 Or More People during lifetime</a></li>#}
+{#      <li><a href="#" data-table-id="yrbs2013state" value="had_8_or_more_hours_of_sleep">Regularly Gets 8 Or More Hours Of Sleep</a></li>#}
+{##}
+{#  </ul>#}
+{#</div>#}
+{# <div class="row spacer">#}
+{##}
+{# </div>#}
+{#<h3>Filter by:</h3>#}
+{#    <select id="selecttest" class="form-control" placeholder="Add a filter">#}
+{#      <option selected disabled>Select a filter</option>#}
+{#      <option class="hidden" data-table-id="yrbs2015" value="sex">Gender</option>#}
+{#      <option class="hidden" data-table-id="yrbs2015" value="age">Age</option>#}
+{#      <option class="hidden" data-table-id="yrbs2015" value="race_ethnicity">Race / Ethnicity</option>#}
+{#      <option class="hidden" data-table-id="yrbs2015" value="grade">Grade</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="education_2003_revision">Education</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="month_of_death">Month of Death</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="sex">Gender</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="age">Age</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="day_of_week_of_death">Day Of Week Of Death</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="autopsy">Autopsy</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="race_ethnicity">Race / Ethnicity</option>#}
+{#      <option class="hidden" data-table-id="vs2014mort" value="marital_status">Marital Status</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="state">State</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="year">Year</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="age">Age</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="sex">Gender</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="grade">Grade</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="race_breakdown_seven">Race Breakdown Seven</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="sexual_identity">Sexual Identity</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="obesity_indicator">Obesity Indicator</option>#}
+{#      <option class="hidden" data-table-id="yrbs2013state" value="overweight_indicator">Overweight Indicator</option>#}
+{#    </select>#}
+{#    <div class="hidden issex">Gender <a href="#" class="remove" rel="sex" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isage">Age <a href="#" class="remove" rel="age" style="color: grey">remove</a></div>#}
+{#    <div class="hidden israce_ethnicity">Race / Ethnicity <a href="#" class="remove" rel="race_ethnicity" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isgrade">Grade <a href="#" class="remove" rel="grade" style="color: grey">remove</a></div>#}
+{#    <div class="hidden iseducation_2003_revision">Education <a href="#" class="remove" rel="education_2003_revision" style="color: grey">remove</a></div>#}
+{#    <div class="hidden ismonth_of_death">Month of Death <a href="#" class="remove" rel="month_of_death" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isday_of_week_of_death">Day of Week of Death <a href="#" class="remove" rel="day_of_week_of_death" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isautopsy">Autopsy <a href="#" class="remove" rel="autopsy" style="color: grey">remove</a></div>#}
+{#    <div class="hidden ismarital_status">Marital Status <a href="#" class="remove" rel="marital_status" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isstate">State <a href="#" class="remove" rel="state" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isyear">Year <a href="#" class="remove" rel="year" style="color: grey">remove</a></div>#}
+{#    <div class="hidden israce_breakdown_seven">Race / Ethnicity <a href="#" class="remove" rel="race_breakdown_seven" style="color: grey">remove</a></div>#}
+{#    <div class="hidden issexual_identity">Sexual Identity <a href="#" class="remove" rel="sexual_identity" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isobesity_indicator">Obsese <a href="#" class="remove" rel="obesity_indicator" style="color: grey">remove</a></div>#}
+{#    <div class="hidden isoverweight_indicator">Overweight <a href="#" class="remove" rel="overweight_indicator" style="color: grey">remove</a></div>#}
+{##}
+{#    </span>#}
+{#     <br>#}
 
 
 
@@ -499,7 +504,8 @@ var genSelect = $("#gen").selectize({
     valueField: 'id',
     labelField: 'gen',
     searchField: 'gen',
-    options: gen});
+    options: gen
+});
 
 var genControl = genSelect[0].selectize;
 
@@ -520,8 +526,8 @@ var topicSelect = $("#topicBox").selectize({
     valueField: 'id',
     labelField: 'topic',
     searchField: 'topic',
-    options: topicarray});
-
+    options: topicarray
+});
 var topicControl = topicSelect[0].selectize;
 
 var race = [
@@ -547,9 +553,8 @@ var raceSelect = $("#raceethnicity").selectize({
     valueField: 'id',
     labelField: 'race',
     searchField: 'race',
-    options: race});
-
-
+    options: race
+});
 var raceControl = raceSelect[0].selectize;
 
 var states = [
@@ -614,10 +619,11 @@ var stateSelect = $("#stateofdeath").selectize({
     labelField: 'state',
     searchField: 'state',
     options: states
+});
 var stateControl = stateSelect[0].selectize;
 
 </script>
-<script
+<script>
 //$( document ).ready(function() {
 //    console.log( "ready!" );
 //    mainDiv = document.getElementById("test");

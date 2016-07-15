@@ -59,7 +59,7 @@ def map():
     }
 
     defaultKey = request.args.get("key", "age,age_moe,age_rank")
-    defaultLevel = request.args.get("level", "county")
+    defaultLevel = request.args.get("level", "state")
 
     datasets = sorted([d for d in mapdata], key=lambda x: DICTIONARY[d])
     sumlevels = ["state", "county", "msa", "puma"]
