@@ -314,6 +314,7 @@
 
 <script>
 
+    http://ec2-52-90-94-195.compute-1.amazonaws.com/query/yrbs?column=sex&column=age&column=race&colum&group=sex,age,race
 
 var imhere = window.location.href;
 var res = imhere.split("/");
@@ -327,59 +328,19 @@ var gen = [
     {id: "'Female'", gen: 'Female'},
 ];
 
-var url = 'http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&column=race&group=sex,age,race';
+var url = 'http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=texted_or_emailed_while_driving&column=age&column=race&group=texted_or_emailed_while_driving,age,race';
 
 d3.json(url, function(data) {
   var mortalityData = data.data;
 
   // normalize/parse data so dc can correctly sort & bin them
   // I like to think of each "d" as a row in a spreadsheet
-  _.each(mortalityData, function(d) {
-    d.count = +d.count;
-    // round to nearest 0.25
-  });
+{#  _.each(mortalityData, function(d) {#}
+{#    d.count = +d.count;#}
+{#    // round to nearest 0.25#}
+{#  });#}
 
-  // set crossfilter
-  var ndx = crossfilter(mortalityData);
-
-  // create dimensions (x-axis values)
-  var genderDim  = ndx.dimension(function(d) {return d.sex;}),
-      // dc.pluck: short-hand for same kind of anon. function we used for yearDim
-      raceDim  = ndx.dimension(function(d) {return d.race;}),
-      ageDim = ndx.dimension(function(d) {return d.age;}),
-      allDim = ndx.dimension(function(d) {return d;});
-
-  // create groups (y-axis values)
-  var all = ndx.groupAll();
-  var countPerGender = genderDim.group().reduceSum(function(fact) { return fact.count; }),
-      countPerRace = raceDim.group().reduceSum(function(fact) { return fact.count; }),
-      countPerAge = ageDim.group().reduceSum(function(fact) { return fact.count; });
-
-  // specify charts
-  var genderChart   = dc.rowChart('#chart-gender'),
-      raceChart   = dc.barChart('#chart-race'),
-{#      monthChart   = dc.barChart('#chart-month'),#}
-//      dayChart  = dc.pieChart('#chart-ring-day'),
-      ageChart  = dc.barChart('#chart-age'),
-{#      mannerChart  = dc.pieChart('#chart-ring-manner'),#}
-{#      causeChart  = dc.barChart('#chart-ring-cause'),#}
-      dataCount = dc.dataCount('#data-count');
-//      dataTable = dc.dataTable('#data-table');
-
-  genderChart
-    .width(800)
-    .height(310)
-    .x(d3.scale.ordinal())
-    .elasticX(true)
-    .ordinalColors(['#FF0000', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-    .dimension(genderDim)
-    .group(countPerGender)
-    .title(function (d) {
-                return d.value;
-            })
-    .xAxis().ticks(4);
-
-  genderChart = d3plus.viz()
+    var visualization = d3plus.viz()
     .container("#viz")
     .data(data)
     .type("bar")
@@ -388,53 +349,102 @@ d3.json(url, function(data) {
     .y("value")
     .draw();
 
-
-  raceChart
-    .width(800)
-    .height(310)
-    .dimension(raceDim)
-    .group(countPerRace)
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .elasticY(true)
-    .margins({top: 20, left: 75, right: 10, bottom: 20})
-
-
-    .title(function (d) {
-                return d.value;
-            })
-    .yAxis().ticks(4);
-
-  ageChart
-    .width(800)
-    .height(310)
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .elasticY(true)
-    .dimension(ageDim)
-    .margins({top: 20, left: 75, right: 10, bottom: 20})
-    .group(countPerAge)
-    .title(function (d) {
-                return d.value;
-            })
-    .yAxis().ticks(4);
-
-
-
-  dataCount
-      .dimension(ndx)
-      .group(all);
-
-
-  // register handlers
-  d3.selectAll('a#all').on('click', function () {
-    dc.filterAll();
-    dc.renderAll();
-  });
-
-
-  // showtime!
-  dc.renderAll();
+{#  // set crossfilter#}
+{#  var ndx = crossfilter(mortalityData);#}
+{##}
+{#  // create dimensions (x-axis values)#}
+{#  var genderDim  = ndx.dimension(function(d) {return d.sex;}),#}
+{#      // dc.pluck: short-hand for same kind of anon. function we used for yearDim#}
+{#      raceDim  = ndx.dimension(function(d) {return d.race;}),#}
+{#      ageDim = ndx.dimension(function(d) {return d.age;}),#}
+{#      allDim = ndx.dimension(function(d) {return d;});#}
+{##}
+{#  // create groups (y-axis values)#}
+{#  var all = ndx.groupAll();#}
+{#  var countPerGender = genderDim.group().reduceSum(function(fact) { return fact.count; }),#}
+{#      countPerRace = raceDim.group().reduceSum(function(fact) { return fact.count; }),#}
+{#      countPerAge = ageDim.group().reduceSum(function(fact) { return fact.count; });#}
+{##}
+{#  // specify charts#}
+{#  var genderChart   = dc.rowChart('#chart-gender'),#}
+{#      raceChart   = dc.barChart('#chart-race'),#}
+{#      monthChart   = dc.barChart('#chart-month'),#}
+{#//      dayChart  = dc.pieChart('#chart-ring-day'),#}
+{#      ageChart  = dc.barChart('#chart-age'),#}
+{#      mannerChart  = dc.pieChart('#chart-ring-manner'),#}
+{#      causeChart  = dc.barChart('#chart-ring-cause'),#}
+{#      dataCount = dc.dataCount('#data-count');#}
+{#//      dataTable = dc.dataTable('#data-table');#}
+{##}
+{#  genderChart#}
+{#    .width(800)#}
+{#    .height(310)#}
+{#    .x(d3.scale.ordinal())#}
+{#    .elasticX(true)#}
+{#    .ordinalColors(['#FF0000', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])#}
+{#    .dimension(genderDim)#}
+{#    .group(countPerGender)#}
+{#    .title(function (d) {#}
+{#                return d.value;#}
+{#            })#}
+{#    .xAxis().ticks(4);#}
+{##}
+{#  genderChart = d3plus.viz()#}
+{#    .container("#viz")#}
+{#    .data(data)#}
+{#    .type("bar")#}
+{#    .id("name")#}
+{#    .x("year")#}
+{#    .y("value")#}
+{#    .draw();#}
+{##}
+{##}
+{#  raceChart#}
+{#    .width(800)#}
+{#    .height(310)#}
+{#    .dimension(raceDim)#}
+{#    .group(countPerRace)#}
+{#    .x(d3.scale.ordinal())#}
+{#    .xUnits(dc.units.ordinal)#}
+{#    .elasticY(true)#}
+{#    .margins({top: 20, left: 75, right: 10, bottom: 20})#}
+{##}
+{##}
+{#    .title(function (d) {#}
+{#                return d.value;#}
+{#            })#}
+{#    .yAxis().ticks(4);#}
+{##}
+{#  ageChart#}
+{#    .width(800)#}
+{#    .height(310)#}
+{#    .x(d3.scale.ordinal())#}
+{#    .xUnits(dc.units.ordinal)#}
+{#    .elasticY(true)#}
+{#    .dimension(ageDim)#}
+{#    .margins({top: 20, left: 75, right: 10, bottom: 20})#}
+{#    .group(countPerAge)#}
+{#    .title(function (d) {#}
+{#                return d.value;#}
+{#            })#}
+{#    .yAxis().ticks(4);#}
+{##}
+{##}
+{##}
+{#  dataCount#}
+{#      .dimension(ndx)#}
+{#      .group(all);#}
+{##}
+{##}
+{#  // register handlers#}
+{#  d3.selectAll('a#all').on('click', function () {#}
+{#    dc.filterAll();#}
+{#    dc.renderAll();#}
+{#  });#}
+{##}
+{##}
+{#  // showtime!#}
+{#  dc.renderAll();#}
 
 });
 

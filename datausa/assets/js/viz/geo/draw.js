@@ -785,11 +785,12 @@ viz.mapDraw = function(vars) {
             vars.highlight.value = d.id;
             vars.highlight.path = d;
             d3.select(this).attr("fill-opacity", pathOpacity);
-            d3plus.tooltip.remove("geo_map");
-            zoomLogic(d);
-            var dat = dataMap[d.id];
-            if (d.id.slice(0, 3) !== "140" && dat) createTooltip(d, true);
-            else d3plus.tooltip.remove("geo_map_sidebar");
+            window.location = "/profile/geo/" + d.id + "/";
+            //d3plus.tooltip.remove("geo_map");
+            //zoomLogic(d);
+            //var dat = dataMap[d.id];
+            //if (d.id.slice(0, 3) !== "140" && dat) createTooltip(d, true);
+            //else d3plus.tooltip.remove("geo_map_sidebar");
           }
         });
 
