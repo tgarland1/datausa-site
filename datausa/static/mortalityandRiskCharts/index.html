@@ -168,17 +168,33 @@
         //we add the graph to the graph container
         var myScatter;
         if(section!='state_name'){
-          myScatter = d3plus.viz()
-                  .container('#'+graphContainerName)
-                  .type("bar")
-                  .data(mortalityData)
-                  .id(section)
-                  .x(section)
-                  .y("count")
-                  .color(section)
-                  .height(400)
-                  .width(800)
-                  .draw()
+          if(section=='sex'){
+            myScatter = d3plus.viz()
+                    .container('#'+graphContainerName)
+                    .type("bar")
+                    .data(mortalityData)
+                    .id(section)
+                    .y(section)
+                    .x("count")
+                    .y({"scale": "discrete"})
+                    .color(section)
+                    .height(300)
+                    .width(800)
+                    .draw()
+          }else{
+
+            myScatter = d3plus.viz()
+                    .container('#'+graphContainerName)
+                    .type("bar")
+                    .data(mortalityData)
+                    .id(section)
+                    .x(section)
+                    .y("count")
+                    .color(section)
+                    .height(400)
+                    .width(800)
+                    .draw()
+          }
         }else{
           //Creates a treemap
           myScatter = d3plus.viz()

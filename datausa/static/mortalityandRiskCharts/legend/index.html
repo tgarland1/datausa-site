@@ -15,14 +15,31 @@
     {"value": 5, "name": "epsilon"},
     {"value": 10, "name": "zeta"}
   ]
+  
+//  
+//  "bubbles": "Blasen",
+//        "chart": "Diagramm",
+//        "geo_map": "Karte",
+//        "line": "Liniendiagramm",
+//        "network": "Netzwerk",
+//        "rings": "Ringe",
+//        "scatter": "Punktdiagramm",
+//        "stacked": "Gestapelte Fläche",
+//        "tree_map": "Baumdiagramm",
+//        "bar": "Balkendiagramm",
+//        "box": "Boxplot",
+//        "paths": "Pfade",
+//        "pie": "Kreisdiagramm",
+//        "table": "Tabelle"
+        
   var visualization = d3plus.viz()
     .container("#viz")
     .data(sample_data)
     .type("bar")
     .id("name")
-    .color("name")
-    .x("name")
-    .y("value")
+    .x("value")
+    .y("name")
+    .y({"scale": "discrete"})
     .legend({
       "order": {
         "sort": "desc",
