@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>D3plus</title>
+    <!-- loading D3plus JS file -->
+    <script src="../jquery-2.2.2.min.js"></script>
+
+    <script src="https://d3plus.org/js/d3plus.full.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="styleheet" href="http://datausa.io/static/css/site.css?v=30">
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>--?-->
+  </head>
+
+  <body>
+
+
+    <div id="riskyCat"></div>
+
+    <div id="holdTheCharts"></div>
+
+
+  </body>
+
+  <script>
+
+    //Creates the dropdown for risky behavior
+    var createRiskyBehaviorCharts = function(graphicContainer,riskDropdownContainer){
+      //Was going to build this out for more than risk but...
+      //This container holds all the risk related data that appears in the dropdown
+      //and also the data that appears in each of the charts based on the dropdown selection
+      var columns = {
+        "risk" : {
+          "None":[],
+          "Current tobacco use" : [
+            {"sex":"female","value":23.8,"ci-low":18.2,"ci-high":30.6,"sderror":2.9},
+            {"sex":"male","value":30.7,"ci-low":25.5,"ci-high":30.4,"sderror":2.6}
+          ],
+          "Current alcohol use" : [
+            {"sex":"female","value":31,"ci-low":25.7,"ci-high":36.8,"sderror":2.6},
+            {"sex":"male","value":26.9,"ci-low":21.1,"ci-high":33.6,"sderror":2.9}
+          ]
+        }
+      };
+
+
+      //Creates the dropdown for risky behavior
+      //Add more risky behaviors by adding elements to var columns.risky["name of new risky behavior"] = [{}{}]
+      //use the same column names [sex,value,ci-low,ci-high,sderror]
+      var createDropdownz = function(myOptions,parentName){
+        var parent = $('#'+parentName);
+        parent.append('<select id="'+parentName+'_selector"></select>')
+
+        var mySelect = $('#'+parentName+'_selector');
+
+        $.each(myOptions, function(optionIndex, optionObject) {
+            mySelect.append(
+                $('<option></option>').val(optionIndex).html(optionIndex)
+            );
+        });
+        return mySelect;
+      };
+
+    var mydrop = createDropdownz(columns["risk"],riskDropdownContainer);
+
+    //When you change the dropdown for risky behavior this will adjust the charting below
+    mydrop.change(function(){
+
+      //value of dropdown
+      var b = mydrop.val();
+      $('#'+graphicContainer).empty();
+
+      if(b!="None"){
+        //Remo`ves previous risky behavior charting
+
+        //Append the options button here
+        $('#'+graphicContainer).append('<h2 class="embed-title"><a href="#mortality" name="income_gender">Mortality</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+
+        var myScatter = d3plus.viz()
+                .container('#'+graphicContainer)
+                .type("bar")
+                .data(columns["risk"][b])
+                .id("sex")
+                .x("sex")
+                .y("value")
+                .color("sex")
+                .height(400)
+                .width(800)
+                .tooltip(["sex","value","ci-low","ci-high","sderror"])
+                .labels({"resize": false, "font": {"size": 13}})
+                .text(function(a,b,c,d){
+                  if(a.d3plus_label && a.d3plus_label.names){
+                    // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
+                    return null;//it will output the id as the header within the hover menu with this null
+                  }
+                  return a.value + "% \n stdv(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
+                })
+                .font(5)
+                .legend({
+                  "order": {
+                    "sort": "desc",
+                    "value": "size"
+                  }
+                })
+                .draw()
+
+          var visualization = d3plus.viz()
+            .container('#'+graphicContainer)
+            .data(columns["risk"][b])
+            .type("table")
+            .id("sex")
+            .shape("square")
+            .attrs([
+              {"sex": "male", "hex": "#000000"},
+              {"sex": "female", "hex": "#000000"}
+            ])
+            .color('hex')
+            .labels({"resize": false, "font": {"size": 13}})
+            .height(200)
+            .width(800)
+            .cols(["value","ci-low","ci-high","sderror"])
+            .draw();
+        }
+    });
+  };
+
+  createRiskyBehaviorCharts("holdTheCharts","riskyCat");
+
+  </script>
+
+</html>
