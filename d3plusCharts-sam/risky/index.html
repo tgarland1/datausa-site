@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>D3plus</title>
+    <!-- loading D3plus JS file -->
+    <script src="../jquery-2.2.2.min.js"></script>
+    <script src="../popover2.js"></script>
+
+    <script src="https://d3plus.org/js/d3plus.full.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="styleheet" href="http://datausa.io/static/css/site.css?v=30">
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>--?-->
+  </head>
+
+  <body>
+    <a href="#" title="Share" class="share-embed btn pri-btn data-btn" data-target-id="share" data-embed="/profile/geo/united-states/#income_gender" data-url="http://heron.datausa.io/profile/geo/united-states/economy/income_gender">
+      <span>Options</span>
+    </a>
+
+
+    <div class="overlay" id="bg"></div>
+    <div class="overlay" id="view">
+      <div class="modal" id="mysupermodal">
+        <div class="close-btn">
+          <div class="in">
+            <div class="bd">
+              <div class="b-1 b close">
+                <span></span>
+              </div>
+              <div class="b-2 b close">
+                <span></span>
+              </div>
+              <div class="b-3 b close">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header">
+          <h2>Options</h2>
+        </div>
+        <div class="body">
+          <div class="nav">
+            <span class="change_share" id="share" data-target-id="share">Share</span>
+            <span class="change_share" id="embed" data-target-id="embed">Embed</span>
+            <span class="change_share" id="download" data-target-id="download">Download</span>
+            <span class="change_share" id="data" data-target-id="data">Data</span>
+            <span class="change_share" id="api" data-target-id="api">API</span>
+            <span class="highlight noslide" style="width: 57px; left: 151px;"></span>
+          </div>
+          <div class="panels noslide" style="transform: translateX(0vw);">
+            <div class="panel" id="share" style="height: 250px;">
+              <div class="social">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdatausa.io%2Fprofile%2Fgeo%2Funited-states%2F%23income" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/home?status=http%3A%2F%2Fdatausa.io%2Fprofile%2Fgeo%2Funited-states%2F%23income" target="_blank" class="fa fa-twitter"></a>
+              </div>
+              <input type="text" readonly="true" class="share-link">
+            </div>
+            <div class="panel" id="embed" style="height: 250px;">
+              <div class="embed_options"><div class="demo">
+                <img src="http://datausa.io/static/img/profiles/embed_viz.svg"></div>
+                <div class="options">
+                  <div class="option">
+                    <p>Copy and paste the following code to place an interactive version of this visualization on your website.</p>
+                    <input type="checkbox">
+                    <label>Include paragraph and stats</label>
+                  </div>
+                  <select>
+                    <option value="720|480">Small 720 x 480</option>
+                    <option value="1440|1080">Large 1440 x 1080</option>
+                    <option value="">Fullscreen</option>
+                  </select>
+                </div>
+              </div>
+              <input type="text" readonly="true" class="embed-link">
+            </div>
+            <div class="panel" id="download" style="height: 250px;">
+              <div class="filetypes">
+                <div>
+                  <i class="fa fa-file-code-o"></i>
+                  <span>SVG</span>
+                </div>
+                <div>
+                  <i class="fa fa-file-pdf-o"></i>
+                  <span>PDF</span>
+                </div>
+                <div>
+                  <i class="fa fa-file-image-o"></i>
+                  <span>Image</span>
+                </div>
+                <div>
+                  <i class="fa fa-file-text-o"></i>
+                  <span>CSV</span>
+                </div>
+              </div>
+            </div>
+            <div class="panel" id="data" style="height: 250px;">
+              <div class="data">
+                <table><thead><tr><th>Year</th><th>Location Name</th><th>Yearly Income</th><th>Margin of Error</th></tr></thead><tbody><tr><td>2014</td><td>United States</td><td>$53,657</td><td><span class="plus-minus">±</span> $93</td></tr><tr><td>2014</td><td>Maryland</td><td>$73,971</td><td><span class="plus-minus">±</span> $867</td></tr><tr><td>2014</td><td>Mississippi</td><td>$39,680</td><td><span class="plus-minus">±</span> $773</td></tr><tr><td>2014</td><td>New Jersey</td><td>$71,919</td><td><span class="plus-minus">±</span> $438</td></tr><tr><td>2014</td><td>Puerto Rico</td><td>$18,928</td><td><span class="plus-minus">±</span> $367</td></tr></tbody></table>
+              </div>
+            </div>
+            <div class="panel" id="api" style="height: 250px;">
+              <div class="api">
+                <h3>API URL</h3>
+                <input type="text" readonly="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="riskyCat">
+    </div>
+    <div id="putMeHere"></div>
+
+
+  </body>
+
+  <script>
+
+
+
+
+  //$("#tripsbtn").click(tripsclick([{'title':'test','title':'test2'}],null,null,null,null));
+
+
+//mortality by race age gender
+//
+// gender horizontal
+// age virtical
+//
+//
+// race
+//
+//
+//
+// api call
+
+
+
+
+
+
+
+//wirebs  riskybehaviors texting
+
+    //filter Age, Race[14], Hispanic Origin[12],
+
+    //We create a dropdown under "parentName" and return the newly added object to reference later
+    var createDropdown = function(myOptions,parentName,section){
+      var parent = $('#'+parentName);
+      parent.append('<select id="'+parentName+'_'+section+'_selector"></select>')
+
+      var mySelect = $('#'+parentName+'_' +section+'_selector');
+
+      $.each(myOptions, function(optionIndex, optionObject) {
+          mySelect.append(
+              $('<option></option>').val(optionObject.value).html(optionObject.value)
+          );
+      });
+      return mySelect;
+    };
+
+    var createDropdownz = function(myOptions,parentName){
+      var parent = $('#'+parentName);
+      parent.append('<select id="'+parentName+'_selector"></select>')
+
+      var mySelect = $('#'+parentName+'_selector');
+
+      $.each(myOptions, function(optionIndex, optionObject) {
+          mySelect.append(
+              $('<option></option>').val(optionIndex).html(optionIndex)
+          );
+      });
+      return mySelect;
+    }
+
+    var filter = function(data, myFilters){
+      var new_arr = [];
+      $.each(data, function(dataIndex, dataRow) {
+        var include = true;
+        $.each(myFilters, function(filterIndex, filterRow) {
+          if(dataRow[filterRow] != filterRow.value)
+            include = false;
+        });
+        if(include)
+          new_arr.push(dataRow);
+      });
+      return new_arr;
+    };
+
+
+    var columns = {
+      "mortality" : {
+      	"resident_status":["resident_status","RESIDENTS","INTERSTATE/INTERTERRITORY NONRESIDENTS","FOREIGN RESIDENTS","INTRASTATE NONRESIDENTS"],
+      	"sex":["Female","Male"],
+      	"age":["85 - 89 years","60 - 64 years","5 - 9 years","100 years and over","45 - 49 years","2 years","95 - 99 years","30 - 34 years","70 - 74 years","15 - 19 years","80 - 84 years","3 years","Under 1 month (includes not stated weeks, days, hours, and minutes)","35 - 39 years","10 - 14 years","55 - 59 years","75 - 79 years","90 - 94 years","4 years","25 - 29 years","1 month - 11 months (includes not stated months)","Age not stated","1 year","20 - 24 years","50 - 54 years","65 - 69 years","40 - 44 years"],
+      	"marital_status":["Married","Marital Status unknown","Widowed","Divorced","Never married, single"],
+        "place_of_death":["Hospital, clinic or Medical Center - Inpatient","Hospice facility","Nursing home/long term care","Place of death unknown","Hospital, Clinic or Medical Center - Dead on Arrival","Hospital, Clinic or Medical Center - Outpatient or admitted to Emergency Room","Decedent's home","Other"],
+      	"day_of_week_of_death":["Sunday","Tuesday","Wednesday","Friday","Monday","Unknown","Saturday","Thursday"],
+      	"year":["2014"],
+      	"injury_at_work":["No","Unknown","Yes"],
+      	"manner_of_death":["Natural","Suicide","Homicide","Not specified","Could not determine","Pending investigation","Accident"],
+      	"method_of_disposition":['Other "R',"Cremation","Burial",'Other "E','Other "D"',"Other","Unknown"],
+      	"autopsy":["Yes","No"],
+      	"activity_code":["During unspecified activity","While engaged in sports activity","While resting, sleeping, eating (vital activities)","Not applicable","While engaged in other specified activities","While engaged in other types of work","While working for income","While engaged in leisure activity"],
+      	"place_of_injury":["School, other institution and public administrative area","Causes other than W00-Y34, except Y06.- and Y07.-","Industrial and construction area","Home","Street and highway","Unspecified place","Other Specified Places","Residential institution","Farm","Sports and athletics area","Trade and service area"],
+      	"cause":["Tuberculosis","Hypertensive heart disease with or without renal disease","Non-Hodgkin's lymphoma","Syphilis","Malignant neoplasms of colon, rectum and anus","Other malignant neoplasms","Intentional self-harm (suicide)","Nephritis, nephrotic syndrome, and nephrosis","Malignant neoplasms of trachea, bronchus and lung","Malignant neoplasm of breast","Peptic ulcer","Pregnancy, childbirth and the puerperium","Sudden infant death syndrome","Other diseases of circulatory system","Chronic liver disease and cirrhosis","Malignant neoplasms of cervix uteri, corpus uteri and ovary","Diabetes mellitus","Atherosclerosis","Leukemia","Malignant neoplasm of prostate","Ischemic heart diseases","Other diseases of heart","Assault (homicide)","Malignant neoplasm of pancreas","Motor vehicle accidents","Chronic lower respiratory diseases","All other external causes","All other and unspecified accidents and adverse effects","Alzheimer's disease","Influenza and pneumonia","Human immunodeficiency virus (HIV) disease","Malignant neoplasms of urinary tract","Essential (primary) hypertension and hypertensive renal disease","Malignant neoplasm of stomach","All other diseases (Residual)","Cerebrovascular diseases","Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified (excluding Sudden infant death syndrome)","Certain conditions originating in the perinatal period","Congenital malformations, deformations and chromosomal abnormalities"],
+      	"race":["Black","Asian Indian","Samoan","Hawaiian (includes Part-Hawaiian)","White","Guamanian","American Indian (includes Aleuts and Eskimos)","Other Asian or Pacific Islander in areas reporting codes 18-58","Combined other Asian or Pacific Islander, includes codes 18-68 for areas that do not report them separately","Filipino","Korean","Chinese","Japanese","Vietnamese"],
+      	"hispanic_origin":["Mexican","Dominican","Non - Hispanic","Other Hispanic","Central and South American","Cuban","Central American","Spaniard","Unknown","South American","Latin American","Puerto Rican"]
+      },
+      "risk" : {
+        "Current tobacco use" : [
+          {"sex":"female","value":23.8,"ci-low":18.2,"ci-high":30.6,"sderror":2.9},
+          {"sex":"male","value":30.7,"ci-low":25.5,"ci-high":30.4,"sderror":2.6}
+        ],
+        "Current alcohol use" : [
+          {"sex":"female","value":31,"ci-low":25.7,"ci-high":36.8,"sderror":2.6},
+          {"sex":"male","value":26.9,"ci-low":21.1,"ci-high":33.6,"sderror":2.9}
+        ]
+      }
+    };
+
+
+
+
+    var myFilters = {age : [
+      {columnName:'age',value:"None"},
+      {columnName:"age",value:"1 month - 11 months (includes not stated months)"},
+      {columnName:"age",value:"1 year"},
+      {columnName:"age",value:"10 - 14 years"},
+      {columnName:"age",value:"100 years and over"},
+      {columnName:"age",value:"15 - 19 years"},
+      {columnName:"age",value:"2 years"},
+      {columnName:"age",value:"20 - 24 years"},
+      {columnName:"age",value:"25 - 29 years"},
+      {columnName:"age",value:"3 years"},
+      {columnName:"age",value:"30 - 34 years"},
+      {columnName:"age",value:"35 - 39 years"},
+      {columnName:"age",value:"4 years"},
+      {columnName:"age",value:"40 - 44 years"},
+      {columnName:"age",value:"45 - 49 years"},
+      {columnName:"age",value:"5 - 9 years"},
+      {columnName:"age",value:"50 - 54 years"},
+      {columnName:"age",value:"55 - 59 years"},
+      {columnName:"age",value:"60 - 64 years"},
+      {columnName:"age",value:"65 - 69 years"},
+      {columnName:"age",value:"70 - 74 years"},
+      {columnName:"age",value:"75 - 79 years"},
+      {columnName:"age",value:"80 - 84 years"},
+      {columnName:"age",value:"85 - 89 years"},
+      {columnName:"age",value:"90 - 94 years"},
+      {columnName:"age",value:"95 - 99 years"}
+    ], cause : [
+      {columnName:'cause',value:"None"},
+      {columnName:'cause',value:"Tuberculosis"},
+      {columnName:'cause',value:"Hypertensive heart disease with or without renal disease"},
+      {columnName:'cause',value:"Non-Hodgkin's lymphoma"},
+      {columnName:'cause',value:"Syphilis"},
+      {columnName:'cause',value:"Malignant neoplasms of colon, rectum and anus"},
+      {columnName:'cause',value:"Other malignant neoplasms"},
+      {columnName:'cause',value:"Intentional self-harm (suicide)"},
+      {columnName:'cause',value:"Nephritis, nephrotic syndrome, and nephrosis"},
+      {columnName:'cause',value:"Malignant neoplasms of trachea, bronchus and lung"},
+      {columnName:'cause',value:"Malignant neoplasm of breast"},
+      {columnName:'cause',value:"Peptic ulcer"},
+      {columnName:'cause',value:"Pregnancy, childbirth and the puerperium"},
+      {columnName:'cause',value:"Sudden infant death syndrome"},
+      {columnName:'cause',value:"Other diseases of circulatory system"},
+      {columnName:'cause',value:"Chronic liver disease and cirrhosis"},
+      {columnName:'cause',value:"Malignant neoplasms of cervix uteri, corpus uteri and ovary"},
+      {columnName:'cause',value:"Diabetes mellitus"},
+      {columnName:'cause',value:"Atherosclerosis"},
+      {columnName:'cause',value:"Leukemia"},
+      {columnName:'cause',value:"Malignant neoplasm of prostate"},
+      {columnName:'cause',value:"Ischemic heart diseases"},
+      {columnName:'cause',value:"Other diseases of heart"},
+      {columnName:'cause',value:"Assault (homicide)"},
+      {columnName:'cause',value:"Malignant neoplasm of pancreas"},
+      {columnName:'cause',value:"Motor vehicle accidents"},
+      {columnName:'cause',value:"Chronic lower respiratory diseases"},
+      {columnName:'cause',value:"All other external causes"},
+      {columnName:'cause',value:"All other and unspecified accidents and adverse effects"},
+      {columnName:'cause',value:"Alzheimer's disease"},
+      {columnName:'cause',value:"Influenza and pneumonia"},
+      {columnName:'cause',value:"Human immunodeficiency virus (HIV) disease"},
+      {columnName:'cause',value:"Malignant neoplasms of urinary tract"},
+      {columnName:'cause',value:"Essential (primary) hypertension and hypertensive renal disease"},
+      {columnName:'cause',value:"Malignant neoplasm of stomach"},
+      {columnName:'cause',value:"All other diseases (Residual)"},
+      {columnName:'cause',value:"Cerebrovascular diseases"},
+      {columnName:'cause',value:"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified (excluding Sudden infant death syndrome)"},
+      {columnName:'cause',value:"Certain conditions originating in the perinatal period"},
+      {columnName:'cause',value:"Congenital malformations, deformations and chromosomal abnormalities"}
+    ], sex : [
+      {columnName:'sex',value:"None"},
+      {columnName:'sex',value:"Male"},
+      {columnName:'sex',value:"Female"}
+    ]
+  };
+
+
+
+    var race = ['black','white','hispanic'];
+
+
+    var sections = ["sex","age","cause"];
+    var topics = ["mortality"];
+
+    var parentContainer = "#putMeHere"
+    // var parentElement = $(parent);
+    var runMe;
+    //splice(' ',',')
+    var mydrop = createDropdownz(columns["risk"],"riskyCat");
+
+    mydrop.change(function(){
+      //value of dropdown
+      var b = mydrop.val();
+
+      $('#putMeHere').empty();
+      $('#putMeHere').append('<h2 class="embed-title"><a href="#mortality" name="income_gender">Mortality</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+
+      $("#DeloitteCustomButton").click(
+        function(){
+          $('#mysupermodal').modal().open();
+          // dusa_popover.open()
+        }
+    );
+      var myScatter = d3plus.viz()
+              .container('#putMeHere')
+              .type("bar")
+              .data(columns["risk"][b])
+              .id("sex")
+              .x("sex")
+              .y("value")
+              .color("sex")
+              .height(400)
+              .width(800)
+              .tooltip(["sex","value","ci-low","ci-high","sderror"])
+              .labels({"resize": false, "font": {"size": 13}})
+              .text(function(a,b,c,d){
+                if(a.d3plus_label && a.d3plus_label.names){
+                  // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
+                  return null;//it will output the id as the header within the hover menu with this null
+                }
+                return a.value + "% \n stdv(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
+              })
+              .font(5)
+              .legend({
+                "order": {
+                  "sort": "desc",
+                  "value": "size"
+                }
+              })
+              .draw()
+
+      var visualization = d3plus.viz()
+        .container('#putMeHere')
+        .data(columns["risk"][b])
+        .type("table")
+        .id("sex")
+        .shape("square")
+        .attrs([
+          {"sex": "male", "hex": "#000000"},
+          {"sex": "female", "hex": "#000000"}
+        ])
+        .color('hex')
+        .labels({"resize": false, "font": {"size": 13}})
+        .height(200)
+        .width(800)
+        .cols(["value","ci-low","ci-high","sderror"])
+        .draw();
+    });
+
+/*
+    $.getJSON('http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&column=cause&group=sex&group=age', { get_param: 'value' }, function(myData) {
+    // $.getJSON('http://ec2-52-90-94-195.compute-1.amazonaws.com/query/mortality?column=sex&column=age&group=sex', { get_param: 'value' }, function(myData) {
+
+          $.each(topics, function(index, topic) {
+              $.each(sections, function(index, section) {
+                var myContainerName = topic+'_'+section;
+
+                //graphic container is split into two sections, one for the filter and the other for the graph
+                var filterContainerName = myContainerName+'_filters';
+                var graphContainerName = myContainerName+'_graph';
+
+
+                $(parentContainer).append('<div id="'+myContainerName+'"><div id="'+filterContainerName+'"></div><br/><div id="'+graphContainerName+'"></div></div>');
+
+                //we add the graph to the graph container
+                var myScatter = d3plus.viz()
+                        .container('#'+graphContainerName)
+                        .type("bar")
+                        .data(myData.data)
+                        .id(section)
+                        .x(section)
+                        .y("count")
+                        .color(section)
+                        .height(400)
+                        .width(800)
+                        .draw()
+
+                var myFilter = [];
+
+                //dropdown creation
+                //We create multiple filters per each graph, all named after the sections [age,race,gender]
+                $.each(sections, function(index, sectionTwo) {
+                  if(section != sectionTwo){
+                    var myDropdown = createDropdown(myFilters[sectionTwo],filterContainerName,sectionTwo);
+                    myDropdown.change(function(){
+                      //value of dropdown
+                      var b = myDropdown.val();
+
+                      //remove previous filters for this sectionTwo (only one age filter allowed at once)
+                      var removeIndex = -1
+                      $.each(myFilter, function(filterIndex, filterRow) {
+                        if(filterRow.columnName == sectionTwo)
+                          removeIndex = filterIndex;
+                      });
+                      //if we found a filter on this category already then we remove it
+                      if(removeIndex >= 0)
+                        myFilter.splice(removeIndex,1);
+
+                      //add the new filter
+                      if(b != "None")
+                      myFilter.push({"columnName":sectionTwo,"value":b});
+                      //filter the data and populate the graph
+                      myScatter.data(filter(myData.data, myFilter)).draw();
+                    });
+                  }
+                });// end of dropdown creation
+              });//end of section loop
+          });//end of topic loop
+    });//end of load
+
+*/
+
+  </script>
+
+</html>

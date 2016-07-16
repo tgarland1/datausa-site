@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+
+<div id="viz"></div>
+
+<script>
+  var sample_data = [
+    {"value": 70, "name": "alpha"},
+    {"value": 100, "name": "beta"},
+    {"value": 15, "name": "gamma"},
+    {"value": 50, "name": "delta"},
+    {"value": 5, "name": "epsilon"},
+    {"value": 10, "name": "zeta"}
+  ]
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(sample_data)
+    .type("bar")
+    .id("name")
+    .color("name")
+    .x("name")
+    .y("value")
+    .legend({
+      "order": {
+        "sort": "desc",
+        "value": "size"
+      }
+    })
+    .draw()
+</script>
