@@ -893,7 +893,7 @@
     cursor: pointer; }
 
     .menu-content {
-      margin: 40px 50px 50px 50px;
+      margin: 20px 30px 30px 30px;
       text-align: left; }
       .menu-content li {
         margin: 0; }
@@ -915,7 +915,7 @@
               width: 14px; }
               .menu-content li ul li a {
                 margin-left: 13px;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 600;
                 letter-spacing: 0.05em;
                 line-height: 34px;
@@ -7802,7 +7802,7 @@ body.about #home-btn, body.story #home-btn, body.map #home-btn {
   cursor: pointer; }
 
   .menu-content {
-    margin: 40px 50px 50px 50px;
+    margin: 20px 30px 30px 30px;
     text-align: left; }
     .menu-content li {
       margin: 0; }
@@ -7824,7 +7824,7 @@ body.about #home-btn, body.story #home-btn, body.map #home-btn {
             width: 14px; }
             .menu-content li ul li a {
               margin-left: 13px;
-              font-size: 16px;
+              font-size: 14px;
               font-weight: 600;
               letter-spacing: 0.05em;
               line-height: 34px;
