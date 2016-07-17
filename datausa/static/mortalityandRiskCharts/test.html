@@ -31,7 +31,6 @@
 	    left: 0;
 	    right: 0;
 	    overflow-x: hidden;
-	    overflow-y: hidden;
 	}
 	body{
 		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -206,7 +205,6 @@
 
           <div id="specialEdits" class="col-sm-3 col-lg-3 text-left">
           <div class="topic-stats">
-          <br><br><br><br><br><br>
           <div class="col-sm-12">
           	
               <div class="col-sm-6">
@@ -222,7 +220,7 @@
               </div>
               </div>
               <div class="col-sm-12">
-                  <div class="stat-value stat-small">Here we see data and a comparison of the 
+                  <div class="stat-value stat-small">Here we see Claifornia data and a comparison of the 
                   	gender for the causes fo death in the mortality data.<span class="stat-text"></div>
                    <div class="stat-value stat-small sub-source">Dataset: 2014 CDC Mortality Data<Br>Source: Census Bureau</div>
               </div>
@@ -333,7 +331,7 @@
   		
       var createDropdown = function(myOptions,parentName,section,labelHolder,ddHolder){
       	capLable = section.toUpperCase()
-
+      	
         var parent = $('#'+parentName);
         var labelParent = $('#'+labelHolder);
         var filterParent = $('#'+ddHolder);
@@ -391,7 +389,7 @@
         var chartFilterLabel = myContainerName+'_label';
 
         //Set the title for the chart
-        $('#'+containerName).append('<h2 id="'+chartTitle+'theTItle" class="embed-title text-center"><a href="#chartOne" name="income_gender">'+chartTitle+'</a> <a href="#chartOne" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+        $('#'+containerName).append('<h2 class="embed-title text-center"><a href="#chartOne" name="income_gender">'+chartTitle+'</a> <a href="#chartOne" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
         
         // div to hold filter labels
         $('#'+containerName).append('<div id="'+chartFilterLabel+'" class="col-sm-12"></div>');
@@ -467,7 +465,6 @@
           }
         });// end of dropdown creation
       });//end of section loop
-      
   	};
   	
   	///////////////////////// Or

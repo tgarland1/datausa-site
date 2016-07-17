@@ -6,8 +6,6 @@
       padding: 0 25px
   }
 
- .selectize-input > input
-
 { padding: 0 !important;}
 
     #snip-container{
@@ -22,79 +20,18 @@
     text-transform: uppercase;
 
     }
+   #myEdit{
+   	width: 100%;
+   	height: 560px;
+   }
+   #frameDemo{
+   	position:relative;
+   }
 </style>
-
-    <div class="col-sm-12 col-md-12 text-left">
-    <header class="mortality prof-body" id="mortality-headr" style="padding-top: 10px">
-
-      <h2 class="section-title"><a href="#mortality" name="mortality">Mortality</a></h2>
-      <p>The Center for Disease Control collects mortality data over time.
-
-
-      <div class="row">
-        <div class="col-sm-4">
-            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#topicBox').slideToggle()">Topic</button>
-        </div>
-        <div class="col-sm-2">
-            <div class="demo-card-wide mdl-shadow--2dp" style="width:100%">
-                <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#raceBox').slideToggle()">Race</button>
-            </div>
-        </div>
-        <div class="col-sm-2">
-         <div class="demo-card-wide mdl-shadow--2dp" style="width:100%">
-            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#stateBox').slideToggle()">State</button>
-         </div>
-        </div>
-        <div class="col-sm-2">
-            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#genderBox').slideToggle()">Gender</button>
-        </div>
-        <div class="col-sm-2">
-            <button type="button" id="yrbsExecuteQuery" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
-              Execute Query
-            </button>
-
-        </div>
-        <div class="row spacer">
-
-        </div>
-        <div class="row spacer">
-
-        </div>
-    </div>
-    <br>
-    <br>
-    </header>
-    </div>
-
-    <article class="topic">
-      <h2 class="embed-title"> Mortality by Gender</h2>
-
-      <div class="col-sm-4">
-          <div class="topic-stats">
-          <div class="col-sm-12">
-              <div class="col-sm-6">
-              <div class="stat">
-                <div class="stat-text">2014 Male Deaths</div>
-                <div class="stat-value">6,000,000</div>
-              </div>
-              </div>
-              <div class="col-sm-6">
-              <div class="stat">
-                <div class="stat-text">2014 Female Deaths</div>
-                <div class="stat-value">6,000,000</div>
-              </div>
-              </div>
-              <div class="col-sm-12">
-                  <div class="stat-value stat-small">This chart is displaying a comparison of the overall smoking (mortality) rates between males and females among the population of the state of California<span class="stat-text"></span> AAAA</div>
-              </div>
-            </div>
-
-          </div>
-      </div>
-          <div id="test" class="col-sm-8">
-              <iframe src="http://127.0.0.1:5000/static/mortalityandRiskCharts/index.html" background="black" width="100%" height="500" id="frameDemo"></iframe>
-          </div>
-    </article>
+<div id="myEdit" class="col-sm-12 col-md-12">
+	<iframe src="http://52.205.71.146/static/mortalityandRiskCharts/index.html" background="black" width="100%" height="560" id="frameDemo"></iframe>
+	<!--<img src="http://127.0.0.1:5000/static/test.JPG">-->
+</div>
 
 <script>
 

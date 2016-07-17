@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>D3plus</title>
+    <!-- loading D3plus JS file -->
+    <script src="./jquery-2.2.2.min.js"></script>
+    <script src="./data/mortality.js"></script>
+    <script src="js/d3plus.full.min.js"></script>
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-them.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap_3_3_6.js"></script>
+	<!-- css style -->
+	<link type="text/css" rel="stylesheet" media="all" href="../css/site.css?v=28" />
+    <link type="text/css" rel="stylesheet" media="all" href="../css/font-awesome-4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<style>
+	html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+	body.profile {
+	    position: relative;
+	    left: 0;
+	    right: 0;
+	    overflow-x: hidden;
+	}
+	body{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	    font-size: 14px;
+	    line-height: 1.42857143;
+	    color: #333;
+	    background-color: #fff;
+	}
+	body a{
+    color: #333;
+    opacity: 1;
+	}
+	body.profile .profile-section, body.map .profile-section, body.story .profile-section {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    flex-pack: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 25px;
+    width: 100vw;
+}
+	body p {
+	    display: block;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    font-family: "Palanquin", sans-serif;
+	    font-size: 15px;
+	    line-height: 1.6;
+	    font-weight: 400;
+	    color: rgba(51, 51, 51, 0.93);
+	}
+	.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	    font-family: inherit;
+	    font-weight: 500;
+	    line-height: 1.1;
+	    color: inherit;
+	}
+	h2 {
+	    display: block;
+	    font-size: 1.5em;
+	    -webkit-margin-before: 0.83em;
+	    -webkit-margin-after: 0.83em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    font-weight: bold;
+	}
+	 .topic{
+	 	-webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-box-flex: 1 1 100%;
+	    -moz-box-flex: 1 1 100%;
+	    -webkit-flex: 1 1 100%;
+	    -ms-flex: 1 1 100%;
+	    flex: 1 1 100%;
+	    margin: 0;
+	    min-width: 100%;
+	    padding: 0 25px 50px;
+	 } 
+		 body.profile .profile-section .topic, body.map .profile-section .topic, body.story .profile-section .topic {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-box-flex: 1 1 100%;
+	    -moz-box-flex: 1 1 100%;
+	    -webkit-flex: 1 1 100%;
+	    -ms-flex: 1 1 100%;
+	    flex: 1 1 100%;
+	    margin: 0;
+	    min-width: 100%;
+	    padding: 0 25px 50px;
+	}
+	 body.profile .topic h2, body.map .topic h2, body.story .topic h2 {
+	    font-family: "Pathway Gothic One", sans-serif;
+	    font-size: 30px;
+	    font-weight: 400;
+	    color: #333;
+	    text-transform: none;
+	    font-style: normal;
+	    letter-spacing: 0;
+	    position: relative;
+	}
+	.section-title {
+	    font-family: "Pathway Gothic One", sans-serif;
+	    font-size: 47px;
+	    font-weight: 300;
+	    line-height: 1;
+	    letter-spacing: 0.02em;
+	    text-transform: uppercase;
+	}
+	body.profile .profile-section, body.map .profile-section, body.story .profile-section {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    flex-pack: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 25px;
+    width: 100vw;
+}
+
+	#mortality-headr{
+      background-color: #FFFFFF;
+      flex-wrap: wrap;
+      padding: 0 25px
+  	}
+
+    #snip-container{
+        width : 100vw;
+    }
+    .item {
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: "Palanquin", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    }
+    #specialEdits{
+    	margin-left: -43px;
+    }
+    body.profile .topic .sub-source, body.map .topic .sub-source, body.story .topic .sub-source {
+	    display: block;
+	    color: #a8a8a8;
+	    font-family: "Palanquin", sans-serif;
+	    font-size: 12px;
+	    font-weight: 400;
+	    line-height: 1.5;
+	}
+	#labelFormat{
+		margin-left: 18%;
+	}
+	</style>
+  </head>
+
+  <body class="profile geo">
+  <section class="profile-section">
+  	 <article class="topic">
+  	 	
+      <h2 class="embed-title"> Risk Behavior</h2>
+          <div id="specialEdits" class="col-sm-3 col-lg-3 text-left">
+          <div id="riskyCat"></div>
+          <br>
+          <div class="topic-stats">
+          <div class="col-sm-12">
+          	
+              <div class="col-sm-6">
+              <div class="stat">
+                <div class="stat-text">2014</div>
+                <!--<div class="stat-value">6,000,000</div>-->
+              </div>
+              </div>
+              <div class="col-sm-6">
+              <div class="stat">
+                <!--<div class="stat-text">2014</div>-->
+                <!--<div class="stat-value">6,000,000</div>-->
+              </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="stat-value stat-small">Here we see Claifornia data and a comparison of the 
+                  	gender for the causes fo death in the mortality data.<span class="stat-text"></div>
+                   <div class="stat-value stat-small sub-source">Dataset: 2014 CDC Mortality Data<Br>Source: Census Bureau</div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+          <div id="test2" class="col-sm-8 col-md-8 col-lg-8">
+          	<div id="holdTheCharts"></div>
+          </div>
+    </article>
+
+  </section>
+  </body>
+  <script>
+
+    //Creates the dropdown for risky behavior
+    var createRiskyBehaviorCharts = function(graphicContainer,riskDropdownContainer){
+      //Was going to build this out for more than risk but...
+      //This container holds all the risk related data that appears in the dropdown
+      //and also the data that appears in each of the charts based on the dropdown selection
+      var columns = {
+        "risk" : {
+          "None":[],
+          "Current tobacco use" : [
+            {"sex":"female","value":23.8,"ci-low":18.2,"ci-high":30.6,"sderror":2.9},
+            {"sex":"male","value":30.7,"ci-low":25.5,"ci-high":30.4,"sderror":2.6}
+          ],
+          "Current alcohol use" : [
+            {"sex":"female","value":31,"ci-low":25.7,"ci-high":36.8,"sderror":2.6},
+            {"sex":"male","value":26.9,"ci-low":21.1,"ci-high":33.6,"sderror":2.9}
+          ]
+        }
+      };
+
+
+      //Creates the dropdown for risky behavior
+      //Add more risky behaviors by adding elements to var columns.risky["name of new risky behavior"] = [{}{}]
+      //use the same column names [sex,value,ci-low,ci-high,sderror]
+      var createDropdownz = function(myOptions,parentName){
+        var parent = $('#'+parentName);
+        parent.append('<select id="'+parentName+'_selector" class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"></select>');
+
+        var mySelect = $('#'+parentName+'_selector');
+
+        $.each(myOptions, function(optionIndex, optionObject) {
+            mySelect.append(
+                $('<option></option>').val(optionIndex).html(optionIndex)
+            );
+        });
+        return mySelect;
+      };
+
+    var mydrop = createDropdownz(columns["risk"],riskDropdownContainer);
+
+    //When you change the dropdown for risky behavior this will adjust the charting below
+    mydrop.change(function(){
+
+      //value of dropdown
+      var b = mydrop.val();
+      $('#'+graphicContainer).empty();
+
+      if(b!="None"){
+        //Remo`ves previous risky behavior charting
+
+        //Append the options button here
+        $('#'+graphicContainer).append('<h2 class="embed-title text-center"><a href="#mortality" name="income_gender">Gender</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+
+        var myScatter = d3plus.viz()
+                .container('#'+graphicContainer)
+                .type("bar")
+                .data(columns["risk"][b])
+                .id("sex")
+                .x("sex")
+                .y("value")
+                .color("sex")
+                .height(400)
+                .width(800)
+                .tooltip(["sex","value","ci-low","ci-high","sderror"])
+                .labels({"resize": false, "font": {"size": 13}})
+                .text(function(a,b,c,d){
+                  if(a.d3plus_label && a.d3plus_label.names){
+                    // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
+                    return null;//it will output the id as the header within the hover menu with this null
+                  }
+                  return a.value + "% \n stdv(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
+                })
+                .font(5)
+                .legend({
+                  "order": {
+                    "sort": "desc",
+                    "value": "size"
+                  }
+                })
+                .draw()
+
+          var visualization = d3plus.viz()
+            .container('#'+graphicContainer)
+            .data(columns["risk"][b])
+            .type("table")
+            .id("sex")
+            .shape("square")
+            .attrs([
+              {"sex": "male", "hex": "#000000"},
+              {"sex": "female", "hex": "#000000"}
+            ])
+            .color('hex')
+            .labels({"resize": false, "font": {"size": 13}})
+            .height(200)
+            .width(800)
+            .cols(["value","ci-low","ci-high","sderror"])
+            .draw();
+        }
+    });
+  };
+
+  createRiskyBehaviorCharts("holdTheCharts","riskyCat");
+
+  </script>
+
+</html>
