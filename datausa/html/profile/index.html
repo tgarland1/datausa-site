@@ -65,21 +65,21 @@
 
       <div class="splash-icon-nav">
         <a href="#intro" data-ga="splash intro" data-ga-cat="navigation" data-ga-label="User click" alt="About">
-          <img src="/static/img/icons/about.svg" />
+          <img src="http://imgh.us/about_3.svg" />
           <span>About</span>
         </a>
         <a href="#mortality" data-ga="splash mortality" data-ga-cat="navigation" data-ga-label="User click" alt="Mortality">
-          <img src="/static/img/icons/mortality.svg" />
+          <img src="http://imgh.us/mortality.svg" />
           <span>Mortality</span>
         </a>
         <a href="#risky" data-ga="splash risky" data-ga-cat="navigation" data-ga-label="User click" alt="Risky">
-          <img src="/static/img/icons/risky.svg" />
+          <img src="http://imgh.us/risky.svg" />
           <span>Risky Behavior</span>
         </a>
         {% for section in sections %}
         {% if section.anchor != 'Economy' and section.title != 'Education' and section.title != 'Housing' %}
         <a href="#{{ section.anchor }}" data-ga="splash {{ section.title|safe|lower }}" data-ga-cat="navigation" data-ga-label="User click">
-          <img src="/static/img/icons/{{ section.anchor }}.svg" />
+          <img src="http://imgh.us/{{ section.anchor }}.svg" />
           <span>{{ section.title|safe }}</span>
         </a>
         {% endif %}
@@ -212,6 +212,8 @@
 
   <div id="profile-nav">
     <ul class="pri-menu">
+      <a href="#mortality" data-ga="subnav mortality" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="mortality" class="pri-link"><img src="http://imgh.us/mortality.svg" /><span class="profile-nav-text">Mortality</span></li></a>
+      <a href="#risky" data-ga="subnav mortality" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="risky" class="pri-link"><img src="http://imgh.us/risky.svg" /><span class="profile-nav-text">Risky Behavior</span></li></a>
     {% for section in sections %}
       <a href="#{{ section.anchor }}" data-ga="subnav {{ section.anchor }}" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="{{ section.anchor }}" class="pri-link"><img src="/static/img/icons/{{ section.anchor }}.svg" /><span class="profile-nav-text">{{ section.title|safe }}</span></li></a>
     {% endfor %}
