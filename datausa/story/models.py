@@ -29,7 +29,7 @@ class StoryPreview(object):
         if not self.date:
             self.date = date_from_filename(filename)
         self._date_obj = parser.parse(self.date)
-        self.date = self._date_obj.strftime("%B %d, %Y")
+        self.date = self._date_obj.strftime("%B %-d, %Y")
         self.authors = story_conf['authors'] if 'authors' in story_conf else []
         self.background_image = story_conf['background_image'] if 'background_image' in story_conf else None
 
@@ -68,7 +68,7 @@ class Story(Profile):
         if not self.date:
             self.date = date_from_filename(attr_id)
         self._date_obj = parser.parse(self.date)
-        self.date = self._date_obj.strftime("%B %d, %Y")
+        self.date = self._date_obj.strftime("%B %-d, %Y")
         self.authors = story_conf['authors'] if 'authors' in story_conf else []
         self.background_image = story_conf['background_image'] if 'background_image' in story_conf else None
 
