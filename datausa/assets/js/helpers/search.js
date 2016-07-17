@@ -76,7 +76,7 @@ var search = {
     "naics": null,
     "geo": "040"
   },
-  "depth": null,
+  "depth": "040",
   "max": 10,
   "nesting": {
     "cip": [0, 1, 2],
@@ -122,10 +122,10 @@ search.reload = function() {
   if(this.type){
     d3.select(".clear").style("display", "inline-block")
   }
-
+  console.log(this.term);
   var query_sumlevel = !this.term && this.depth ? "&sumlevel=040" : "";
   var query_is_stem = this.stem_only ? "&is_stem=2" : "";
-  load(api + "/attrs/search?limit=100&q="+this.term+"&kind="+this.type+query_is_stem+query_sumlevel, function(data, url, raw) {
+  load(api + "/attrs/search?limit=100&q="+this.term+"&kind="+this.type+query_is_stem+"&sumlevel=040", function(data, url, raw) {
     // console.log(data, url, raw)
     // console.log(url)
 
@@ -213,7 +213,7 @@ search.btnExplore = function(d) {
   var xtra = search_item.append("div").attr("class", 'xtra');
 
   // set thumbnail
-  thumb.append("img").attr("src", "/static/img/icons/"+d.kind+"_c.svg")
+  thumb.append("img").attr("src", "http://imgh.us/geo_c.svg")
 
   // set info
   var title = info.append("h2")
@@ -242,7 +242,7 @@ search.btnExplore = function(d) {
       li.append("a")
         .attr("href", "/profile/" + d.kind + "/" + prettyUrl(d) + "/#" + anchor.anchor)
         .append("img")
-        .attr("src", "/static/img/icons/" + anchor.anchor + ".svg")
+        .attr("src", "http://imgh.us/geo_c.svg")
         .on("click", function(){ d3.event.stopPropagation(); })
       li.append("a")
         .attr("href", "/profile/" + d.kind + "/" + prettyUrl(d) + "/#" + anchor.anchor)
@@ -264,7 +264,7 @@ search.btnProfile = function(d) {
   var search_item = d3.select(this).attr("href", function(d){
                       return "/profile/" + d.kind + "/" + prettyUrl(d) + "/";
                     });
-  search_item.append("img").attr("src", "/static/img/icons/" + d.kind + "_c.svg")
+  search_item.append("img").attr("src", "http://imgh.us/geo_c.svg")
   var search_item_text = search_item.append("div").attr("class", "search-item-t")
   search_item_text.append("h2").text(d.display);
   search_item_text.append("p").attr("class", "subtitle").text(function(d){
@@ -290,7 +290,7 @@ search.back = function(index) {
     var previous = this.history[index];
     this.history = this.history.slice(0, index);
     this.parents = previous.parents;
-    this.current_depth[this.type] = previous.depth;
+    this.current_depth[this.type] = "040";
     this.reload();
   }
 }
