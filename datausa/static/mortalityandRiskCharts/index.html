@@ -1,36 +1,252 @@
 <!doctype html>
 <html>
-
   <head>
     <title>D3plus</title>
     <!-- loading D3plus JS file -->
-
-    <!-- <script src="./jquery-3.1.0.min.js"></script> -->
-
     <script src="./jquery-2.2.2.min.js"></script>
-
     <script src="./data/mortality.js"></script>
     <script src="https://d3plus.org/js/d3plus.full.min.js"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- css style -->
+	<link type="text/css" rel="stylesheet" media="all" href="../css/site.css?v=28" />
+    <link type="text/css" rel="stylesheet" media="all" href="../css/font-awesome-4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+	<style>
+	html {
+	    font-size: 10px;
+	    -webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+	body.profile {
+	    position: relative;
+	    left: 0;
+	    right: 0;
+	    overflow-x: hidden;
+	}
+	body{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	    font-size: 14px;
+	    line-height: 1.42857143;
+	    color: #333;
+	    background-color: #fff;
+	}
+	body a{
+	    color: #333;
+	    opacity: 1;
+	}
+	body.profile .profile-section, body.map .profile-section, body.story .profile-section {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-justify-content: center;
+	    -moz-justify-content: center;
+	    justify-content: center;
+	    -ms-flex-pack: center;
+	    flex-pack: center;
+	    display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-flex-direction: row;
+	    -moz-flex-direction: row;
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	    -webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	    padding: 0 25px;
+	    width: 100vw;
+}
+	body p {
+	    display: block;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    font-family: "Palanquin", sans-serif;
+	    font-size: 15px;
+	    line-height: 1.6;
+	    font-weight: 400;
+	    color: rgba(51, 51, 51, 0.93);
+	}
+	.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	    font-family: inherit;
+	    font-weight: 500;
+	    line-height: 1.1;
+	    color: inherit;
+	}
+	h2 {
+	    display: block;
+	    font-size: 1.5em;
+	    -webkit-margin-before: 0.83em;
+	    -webkit-margin-after: 0.83em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    font-weight: bold;
+	}
+	 .topic{
+	 	-webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-box-flex: 1 1 100%;
+	    -moz-box-flex: 1 1 100%;
+	    -webkit-flex: 1 1 100%;
+	    -ms-flex: 1 1 100%;
+	    flex: 1 1 100%;
+	    margin: 0;
+	    min-width: 100%;
+	    padding: 0 25px 50px;
+	 } 
+		 body.profile .profile-section .topic, body.map .profile-section .topic, body.story .profile-section .topic {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-box-flex: 1 1 100%;
+	    -moz-box-flex: 1 1 100%;
+	    -webkit-flex: 1 1 100%;
+	    -ms-flex: 1 1 100%;
+	    flex: 1 1 100%;
+	    margin: 0;
+	    min-width: 100%;
+	    padding: 0 25px 50px;
+	}
+	 body.profile .topic h2, body.map .topic h2, body.story .topic h2 {
+	    font-family: "Pathway Gothic One", sans-serif;
+	    font-size: 30px;
+	    font-weight: 400;
+	    color: #333;
+	    text-transform: none;
+	    font-style: normal;
+	    letter-spacing: 0;
+	    position: relative;
+	}
+	.section-title {
+	    font-family: "Pathway Gothic One", sans-serif;
+	    font-size: 47px;
+	    font-weight: 300;
+	    line-height: 1;
+	    letter-spacing: 0.02em;
+	    text-transform: uppercase;
+	}
+	body.profile .profile-section, body.map .profile-section, body.story .profile-section {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-justify-content: center;
+	    -moz-justify-content: center;
+	    justify-content: center;
+	    -ms-flex-pack: center;
+	    flex-pack: center;
+	    display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-flex-direction: row;
+	    -moz-flex-direction: row;
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	    -webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	    padding: 0 25px;
+	    width: 100vw;
+	}
+	#mortality-headr{
+      background-color: #E9E9E9;
+      flex-wrap: wrap;
+      padding: 0 25px
+  	}
+    #snip-container{
+        width : 100vw;
+    }
+    .item {
+	    font-size: 14px;
+	    letter-spacing: 1px;
+	    font-family: "Palanquin", sans-serif;
+	    font-weight: 400;
+	    text-transform: uppercase;
+    }
+	</style>
   </head>
+  <body class="profile geo">
+  <section class="profile-section">
+  <div class="col-sm-12 col-md-12 text-left">
+    <header class="mortality prof-body" id="mortality-headr" style="padding-top: 10px">
 
-  <body>
+      <h2 class="section-title"><a href="#mortality" name="mortality">Mortality</a></h2>
+      <p>The Center for Disease Control collects mortality data over time.
 
+      <div class="row">
+        <div class="col-sm-4">
+            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#topicBox').slideToggle()">Cause</button>
+        </div>
+        <div class="col-sm-2">
+            <div class="demo-card-wide mdl-shadow--2dp" style="width:100%">
+                <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#raceBox').slideToggle()">Age</button>
+            </div>
+        </div>
+        <div class="col-sm-2">
+         <div class="demo-card-wide mdl-shadow--2dp" style="width:100%">
+            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#stateBox').slideToggle()">Race</button>
+         </div>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " onclick="$('#genderBox').slideToggle()">Gender</button>
+        </div>
+        <div class="row spacer">
 
-    <div id="mortalityCharts"></div>
+        </div>
+        <div class="row spacer">
+
+        </div>
+    </div>
+    <br>
+    <br>
+    </header>
+    </div>
+        <article class="topic">
+      <h2 class="embed-title"> Mortality by Gender</h2>
+
+          <div class="col-sm-4">
+          <div class="topic-stats">
+          <div class="col-sm-12">
+              <div class="col-sm-6">
+              <div class="stat">
+                <div class="stat-text">2014 Male Deaths</div>
+                <div class="stat-value">6,000,000</div>
+              </div>
+              </div>
+              <div class="col-sm-6">
+              <div class="stat">
+                <div class="stat-text">2014 Female Deaths</div>
+                <div class="stat-value">6,000,000</div>
+              </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="stat-value stat-small">This chart is displaying a comparison of the overall smoking (mortality) rates between males and females among the population of the state of California<span class="stat-text"></span> AAAA</div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+          <div id="test" class="col-sm-8">
+          	<div id="mortalityCharts"></div>
+          </div>
+    </article>
+  </section>
   </body>
 
   <script>
-
     //currentState can be set to null
     //  it only changes the text of the [currentState] within the tree-map
     var createMortalityCharts = function(containerName,currentState){
@@ -38,8 +254,8 @@
       //We create a dropdown under "parentName" and return the newly added object to reference later
       var createDropdown = function(myOptions,parentName,section){
         var parent = $('#'+parentName);
-        parent.append('<label for="'+parentName+'_'+section+'_selector">'+section+'</select>')
-        parent.append('<select id="'+parentName+'_'+section+'_selector"></select>')
+        parent.append('<label for="'+parentName+'_'+section+'_selector">'+section+'</select>');
+        parent.append('<select id="'+parentName+'_'+section+'_selector"></select>');
 
         var mySelect = $('#'+parentName+'_' +section+'_selector');
 
@@ -49,7 +265,7 @@
             );
         });
         return mySelect;
-      }
+      };
       //Filter used onChange for each of the dropdowns
       //Returns new array of filtered data
       var filter = function(data, myFilters){
@@ -67,6 +283,7 @@
       };
 
         //List of Sections and their filters
+        //DELECT array items to change the number of charts displayed
         var sections = ["sex","age","cause","race","state_name"];
 
         //Creates selectable items found in dropdowns per each section
@@ -153,6 +370,7 @@
       };
 
       $.each(sections, function(index, section) {
+      	console.log(index, section);
         //create an id
         var myContainerName = 'mortality_'+section;
 
@@ -180,7 +398,7 @@
                     .color(section)
                     .height(300)
                     .width(800)
-                    .draw()
+                    .draw();
           }else{
 
             myScatter = d3plus.viz()
@@ -193,7 +411,7 @@
                     .color(section)
                     .height(400)
                     .width(800)
-                    .draw()
+                    .draw();
           }
         }else{
           //Creates a treemap
@@ -212,8 +430,8 @@
               }
               return a.state_name + (a.state_name==currentState?"*":"");
             })
-            .draw()             // finally, draw the visualization!
-        }
+            .draw()   ;          // finally, draw the visualization!
+        };
 
         var myFilter = [];
 
@@ -227,7 +445,7 @@
               var b = myDropdown.val();
 
               //remove previous filters for this sectionTwo (only one age filter allowed at once)
-              var removeIndex = -1
+              var removeIndex = -1;
               $.each(myFilter, function(filterIndex, filterRow) {
                 if(filterRow.columnName == sectionTwo)
                   removeIndex = filterIndex;
@@ -245,12 +463,11 @@
           }
         });// end of dropdown creation
       });//end of section loop
-    }//end of create charts
-
-
-
+    };//end of create charts
+    
     //Create Mortality charts within specified container id
     createMortalityCharts('mortalityCharts','California');
+    
   </script>
 
 </html>
