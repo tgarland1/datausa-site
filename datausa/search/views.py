@@ -26,4 +26,5 @@ def get_img(attr_kind, attr_id, mode="thumb"):
                 break
     static_root_url = SPLASH_IMG_DIR.format(mode, attr_kind)
     img_url = static_root_url.format(mode, attr_kind) + "{}.jpg".format(my_id)
+    img_url = 'http://imgh.us/geo_c.svg'
     return redirect(img_url)

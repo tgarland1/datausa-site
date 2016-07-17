@@ -6,25 +6,25 @@ var attrs_meta = {
         "name": "State",
         "id": "040",
         "children": ["050", "310", "160", "795"]
-      },
-      {
-        "name": "County",
-        "id": "050",
-        "children": ["160"]
-      },
-      {
-        "name": "Metro Area",
-        "id": "310",
-        "children": ["050", "160"]
-      },
-      {
-        "name": "Place",
-        "id": "160"
-      },
-      {
-        "name": "PUMA",
-        "id": "795"
       }
+      //{
+      //  "name": "County",
+      //  "id": "050",
+      //  "children": ["160"]
+      //},
+      //{
+      //  "name": "Metro Area",
+      //  "id": "310",
+      //  "children": ["050", "160"]
+      //},
+      //{
+      //  "name": "Place",
+      //  "id": "160"
+      //},
+      //{
+      //  "name": "PUMA",
+      //  "id": "795"
+      //}
     ]
   },
   "naics": {
@@ -58,7 +58,7 @@ for (var attr_type in attrs_meta){
   sumlevels_cy_id[attr_type] = {}
   attrs_meta[attr_type]["sumlevels"].forEach(function(sumlevel){
     sumlevel.results = 0
-    sumlevels_cy_id[attr_type][sumlevel["id"]] = sumlevel
+    sumlevels_cy_id[attr_type][sumlevel["id"]] = "040"
   })
 }
 
@@ -74,7 +74,7 @@ var search = {
     "cip": null,
     "soc": null,
     "naics": null,
-    "geo": null
+    "geo": "040"
   },
   "depth": null,
   "max": 10,
@@ -82,7 +82,7 @@ var search = {
     "cip": [0, 1, 2],
     "naics": [0, 1, 2],
     "soc": [0, 1, 2, 3],
-    "geo": ["040", "050", "310", "160", "860", "795", "140"]
+    "geo": ["040"]
   },
   "parents": [],
   "stem_only": null,
@@ -123,7 +123,7 @@ search.reload = function() {
     d3.select(".clear").style("display", "inline-block")
   }
 
-  var query_sumlevel = !this.term && this.depth ? "&sumlevel="+this.depth : "";
+  var query_sumlevel = !this.term && this.depth ? "&sumlevel=040" : "";
   var query_is_stem = this.stem_only ? "&is_stem=2" : "";
   load(api + "/attrs/search?limit=100&q="+this.term+"&kind="+this.type+query_is_stem+query_sumlevel, function(data, url, raw) {
     // console.log(data, url, raw)
@@ -279,7 +279,7 @@ search.filter = function(data) {
     data = data.filter(function(d){ return d.kind == this.type; }.bind(this))
   }
   if(this.depth){
-    data = data.filter(function(d){ return d.sumlevel == this.depth; }.bind(this))
+    data = data.filter(function(d){ return d.sumlevel == "040"; }.bind(this))
   }
   return data;
 }
@@ -349,7 +349,7 @@ search.update_refine = function(data){
       attr_div.select("h2 a").classed("no-results", false);
       attr_div.classed("no-results", false);
 
-      var sumlevel_a = attr_div.select("a[data-depth='"+d.sumlevel+"']");
+      var sumlevel_a = attr_div.select("a[data-depth='"+"040"+"']");
       sumlevel_a.classed("no-results", false);
       var sumlevel_span = sumlevel_a.select(".num_res");
       if(!sumlevel_span.empty()){
