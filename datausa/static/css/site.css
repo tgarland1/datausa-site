@@ -3406,7 +3406,7 @@
       -webkit-transition: background-color 0.75s;
       transition: background-color 0.75s; }
       body.profile #top-nav.filled {
-        background-color: #141b2e;
+        background-color: #20142E;
         border-bottom: 1px solid #141b2e;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -3445,7 +3445,7 @@
                 font-weight: 700; }
     body.profile nav #top-nav #search-btn #nav-search-input ~ #search-simple-nav,
     body.profile nav #top-nav #search-btn #nav-search-input ~ #search-simple-nav::before {
-      background-color: #141b2e;
+      background-color: #20142E;
       -moz-transition: all 0.75s;
       -o-transition: all 0.75s;
       -webkit-transition: all 0.75s;
@@ -3453,7 +3453,7 @@
     body.profile nav ~ #search-simple-nav .results-show-all {
       border-top: 1px solid #727682; }
       body.profile nav.filled #top-nav #search-btn #nav-search-input {
-        background-color: #434958;
+        background-color: #20142E;
         border: 2px solid rgba(255, 255, 255, 0); }
         body.profile nav.filled #top-nav #search-btn #nav-search-input::-webkit-input-placeholder {
           color: #fff;
@@ -3473,7 +3473,7 @@
                 opacity: 0.7; }
       body.profile nav.filled #top-nav #search-btn #nav-search-input ~ #search-simple-nav,
       body.profile nav.filled #top-nav #search-btn #nav-search-input ~ #search-simple-nav::before {
-        background-color: #434958; }
+        background-color: #20142E; }
 
   body.profile #profile-nav, body.map #profile-nav, body.story #profile-nav {
     background-color: #20142E; }
@@ -10389,7 +10389,7 @@ body.profile {
       background-color: #434958; }
 
 body.profile #profile-nav, body.map #profile-nav, body.story #profile-nav {
-  background-color: #141b2e; }
+  background-color: #20142E; }
   body.profile .stat-value a, body.map .stat-value a, body.story .stat-value a {
     color: #666;
     border-bottom: 1px solid transparent;
@@ -11267,7 +11267,7 @@ body.profile #stats-bar, body.map #stats-bar, body.story #stats-bar {
   margin-left: auto;
   overflow: hidden;
   z-index: 2;
-  background-color: #141b2e;
+  background-color: #20142E;;
   color: #979AA2;
   -moz-transition: top 0.5s, box-shadow 0.5s;
   -o-transition: top 0.5s, box-shadow 0.5s;
