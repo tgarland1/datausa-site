@@ -7,7 +7,6 @@
 		<script src="./data/mortality.js"></script>
 		<script src="js/d3plus.full.min.js"></script>
 
-<<<<<<< HEAD
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="css/bootstrap-them.min.css">
 
@@ -17,27 +16,6 @@
 		<link type="text/css" rel="stylesheet" media="all" href="../css/site.css?v=28" />
 		<link type="text/css" rel="stylesheet" media="all" href="../css/font-awesome-4.3.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
-=======
-  <head>
-    <title>D3plus</title>
-    <!-- loading D3plus JS file -->
-    <script src="./jquery-2.2.2.min.js"></script>
-    <script src="./data/mortality.js"></script>
-    <script src="./js/d3plus.min.js"></script>
-    
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="css/bootstrap-them.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="./js/bootstrap.js"></script>
-	<!-- css style -->
-	<link type="text/css" rel="stylesheet" media="all" href="../css/site.css?v=28" />
-    <link type="text/css" rel="stylesheet" media="all" href="../css/font-awesome-4.3.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
->>>>>>> origin/master
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -263,12 +241,11 @@
 			<article id="myTopic" class="topic">
 				<header class="mortality prof-body" id="mortality-headr">
 
-					<h2 class="section-title"><a href="#mortality" name="mortality">Risk Behavior</a></h2>
-					<p>
-						The Center for Disease Control collects mortality data over time.
+					<h2 class="section-title"><a href="#mortality" name="mortality">YRBS Risky Behavior</a></h2>
+					<p>The Yourth Risk Behavior Surveillance System (YRBSS) monitors six types of health-risk behaviors that contribue to the leading causes of death and disability aong youtha nd adults.</p>
 				</header>
 				</div>
-				<h2 class="embed-title"> Risk Behavior</h2>
+				<h2 class="embed-title">Risky Behavior by Sex</h2>
 				<div id="specialEdits" class="col-sm-3 col-lg-3 text-left">
 					<div id="riskyCat"></div>
 					<br>
@@ -291,13 +268,14 @@
 							</div>
 							<div class="col-sm-12">
 								<div class="stat-value stat-small">
-									Here we see Claifornia data and a comparison of the
-									gender for the causes fo death in the mortality data.<span class="stat-text">
+									Here we see data and a comparison of the sex for selected Risky Behaviors
+									for 2015 YRBS Data. All data displays the appropriate confidence intervals and 
+									standard errors associated with the data<span class="stat-text">
 								</div>
 								<div class="stat-value stat-small sub-source">
-									Dataset: 2014 CDC Mortality Data
+									Dataset: 2015 YRBS Risky Behavior Data
 									<Br>
-									Source: Census Bureau
+									Source: Centers for Disease Control & Prevention
 								</div>
 							</div>
 						</div>
@@ -363,7 +341,7 @@
         //Remo`ves previous risky behavior charting
 
         //Append the options button here
-        $('#'+graphicContainer).append('<h2 class="embed-title text-center"><a href="#mortality" name="income_gender">Gender</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+        $('#'+graphicContainer).append('<h2 class="embed-title text-center"><a href="#mortality" name="income_gender">SEX</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
 
         var myScatter = d3plus.viz()
                 .container('#'+graphicContainer)
@@ -375,7 +353,6 @@
                 .color("sex")
                 .height(400)
                 .width(800)
-                .background("#F6F6F6").axes({"background": {"color":"#F6F6F6"}})
                 .tooltip(["sex","value","ci-low","ci-high","sderror"])
                 .labels({"resize": false, "font": {"size": 13}})
                 .text(function(a,b,c,d){
@@ -400,14 +377,11 @@
             .type("table")
             .id("sex")
             .shape("square")
-			.color(function(d){
-						if(d.sex == "Male"){
-							return "#C6C7CA";
-						}
-						else{
-							return "#ef6145";
-						}
-					}).background("#F6F6F6").axes({"background": {"color":"a8a8a8"}}) 
+            .attrs([
+              {"sex": "male", "hex": "#000000"},
+              {"sex": "female", "hex": "#000000"}
+            ])
+            .color('hex')
             .labels({"resize": false, "font": {"size": 13}})
             .height(200)
             .width(800)
