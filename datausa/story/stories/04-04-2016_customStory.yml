@@ -5,10 +5,10 @@ authors:
   - name: "Megan Summers"
 topics:
   - description:
-      - "By now, every thinking person should be aware of the consequences of tobacco use, of all types and usages.   Cigarette smoking is responsible for more than 480,000 deaths per year in the United States -- about one in five deaths annually, or 1,300 deaths every day.1 Beyond deaths, smoking-related illness in the United States costs more than $300 billion each year:1,4 Further, tobacco use and addiction mostly begin during youth and young adulthood (5,2)."
-      - "The best approaches for reducing teen smoking are advertising and raising the cost of tobacco products. All 50 states and the District of Columbia (DC) have tobacco control programs that are funded through various revenue streams, including tobacco industry settlements and excise taxes.  However, states are only spending a minor fraction of the tobacco-related revenues on tobacco control and cessation programs.  For example, in 2010, states spent an average of 2.6 percent of the roughly $24 billion in tobacco revenues (including tobacco settlement funds) on such programs."
+      - "By now, every thinking person should be aware of the consequences of tobacco use, of all types and usages.   Cigarette smoking is responsible for more than 480,000 deaths per year in the United States -- about one in five deaths annually, or 1,300 deaths every day.2 Beyond deaths, smoking-related illness in the United States costs more than $300 billion each year.(1,4)  Further, tobacco use and addiction mostly begin during youth and young adulthood.(3,2)"
+      - "The best approaches for reducing teen smoking are advertising and raising the cost of tobacco products.(5,6) All 50 states and the District of Columbia (DC) have tobacco control programs that are funded through various revenue streams, including tobacco industry settlements and excise taxes.  However, states are only spending a minor fraction of the tobacco-related revenues on tobacco control and cessation programs.  For example, in 2010, states spent on average of 2.6 percent of the roughly $24 billion in tobacco revenues (including tobacco settlement funds) on such programs."
       - "Added emphasis may be brought on state legislators to increase spending on cessation and control programs if teen smoking rates and tobacco-related mortality can be displayed. Principal among the directly-related effects of tobacco use is lung cancer mortality."
-      - "Examining data from CDC mortality and CDC NPCR cancer morbidity files along with YRBS and BRFSS surveys, the public can examine how their states are doing to reduce teen smoking, how the state fares with regard to female mortality and morbidity, and examine these issues by race.  For example in all but 12 states (and DC), white female lung cancer mortality exceeds that of all other race and ethnicities.  Advocates will want to examine the root causes of white and other female lung cancer mortality in their states."
+      - "Examining the YRBS and BRFSS data surveys the public can examine how their states are doing to reduce teen smoking, how the state fares with regard to female mortality, and examine these issues by race.  For example in all but 12 states (and DC), white female lung cancer mortality exceeds that of all other race and ethnicities.  Advocates will want to examine the root causes of while and other female lung cancer mortality in their states."
   - title: Occupations by Share for Arts, Entertainment & Recreation Industry
     viz_url: "/profile/naics/71/workforce/tmap_top_occs"
   - description:
@@ -52,12 +52,11 @@ topics:
       y: "share"
 
 footnotes:
-  - "\"Do you know the way to San Jose\" sung by Dionne Warwick, music by Hal David, lyrics by Burt Bacharach, 1968."
   - "1. Seven tobacco product types (cigarettes, cigars, smokeless tobacco, electronic cigarettes [e-cigarettes], hookahs [water pipes used to smoke tobacco], pipe tobacco, and bidis [small imported cigarettes wrapped in a tendu leaf])"
   - "2. US Department of Health and Human Services. The health consequences of smoking—50 years of progress. Atlanta, GA: US Department of Health and Human Services, CDC; 2014.http://www.cdc.gov/tobacco/data_statistics/sgr/50th-anniversary/index.htm"
   - "3. US Department of Health and Human Services. Preventing tobacco use among youth and young adults. Atlanta, GA: US Department of Health and Human Services, CDC; 2012.http://www.cdc.gov/tobacco/data_statistics/sgr/2012/index.htm"
   - "4. Xu X, Bishop EE, Kennedy SM, Simpson SA, Pechacek TF. Annual Healthcare Spending Attributable to Cigarette Smoking: An Update[PDF–157 KB]. American Journal of Preventive Medicine 2014;48(3):326–33 [accessed 2016 Apr 8]. CDC."
-  - "Best practices for comprehensive tobacco control programs—2007. Atlanta, GA: US Department of Health and Human Services, CDC; 2007. Available at http://www.cdc.gov/tobacco/stateandcommunity/best_practices/index.htm. Accessed May 17, 2012."
+  - "5. Best practices for comprehensive tobacco control programs—2007. Atlanta, GA: US Department of Health and Human Services, CDC; 2007. Available at http://www.cdc.gov/tobacco/stateandcommunity/best_practices/index.htm. Accessed May 17, 2012."
   - "6. Institute of Medicine. Ending the tobacco problem: a blueprint for the nation. Washington, DC: The National Academies Press; 2007. Available at http://books.nap.edu/openbook.php?record_id=11795 . Accessed May 21, 2012."
-  - "1. Number of Heart Disease Deaths per 100,000 Population by Gender. Timeframe: 2014 http://kff.org/other/state-indicator/heart-disease-death-rate-by-gender/"
-  - "2. http://www.webmd.com/women/features/5-top-female-health-concern?page=2"
+  - "7. Number of Heart Disease Deaths per 100,000 Population by Gender. Timeframe: 2014 http://kff.org/other/state-indicator/heart-disease-death-rate-by-gender/"
+  - "8. http://www.webmd.com/women/features/5-top-female-health-concern?page=2"
