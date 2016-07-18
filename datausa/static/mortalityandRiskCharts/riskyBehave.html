@@ -246,6 +246,7 @@
 				</header>
 				</div>
 				<h2 class="embed-title">Risky Behavior by Sex</h2>
+				<h5 class="stat-value stat-small">Please select a risky behavior below to see the data.</h5>
 				<div id="specialEdits" class="col-sm-3 col-lg-3 text-left">
 					<div id="riskyCat"></div>
 					<br>
@@ -255,7 +256,7 @@
 							<div class="col-sm-6">
 								<div class="stat">
 									<div class="stat-text">
-										2014
+										2015
 									</div>
 									<!--<div class="stat-value">6,000,000</div>-->
 								</div>
@@ -270,7 +271,9 @@
 								<div class="stat-value stat-small">
 									Here we see data and a comparison of the sex for selected Risky Behaviors
 									for 2015 YRBS Data. All data displays the appropriate confidence intervals and 
-									standard errors associated with the data<span class="stat-text">
+									standard errors associated with the data.<br>
+									* We understand that the current bar chart displayed does not include the whiskers for the confidence intervals.  For the purposes of the prototype, we are demonstrating the ability to display a bar chart.  The solution to be 
+									developed will include the whiskers to display the confidence intervals on the bar chart. 										
 								</div>
 								<div class="stat-value stat-small sub-source">
 									Dataset: 2015 YRBS Risky Behavior Data
@@ -283,6 +286,7 @@
 					</div>
 				</div>
 				<div id="test2" class="col-sm-8 col-md-8 col-lg-8">
+					
 					<div id="holdTheCharts"></div>
 				</div>
 			</article>
@@ -369,7 +373,7 @@
                     // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
                     return null;//it will output the id as the header within the hover menu with this null
                   }
-                  return a.value + "% \n stdv(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
+                  return a.value + "% \n sderror(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
                 })
                 .font(5)
                 .legend({

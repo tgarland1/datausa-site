@@ -25,6 +25,7 @@
 		html {
 			font-size: 10px;
 			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			width:100%;
 		}
 		body.profile {
 			position: relative;
@@ -192,7 +193,7 @@
 			line-height: 1.5;
 		}
 		#labelFormat {
-			margin-left: 18%;
+			margin-left: 21%;
 		}
 		body.profile header .section-title, body.map header .section-title, body.story header .section-title {
 			font-family: "Pathway Gothic One", sans-serif;
@@ -231,6 +232,15 @@
 		body.profile .prof-body .section-title, body.map .prof-body .section-title, body.story .prof-body .section-title {
 			margin: 0 auto 15px;
 			color: #333;
+		}
+		#chartOne_sex_filters{
+			text-align: center;
+		}
+		#chartOne_sex_graph{
+			width:900px;
+		}
+		#DeloitteCustomButton{
+			position: relative;
 		}
 	</style>
   </head>
@@ -273,13 +283,13 @@
 						</div>
 						<div class="col-sm-12">
 							<div class="stat-value stat-small">
-								Here we see data and a comparison of the
-								sex for the causes fo death in the mortality data.<span class="stat-text">
+								Here we see 2014 CDC data  and a comparison of the
+								sex for the causes of death in the mortality data.<span class="stat-text">
 							</div>
 							<div class="stat-value stat-small sub-source">
 								Dataset: 2014 CDC Mortality Data
 								<Br>
-								Source: Census Bureau
+								Source: Centers for Disease Control and Prevention 
 							</div>
 						</div>
 					</div>
@@ -444,7 +454,7 @@
         var chartFilterLabel = myContainerName+'_label';
 
         //Set the title for the chart
-        $('#'+containerName).append('<h2 id="'+chartTitle+'theTItle" class="embed-title text-center"><a href="#chartOne" name="income_sex">'+chartTitle+'</a> <a href="#chartOne" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+        $('#'+containerName).append('<h2 id="'+chartTitle+'theTItle" class="embed-title text-center"><a href="#chartOne" name="income_sex" style="padding-right:20px">'+chartTitle+'</a><a href="#chartOne" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
         
         // div to hold filter labels
         $('#'+containerName).append('<div id="'+chartFilterLabel+'" class="col-sm-12"></div>');
@@ -462,7 +472,6 @@
         if(section!='state_name'){
           if(section=='sex'){
             myScatter = d3plus.viz()
-            		
                     .container('#'+graphContainerName)
                     .type("bar")
                     .data(mortalityData)
@@ -482,7 +491,6 @@
                     .width(800)
                     .draw();
           }else{
-
             myScatter = d3plus.viz()
                     .container('#'+graphContainerName)
                     .type("bar")
@@ -614,7 +622,7 @@
         //Set the title for the chart
         $('#'+containerName).append('<h2 class="embed-title"><a href="#mortality" name="income_sex">Mortality</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
         //Add an options button
-        $('#'+containerName).append('<div id="'+myContainerName+'"><div id="'+filterContainerName+'"></div><br/><div id="'+graphContainerName+'"></div></div>');
+        $('#'+containerName).append('<div id="'+myContainerName+'"><div id="'+filterContainerName+'"></div><br/><div id="'+graphContainerName+'></div></div>');
 
         //we add the graph to the graph container
         var myScatter;
@@ -631,7 +639,7 @@
                     .y({"scale": "discrete"})
                     .color(section)
                     .height(300)
-                    .width(800)
+                    .width(1000)
                     .draw();
           }else{
           	console.log(section + "After first else");
@@ -644,7 +652,7 @@
                     .y("count")
                     .color(section)
                     .height(400)
-                    .width(800)
+                    .width(1000)
                     .draw();
           }
         }else{
