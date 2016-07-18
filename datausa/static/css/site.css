@@ -4607,7 +4607,7 @@
         body.story .intro .breadcrumb a + a::before {
           content: "\\ ";
           font-weight: 400;
-          color: rgba(240, 244, 246, 0.75);
+          color: #000;
           padding: 0 2px 0; }
     body.profile .intro .photo-cred i, body.map .intro .photo-cred i,
     body.story .intro .photo-cred i {

@@ -109,11 +109,11 @@
           <div class="image-author"><a href="{{ image.link }}" target="_blank">Photo by {{ image.author }}</a></div>
         </div>
 
-        <div class="breadcrumb">
+        <div class="breadcrumb" style="color: #333">
           <img src="http://imgh.us/go-to-link.svg" alt="Go to another profile." />
           {% set parents = profile.parents() %}
           {% if parents|length %}
-          <div class="crumb-trail">
+          <div class="crumb-trail" style="color: #333">
             {% for p in parents %}
               <a href="{{ url_for('profile.profile', attr_type=profile.attr_type, attr_id=p['url_name'] if 'url_name' in p and p['url_name'] else p['id'] ) }}">{{ p["name"] }}</a>
             {% endfor %}
