@@ -71,8 +71,10 @@ def home():
                 "type": "map"
             }
             box["viz"] = "geo_map"
-
-    return render_template("general/home.html", feed=feed)
+    if(request.user_agent.platform == 'iphone' or request.user_agent.platform=='android'):
+        return "Mobile site coming soon"
+    else:
+        return render_template("general/home.html", feed=feed)
 
 @mod.route("/about/")
 def about():
