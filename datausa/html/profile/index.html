@@ -248,11 +248,12 @@
 <!-- Put ALL HTML STUFF HERE!!!!-->
 
 {% if profile.attr['id'][0:3] == "040" %}
-
+{% include "templates/includes/mortality.html" %}
+<!--
 <section class="profile-section">
   {% include "templates/includes/mortality.html" %}
 </section>
-
+-->
 {% endif %}
 
 {% for section in sections %}
