@@ -5791,7 +5791,7 @@ var attrs_meta = {
       {
         "name": "State",
         "id": "040",
-        "children": ["050", "310", "160", "795"]
+	  	"children": [""]
       }
       //{
       //  "name": "County",
@@ -5872,11 +5872,11 @@ var search = {
   },
   "parents": [],
   "stem_only": null,
-  "term": "",
+  "term": "california",
   "type": "",
   "children": {
     "geo": {
-      "040": ["050", "310", ""]
+      "040": [""]
     }
   },
   "zip": false

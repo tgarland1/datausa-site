@@ -15,16 +15,16 @@ def index():
 
 @mod.route("/<attr_kind>/<attr_id>/img/")
 def get_img(attr_kind, attr_id, mode="thumb"):
-    gobj = fetch(attr_id, attr_kind)
-    my_id = gobj['id']
-    if 'image_link' not in gobj or not gobj['image_link']:
-        parents = get_parents(attr_id, attr_kind)
-        for p in reversed(parents):
-            p = fetch(p["id"], attr_kind)
-            if "image_link" in p and p['image_link']:
-                my_id = p['id']
-                break
-    static_root_url = SPLASH_IMG_DIR.format(mode, attr_kind)
-    img_url = static_root_url.format(mode, attr_kind) + "{}.jpg".format(my_id)
+    # gobj = fetch(attr_id, attr_kind)
+    # my_id = gobj['id']
+    # if 'image_link' not in gobj or not gobj['image_link']:
+    #     parents = get_parents(attr_id, attr_kind)
+    #     for p in reversed(parents):
+    #         p = fetch(p["id"], attr_kind)
+    #         if "image_link" in p and p['image_link']:
+    #             my_id = p['id']
+    #             break
+    # static_root_url = SPLASH_IMG_DIR.format(mode, attr_kind)
+    # img_url = static_root_url.format(mode, attr_kind) + "{}.jpg".format(my_id)
     img_url = 'http://imgh.us/geo_c.svg'
     return redirect(img_url)
