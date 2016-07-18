@@ -68,11 +68,11 @@
           <img src="http://imgh.us/about_3.svg" />
           <span>About</span>
         </a>
-        <a href="#myEdit" data-ga="splash mortality" data-ga-cat="navigation" data-ga-label="User click" alt="Mortality">
+        <a href="#mortality" data-ga="splash mortality" data-ga-cat="navigation" data-ga-label="User click" alt="Mortality">
           <img src="http://imgh.us/mortality.svg" />
           <span>Mortality</span>
         </a>
-        <a href="#myEdit2" data-ga="splash risky" data-ga-cat="navigation" data-ga-label="User click" alt="Risky">
+        <a href="#yrbs" data-ga="splash risky" data-ga-cat="navigation" data-ga-label="User click" alt="Risky">
           <img src="http://imgh.us/risky.svg" />
           <span>Risky Behavior</span>
         </a>
@@ -153,7 +153,7 @@
 
     <div id="profile-toc">
         <div class="profile-toc-section">
-        <h2><a href="#myEdit" data-ga="toc mortality" data-ga-cat="navigation" data-ga-label="User click"><img src="http://imgh.us/mortality.svg" /> Mortality</a></h2>
+        <h2><a href="#mortality" data-ga="toc mortality" data-ga-cat="navigation" data-ga-label="User click"><img src="http://imgh.us/mortality.svg" /> Mortality</a></h2>
         <p>The CDC collects data on all of the mortalities that occur in a given year within California<br></p>
         <ul>
             <li><a class="pri-link" href="#cause" data-anchor="cause" data-ga="toc mortality topic" data-ga-cat="navigation" data-ga-label="User click">By Cause</a></li>
@@ -161,7 +161,7 @@
         </ul>
         </div>
         <div class="profile-toc-section">
-        <h2><a href="#myEdit2" data-ga="toc risky" data-ga-cat="navigation" data-ga-label="User click"><img src="http://imgh.us/risky.svg" /> Risky Behavior</a></h2>
+        <h2><a href="#yrbs" data-ga="toc risky" data-ga-cat="navigation" data-ga-label="User click"><img src="http://imgh.us/risky.svg" /> Risky Behavior</a></h2>
         <p>The CDC collects data on all of the risky behavior that California youth partake in<br></p>
         <ul>
             <li><a class="pri-link" href="#smoking" data-anchor="cause" data-ga="toc risky topic" data-ga-cat="navigation" data-ga-label="User click">Smoking</a></li>
@@ -212,8 +212,8 @@
 
   <div id="profile-nav">
     <ul class="pri-menu">
-      <a href="#myEdit" data-ga="subnav mortality" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="mortality" class="pri-link"><img src="http://imgh.us/mortality.svg" /><span class="profile-nav-text">Mortality</span></li></a>
-      <a href="#myEdit2" data-ga="subnav mortality" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="risky" class="pri-link"><img src="http://imgh.us/risky.svg" /><span class="profile-nav-text">Risky Behavior</span></li></a>
+      <a href="#mortality" data-ga="subnav mortality" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="mortality" class="pri-link"><img src="http://imgh.us/mortality.svg" /><span class="profile-nav-text">Mortality</span></li></a>
+      <a href="#yrbs" data-ga="subnav mortality" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="risky" class="pri-link"><img src="http://imgh.us/risky.svg" /><span class="profile-nav-text">Risky Behavior</span></li></a>
     {% for section in sections %}
       <a href="#{{ section.anchor }}" data-ga="subnav {{ section.anchor }}" data-ga-cat="navigation" data-ga-label="User click"><li data-anchor="{{ section.anchor }}" class="pri-link"><img src="http://imgh.us/{{ section.anchor }}.svg" /><span class="profile-nav-text">{{ section.title|safe }}</span></li></a>
     {% endfor %}
@@ -259,7 +259,7 @@
 {% for section in sections %}
 
 <header class="{{ section.anchor }} prof-body">
-  <h2 class="section-title"><a href="#{{ section.anchor }}" name="{{ section.anchor }}">{{ section.title|safe }}</a></h2>
+  <h2 class="section-title"><a href="#{{ section.anchor }}" name="{{ section.anchor }}" style="padding-top:114px;">{{ section.title|safe }}</a></h2>
   {% for desc in section.description %}
   <p>{{ desc|safe }}</p>
   {% endfor %}
