@@ -299,6 +299,7 @@
       //and also the data that appears in each of the charts based on the dropdown selection
       var columns = {
         "risk" : {
+        	"None":[],
           "Current tobacco use" : [
             {"sex":"female","value":23.8,"ci-low":18.2,"ci-high":30.6,"sderror":2.9},
             {"sex":"male","value":30.7,"ci-low":25.5,"ci-high":30.4,"sderror":2.6}
@@ -350,7 +351,15 @@
                 .id("sex")
                 .x("sex")
                 .y("value")
-                .color("sex")
+                 .color(function(d){
+                 	console.log(d);
+						if(d.sex == "male"){
+							return "#C6C7CA";
+						}
+						else{
+							return "#ef6145";
+						}
+					})
                 .height(400)
                 .width(800)
                 .tooltip(["sex","value","ci-low","ci-high","sderror"])
