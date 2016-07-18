@@ -6076,7 +6076,7 @@ search.back = function(index) {
     var previous = this.history[index];
     this.history = this.history.slice(0, index);
     this.parents = previous.parents;
-    this.current_depth[this.type] = previous.depth;
+    this.current_depth[this.type] = "040";
     this.reload();
   }
 }
@@ -9658,7 +9658,7 @@ viz.map = function() {
     "container": {"value": false},
     "coords": {"value": false, "solo": [], "mute": []},
     "data": {"value": []},
-    "depth": {"value": 0},
+    "depth": {"value": "040"},
     "error": {"value": false},
     "format": {
       "value": function(value, opts){
