@@ -376,6 +376,7 @@
                 .color("sex")
                 .height(400)
                 .width(800)
+                .background("#F6F6F6").axes({"background": {"color":"#F6F6F6"}})
                 .tooltip(["sex","value","ci-low","ci-high","sderror"])
                 .labels({"resize": false, "font": {"size": 13}})
                 .text(function(a,b,c,d){
@@ -400,11 +401,14 @@
             .type("table")
             .id("sex")
             .shape("square")
-            .attrs([
-              {"sex": "male", "hex": "#000000"},
-              {"sex": "female", "hex": "#000000"}
-            ])
-            .color('hex')
+			.color(function(d){
+						if(d.sex == "Male"){
+							return "#C6C7CA";
+						}
+						else{
+							return "#ef6145";
+						}
+					}).background("#F6F6F6").axes({"background": {"color":"a8a8a8"}}) 
             .labels({"resize": false, "font": {"size": 13}})
             .height(200)
             .width(800)
