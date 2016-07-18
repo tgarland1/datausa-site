@@ -212,7 +212,7 @@ search.btnExplore = function(d) {
   var profile = search_item.append("div").attr("class", 'profile');
   var xtra = search_item.append("div").attr("class", 'xtra');
 
-  // set thumbnail
+  // set thumbnail ---> this is where things are happening??
   thumb.append("img").attr("src", "http://imgh.us/geo_c.svg")
 
   // set info
