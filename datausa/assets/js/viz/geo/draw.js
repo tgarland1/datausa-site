@@ -780,6 +780,8 @@ viz.mapDraw = function(vars) {
           }
           else if (drag) {
             drag = false;
+            vars.highlight.value = d.id;
+            window.location = "/profile/geo/" + d.id + "/";
           }
           else {
             vars.highlight.value = d.id;
