@@ -4607,7 +4607,7 @@
         body.story .intro .breadcrumb a + a::before {
           content: "\\ ";
           font-weight: 400;
-          color: #000;
+          color: rgba(240, 244, 246, 0.75);
           padding: 0 2px 0; }
     body.profile .intro .photo-cred i, body.map .intro .photo-cred i,
     body.story .intro .photo-cred i {
@@ -10312,6 +10312,7 @@ body.profile {
   position: relative;
   left: 0;
   right: 0;
+  background-color: #F6F6F6 !important;
   overflow-x: hidden; }
   body.profile #top-nav {
     -moz-transition: background-color 0.75s;
