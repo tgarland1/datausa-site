@@ -31,14 +31,13 @@
 				right: 0;
 				overflow-x: hidden;
 				overflow-y: hidden;
-                background-color: #F6F6F6 !important;
 			}
 			body {
 				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 				font-size: 14px;
 				line-height: 1.42857143;
 				color: #333;
-				background-color: #F6F6F6 !important;
+				background-color: #fff;
 			}
 			body a {
 				color: #333;
@@ -67,7 +66,6 @@
 				flex-wrap: wrap;
 				padding: 0 25px;
 				width: 100vw;
-                background-color: #F6F6F6 !important;
 			}
 			body p {
 				display: block;
@@ -131,7 +129,6 @@
 				font-style: normal;
 				letter-spacing: 0;
 				position: relative;
-                background-color: #F6F6F6 !important;
 			}
 			.section-title {
 				font-family: "Pathway Gothic One", sans-serif;
@@ -164,10 +161,9 @@
 				flex-wrap: wrap;
 				padding: 0 25px;
 				width: 100vw;
-                background-color: #F6F6F6 !important;
 			}
 			#mortality-headr {
-				background-color: #F6F6F6 !important;
+				background-color: #FFFFFF;
 				flex-wrap: wrap;
 				padding: 10px 10px 10px 0;
 			}
@@ -191,7 +187,6 @@
 				font-size: 12px;
 				font-weight: 400;
 				line-height: 1.5;
-                background-color: #F6F6F6 !important;
 			}
 			#labelFormat {
 				margin-left: 18%;
@@ -219,7 +214,7 @@
 			}
 			.section-title, a:focus, a:hover {
 				color: #23527c;
-{#				text-decoration: underline;#}
+				text-decoration: underline;
 			}
 			.section-title, a {
 				background-color: transparent;
@@ -238,21 +233,24 @@
 			#myTopic{
 				padding:0;
 			}
+			#holdTheCharts{
+				width: 100%;
+			}
 		</style>
 	</head>
 
-	<body class="profile geo" style="background-color: #FFF !important;">
-		<section class="profile-section" style="background-color: #fff !important;">
-			<article id="myTopic" class="topic" style="background-color: #fff !important;">
-				<header class="mortality prof-body" id="mortality-headr" style="background-color: #fff !important;">
+	<body class="profile geo">
+		<section class="profile-section">
+			<article id="myTopic" class="topic">
+				<header class="mortality prof-body" id="mortality-headr">
 
-					<h2 class="section-title" style="background-color: #fff !important;"><a href="#mortality" name="mortality" style="background-color: #fff !important;">YRBS Risky Behavior</a></h2>
-					<p style="background-color: #fff !important;">The Yourth Risk Behavior Surveillance System (YRBSS) monitors six types of health-risk behaviors that contribute to the leading causes of death and disability among youth and adults.</p>
+					<h2 class="section-title"><a href="#mortality" name="mortality">YRBS Risky Behavior</a></h2>
+					<p>The Yourth Risk Behavior Surveillance System (YRBSS) monitors six types of health-risk behaviors that contribue to the leading causes of death and disability aong youtha nd adults.</p>
 				</header>
 				</div>
-				<h2 class="embed-title" style="background-color: #fff !important;">Risky Behavior by Sex</h2>
-				<h6 class="stat-value" style="color:#ef6145;"><strong>Please select a risky behavior below to see the data.</strong></h6>
-				<div id="specialEdits" class="col-sm-3 col-lg-3 text-left" style="background-color: #fff;">
+				<h2 class="embed-title">Risky Behavior by Sex</h2>
+				<h5 class="stat-value stat-small">Please select a risky behavior below to see the data.</h5>
+				<div id="specialEdits" class="col-sm-3 col-lg-3 text-left">
 					<div id="riskyCat"></div>
 					<br>
 					<div class="topic-stats">
@@ -273,10 +271,12 @@
 								</div>
 							</div>
 							<div class="col-sm-12">
-								<div class="stat-value stat-small" style="background-color: #fff !important;">
+								<div class="stat-value stat-small">
 									Here we see data and a comparison of the sex for selected Risky Behaviors
 									for 2015 YRBS Data. All data displays the appropriate confidence intervals and 
 									standard errors associated with the data.<br>
+									* We understand that the current bar chart displayed does not include the whiskers for the confidence intervals.  For the purposes of the prototype, we are demonstrating the ability to display a bar chart.  The solution to be 
+									developed will include the whiskers to display the confidence intervals on the bar chart. 										
 									<strong>*We understand that the current bar chart displayed does not include the whiskers for the confidence intervals.  For the purposes of the prototype, we are demonstrating the ability to display a bar chart.  The solution to be developed will include the whiskers to display the confidence intervals on the bar chart. 
 									<br>
 									<br>
@@ -293,7 +293,7 @@
 
 					</div>
 				</div>
-				<div id="test2" class="col-sm-8 col-md-8 col-lg-8">
+				<div id="test2" class="col-sm-9 col-md-9 col-lg-9">
 					
 					<div id="holdTheCharts"></div>
 				</div>
@@ -351,10 +351,11 @@
       $('#'+graphicContainer).empty();
 
       if(b!="None"){
-        //Remo`ves previous risky behavior charting
+      	//Get width of chart div for .width() 
+        divWidth = $("#holdTheCharts").width();
 
         //Append the options button here
-        $('#'+graphicContainer).append('<h2 class="embed-title text-center"><a href="" name="income_gender">SEX</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+        $('#'+graphicContainer).append('<h2 class="embed-title text-center"><a href="#mortality" name="income_gender">SEX</a> <a href="#mortality" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
 
         var myScatter = d3plus.viz()
                 .container('#'+graphicContainer)
@@ -373,7 +374,7 @@
 						}
 					})
                 .height(400)
-                .width(800)
+                .width(divWidth)
                 .tooltip(["sex","value","ci-low","ci-high","sderror"])
                 .labels({"resize": false, "font": {"size": 13}})
                 .text(function(a,b,c,d){
@@ -391,7 +392,7 @@
                   }
                 })
                 .draw();
-
+		// test
           var visualization = d3plus.viz()
             .container('#'+graphicContainer)
             .data(columns["risk"][b])
