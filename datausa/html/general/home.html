@@ -2,7 +2,6 @@
 
 {% block body %}
 
-
 <div class="bg"></div>
 
 <section class="home-desc">
@@ -39,9 +38,6 @@
 	<a target="_blank" href="http://macro.media.mit.edu/"><img id="macro" src="/static/img/footer/mit.png" /></a>
 	<a target="_blank" href="http://www.datawheel.us/"><img id="datawheel" src="/static/img/footer/datawheel.png" /></a>
 </div>
-
-
-
 
 <div id="feed">
 {% for box in feed %}
@@ -151,32 +147,6 @@
 		})
 		.draw();
 
-	// var h = window.innerHeight,
-	//     w = window.innerWidth;
-
-	// var paralax_ids = ["logo-shadow", "logo", "desc-shadow", "desc", "fg"];
-
-	// var paralax_data = paralax_ids.map(function(d){
-	//   var elem = d3.select("#" + d),
-	//       mod = ((parseFloat(elem.style("width"), 10) - w)/w) * 100;
-	//   return {
-	//     "elem": elem,
-	//     "mod": mod,
-	//     "x": d3.scale.linear().domain([0, w]).range([0, -mod]),
-	//     "y": d3.scale.linear().domain([0, h]).range([0, -mod])
-	//   }
-	// })
-
-	// d3.select("body").on(d3plus.client.pointer.move, function(){
-	//   var mouse = d3.mouse(this);
-	//   paralax_data.forEach(function(d){
-	//     d.elem.style("left", d.x(mouse[0]) + "%").style("top", d.y(mouse[1]) + "%");
-	//   });
-	// });
-
-	// var bg_imgs = [1, 6];
-	// var bg_img = "" + (Math.floor(Math.random() * bg_imgs[1]) + 1);
-	// d3.select(".bg").style("background-image", "url('/static/img/home/bg/" + bg_img + ".jpg')");
 	var bg_img = "1";
 	localforage.setItem("homepage_image", bg_img);
 
@@ -214,7 +184,7 @@
 
 	var letter_index = 0;
 	var tout = 0;
-	var sterms = ["Boston", "Computer Science", "Civil Engineers", "Cook County", "Hospitals", "02139", "California", "Biology"]
+	var sterms = ["California", "Maryland", "Texas"];
 	var sterm_index = 0;
 	var type_this = sterms[sterm_index];
 	var ready = true;
@@ -226,7 +196,7 @@
 	    if(letter_index > type_this.length){
 	      interval = interval * 30;
 	      // search_input.on("click")();
-	    }
+	    };
 	  }
 	  else {
 	    letter_index = 0;
@@ -236,12 +206,12 @@
 	    type_this = sterms[sterm_index];
 	  }
 	  tout = setTimeout("next_letter()", interval);
-	}
+	};
 
 	search_input.on("click.clear", function(){
 	  this.select();
 	  window.clearTimeout(tout);
-	})
+	});
 
 	next_letter();
 
