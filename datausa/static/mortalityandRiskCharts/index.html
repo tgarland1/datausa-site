@@ -6,13 +6,13 @@
     <!-- loading D3plus JS file -->
     <script src="./jquery-2.2.2.min.js"></script>
     <script src="./data/mortality.js"></script>
-    <script src="./js/d3plus.min.js"></script>
+    <script src="js/d3plus.full.min.js"></script>
     
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-them.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="./js/bootstrap.js"></script>
+    <script src="js/bootstrap_3_3_6.js"></script>
 	<!-- css style -->
 	<link type="text/css" rel="stylesheet" media="all" href="../css/site.css?v=28" />
     <link type="text/css" rel="stylesheet" media="all" href="../css/font-awesome-4.3.0/css/font-awesome.min.css" />
@@ -38,7 +38,7 @@
 			font-size: 14px;
 			line-height: 1.42857143;
 			color: #333;
-			background-color: #fff;
+			background-color: #F6F6F6;
 		}
 		body a {
 			color: #333;
@@ -79,6 +79,7 @@
 			line-height: 1.6;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 0.93);
+			background: #F6F6F6;
 		}
 		.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 			font-family: inherit;
@@ -467,7 +468,14 @@
                     .y(section)
                     .x("count")
                     .y({"scale": "discrete"})
-                    .color(section)
+                    .color(function(d){
+						if(d.sex == "Male"){
+							return "#C6C7CA";
+						}
+						else{
+							return "#ef6145";
+						}
+					}).background("#F6F6F6").axes({"background": {"color":"#F6F6F6"}}) 
                     .height(300)
                     .width(800)
                     .draw();
