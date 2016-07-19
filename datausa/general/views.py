@@ -79,6 +79,10 @@ def about():
     g.page_type = "about"
     g.page_sub_type = "index"
     return render_template("about/index.html")
+@mod.route("/mobile/")
+def mobile():
+    g.page_type = "profile"
+    return render_template("mobile/home.html")
 
 @mod.route("/qhod/")
 def qhod():
