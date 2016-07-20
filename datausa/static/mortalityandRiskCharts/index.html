@@ -520,7 +520,7 @@
           }
         }else{
           //Creates a treemap
-          console.log(section + " Tree map");
+          //console.log(section + " Tree map");
           myScatter = d3plus.viz()
             .container('#'+graphContainerName)  // container DIV to hold the visualization
             .data(mortalityData)  // data to use with the visualization
@@ -661,7 +661,7 @@
         //we add the graph to the graph container
         var myScatter;
         if(section!='state_name'){
-        	console.log(section);
+        	//console.log(section);
           if(section=='sex'){
             myScatter = d3plus.viz()
                     .container('#'+graphContainerName)
@@ -676,7 +676,7 @@
                     .width(1000)
                     .draw();
           }else{
-          	console.log(section + "After first else");
+          	//console.log(section + "After first else");
             myScatter = d3plus.viz()
                     .container('#'+graphContainerName)
                     .type("bar")
@@ -691,7 +691,7 @@
           }
         }else{
           //Creates a treemap
-          console.log(section + " Tree map");
+          //console.log(section + " Tree map");
           myScatter = d3plus.viz()
             .container('#'+graphContainerName)  // container DIV to hold the visualization
             .data(mortalityData)  // data to use with the visualization

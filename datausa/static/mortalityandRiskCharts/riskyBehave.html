@@ -304,12 +304,62 @@
 
   <script>
 
-    //Creates the dropdown for risky behavior
-    var createRiskyBehaviorCharts = function(graphicContainer,riskDropdownContainer){
-      //Was going to build this out for more than risk but...
-      //This container holds all the risk related data that appears in the dropdown
-      //and also the data that appears in each of the charts based on the dropdown selection
-      var columns = {
+  var createcharts = function(topic){
+  		 var myScatter = d3plus.viz()
+                .container('#thecharts') //this container used to be 'graphicContainer'. in order to extdend this method, the function createRiskyBehaviorCharts would need to accept another argument to hold the actual charts rather than hold the filters
+                .type("bar")
+                .data(columns["risk"][topic])
+                .id("sex")
+                .x("sex")
+                .y("value")
+                 .color(function(d){
+                 	//console.log(d);
+						if(d.sex == "male"){
+							return "#C6C7CA";
+						}
+						else{
+							return "#ef6145";
+						}
+					})
+                .height(400)
+                .width($("#holdTheCharts").width())
+                .tooltip(["sex","value","ci-low","ci-high","sderror"])
+                .labels({"resize": false, "font": {"size": 13}})
+                .text(function(a,b,c,d){
+                  if(a.d3plus_label && a.d3plus_label.names){
+                    // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
+                    return null;//it will output the id as the header within the hover menu with this null
+                  }
+                  return a.value + "% \n sderror(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
+                })
+                .font(5)
+                .legend({
+                  "order": {
+                    "sort": "desc",
+                    "value": "size"
+                  }
+                })
+                .draw();
+		// test
+          var visualization = d3plus.viz()
+            .container('#thecharts')
+            .data(columns["risk"][topic])
+            .type("table")
+            .id("sex")
+            .shape("square")
+            .attrs([
+              {"sex": "male", "hex": "#000000"},
+              {"sex": "female", "hex": "#000000"}
+            ])
+            .color('hex')
+            .labels({"resize": false, "font": {"size": 13}})
+            .height(300)
+            //.width(800)
+            .cols(["value","ci-low","ci-high","sderror"])
+            .draw();
+
+  };
+var columns = {
         "risk" : {
         	//"None":[],
           "Current tobacco use" : [
@@ -322,6 +372,12 @@
           ]
         }
       };
+    //Creates the dropdown for risky behavior
+    var createRiskyBehaviorCharts = function(graphicContainer,riskDropdownContainer){
+      //Was going to build this out for more than risk but...
+      //This container holds all the risk related data that appears in the dropdown
+      //and also the data that appears in each of the charts based on the dropdown selection
+      
 
 
       //Creates the dropdown for risky behavior
@@ -351,6 +407,7 @@
     $('#'+graphicContainer).append('<div id="filterholder" class="col-sm-12"></div><br><br>')
     var mydrop = createDropdownz(columns["risk"],"filterholder");
     //When you change the dropdown for risky behavior this will adjust the charting below
+    createcharts("Current tobacco use");
     mydrop.change(function(){
 
       //value of dropdown
@@ -361,60 +418,9 @@
       	//Get width of chart div for .width() 
         divWidth = $("#holdTheCharts").width();
 
-        
+        createcharts(b);
 
-        var myScatter = d3plus.viz()
-                .container('#thecharts') //this container used to be 'graphicContainer'. in order to extdend this method, the function createRiskyBehaviorCharts would need to accept another argument to hold the actual charts rather than hold the filters
-                .type("bar")
-                .data(columns["risk"][b])
-                .id("sex")
-                .x("sex")
-                .y("value")
-                 .color(function(d){
-                 	//console.log(d);
-						if(d.sex == "male"){
-							return "#C6C7CA";
-						}
-						else{
-							return "#ef6145";
-						}
-					})
-                .height(400)
-                .width(divWidth)
-                .tooltip(["sex","value","ci-low","ci-high","sderror"])
-                .labels({"resize": false, "font": {"size": 13}})
-                .text(function(a,b,c,d){
-                  if(a.d3plus_label && a.d3plus_label.names){
-                    // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
-                    return null;//it will output the id as the header within the hover menu with this null
-                  }
-                  return a.value + "% \n sderror(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
-                })
-                .font(5)
-                .legend({
-                  "order": {
-                    "sort": "desc",
-                    "value": "size"
-                  }
-                })
-                .draw();
-		// test
-          var visualization = d3plus.viz()
-            .container('#thecharts')
-            .data(columns["risk"][b])
-            .type("table")
-            .id("sex")
-            .shape("square")
-            .attrs([
-              {"sex": "male", "hex": "#000000"},
-              {"sex": "female", "hex": "#000000"}
-            ])
-            .color('hex')
-            .labels({"resize": false, "font": {"size": 13}})
-            .height(300)
-            //.width(800)
-            .cols(["value","ci-low","ci-high","sderror"])
-            .draw();
+       
         }
     });
   };
