@@ -447,7 +447,7 @@
 
         //Set the title for the chart
         //trip added a few <br> to push the age chart off the iframe
-        $('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">'+chartTitle+'</a><a href="" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2><br>');
+        $('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">'+chartTitle+'</a><a href="" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
         
         // div to hold filter labels
         $('#'+containerName).append('<div id="'+chartFilterLabel+'" class="col-sm-12"></div>');
@@ -612,7 +612,7 @@
         var graphContainerName = myContainerName+'_graph';
 
         //Set the title for the chart
-        $('#'+containerName).append('<h2 class="embed-title"><a href="#mortality2" name="mortality2">Mortality</a> <a href="#mortality2" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+        $('#'+containerName).append('<h2 class="embed-title"><a href="#mortality2" name="mortality2">Mortality</a> <a href="#mortality2" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2>');
         //Add an options button
         $('#'+containerName).append('<div id="'+myContainerName+'"><div id="'+filterContainerName+'"></div><br/><div id="'+graphContainerName+'></div></div>');
 

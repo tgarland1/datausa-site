@@ -8520,6 +8520,7 @@ footer {
           box-shadow: 2px 5px 15px rgba(27, 25, 29, 0.1);
           background-color: #F6F6F6;
           width: 80vw;
+          display: block;
           z-index: 2002;
           overflow: auto;
           position: relative; }
@@ -8542,7 +8543,8 @@ footer {
                   overflow: hidden; }
                   .overlay#view .modal .body .nav {
                     text-align: center;
-                    position: relative; }
+                    position: relative;
+                    background-color: #F6F6F6 }
                     .overlay#view .modal .body .nav .change_share {
                       display: inline-block;
                       text-align: center;
