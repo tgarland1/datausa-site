@@ -490,11 +490,31 @@
                     .id(section)
                     .x(section)
                     .y("count")
-                    .color(section)
+                    //.color(section)
+                    .background("#F6F6F6").axes({"background": {"color":"#F6F6F6"}}) 
                     .height(400)
-                    .width(800)
+                    //.width(800)
                     .draw();
           }
+        }else{
+          //Creates a treemap
+          console.log(section + " Tree map");
+          myScatter = d3plus.viz()
+            .container('#'+graphContainerName)  // container DIV to hold the visualization
+            .data(mortalityData)  // data to use with the visualization
+            .type("tree_map")   // visualization type
+            .id("state_name")   // key for which our data is unique on
+            .size("count")      // sizing of blocks
+            .height(400)
+            //.width(800)
+            .text(function(a,b,c,d){
+              if(a.d3plus_label && a.d3plus_label.names){
+                // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
+                return null;//it will output the id as the header within the hover menu with this null
+              }
+              return a.state_name + (a.state_name==currentState?"*":"");
+            })
+            .draw()   ;          // finally, draw the visualization!
         };
 
         var myFilter = [];
