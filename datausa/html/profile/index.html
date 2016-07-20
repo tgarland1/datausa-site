@@ -108,7 +108,7 @@
           <a href="{{ image.link }}" target="_blank"><i class="fa fa-camera"></i></a>
           <div class="image-author"><a href="{{ image.link }}" target="_blank">Photo by {{ image.author }}</a></div>
         </div>
-
+<!--
         <div class="breadcrumb" style="color: #333">
           <img src="http://imgh.us/go-to-link.svg" alt="Go to another profile." />
           {% set parents = profile.parents() %}
@@ -120,6 +120,7 @@
           </div>
           {% endif %}
         </div>
+-->
         {% if profile.attr_type in ['soc', 'naics'] %}
         <div class="data-source-crumb">
           <img src="/static/img/splash/database.svg" alt="Statistics Source."/>
