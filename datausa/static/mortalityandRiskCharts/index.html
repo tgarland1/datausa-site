@@ -226,7 +226,7 @@
 			color: #333;
 		}
 		#chartOne_sex_filters{
-			text-align: center;
+			/*text-align: center;*/
 		}
 		#chartOne_sex_graph{
 			width:900px;
@@ -378,12 +378,12 @@
           {columnName:'sex',value:"Male"},
           {columnName:'sex',value:"Female"}
         ], race : [
-          {columnName:'sex',value:"None"},
-          {columnName:'sex',value:"Black"},
-          {columnName:'sex',value:"American Indian (includes Aleuts and Eskimos)"},
-          {columnName:'sex',value:"Chinese"},
-          {columnName:'sex',value:"Filipino"},
-          {columnName:'sex',value:"White"}
+          {columnName:'race',value:"None"},
+          {columnName:'race',value:"Black"},
+          {columnName:'race',value:"American Indian (includes Aleuts and Eskimos)"},
+          {columnName:'race',value:"Chinese"},
+          {columnName:'race',value:"Filipino"},
+          {columnName:'race',value:"White"}
         ]
       };
 
@@ -395,7 +395,7 @@
         var filterParent = $('#'+ddHolder);
     	
     	// placec chart specific labels to label div of chart
-    	labelParent.append('<label id="labelFormat" for="'+labelParent+'_'+section+'_selector">'+capLable+'</label>');
+    	//labelParent.append('<label id="labelFormat" for="'+labelParent+'_'+section+'_selector">'+capLable+'</label>');
         
         filterParent.append('<select id="'+ddHolder+'_'+section+'_selector" class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%"></select>');
     	
@@ -409,9 +409,15 @@
             //mySelect.append(
             //    $('<option></option>').val(optionObject.value).html(optionObject.value)
             //);
-            mySelect2.append(
+            if (optionObject.value == 'none' || optionObject.value == 'None'){
+            	mySelect2.append(
+                $('<option></option>').val(optionObject.value).html(optionObject.columnName.toUpperCase())
+            );
+            }else{
+            	mySelect2.append(
                 $('<option></option>').val(optionObject.value).html(optionObject.value)
             );
+        }
         });
         return mySelect;
       };
@@ -446,9 +452,11 @@
         var chartFilterLabel = myContainerName+'_label';
 
         //Set the title for the chart
-        //trip added a few <br> to push the age chart off the iframe
+        if(chartTitle == "STATE_NAME"){
+        	$('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">State Name</a><a href="" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
+        }else{
         $('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">'+chartTitle+'</a><a href="" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
-        
+        }
         // div to hold filter labels
         $('#'+containerName).append('<div id="'+chartFilterLabel+'" class="col-sm-12"></div>');
         
@@ -491,6 +499,20 @@
                     .x(section)
                     .y("count")
                     //.color(section)
+                    .color(function(d){
+                    	if(section=='race'){
+                    		var graphcolorlookup = {"White":"#ff8166",
+                									"Black":"#ffb563",
+                									"American Indian (includes Aleuts and Eskimos)":"#82a8e7",
+            										"Chinese":"#1a9b9a",
+            										"Filipino": "#bf168e"
+                    								};
+							var colorlookup = graphcolorlookup[d.race];
+							return colorlookup;
+                    	}else{
+                    		return section;
+                    	}
+                    })
                     .background("#F6F6F6").axes({"background": {"color":"#F6F6F6"}}) 
                     .height(400)
                     //.width(800)
@@ -614,12 +636,12 @@
           {columnName:'sex',value:"Male"},
           {columnName:'sex',value:"Female"}
         ], race : [
-          {columnName:'sex',value:"None"},
-          {columnName:'sex',value:"Black"},
-          {columnName:'sex',value:"American Indian (includes Aleuts and Eskimos)"},
-          {columnName:'sex',value:"Chinese"},
-          {columnName:'sex',value:"Filipino"},
-          {columnName:'sex',value:"White"}
+          {columnName:'race',value:"None"},
+          {columnName:'race',value:"Black"},
+          {columnName:'race',value:"American Indian (includes Aleuts and Eskimos)"},
+          {columnName:'race',value:"Chinese"},
+          {columnName:'race',value:"Filipino"},
+          {columnName:'race',value:"White"}
         ]
       };
 
