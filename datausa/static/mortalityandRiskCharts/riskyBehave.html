@@ -355,7 +355,7 @@
         divWidth = $("#holdTheCharts").width();
 
         //Append the options button here
-        $('#'+graphicContainer).append('<h2 class="embed-title" style="padding-left:460.5px;"><a href="#mortality3" name="mortality3">SEX</a> <a href="#mortality3" class="btn pri-btn data-btn" data-target-id="null" data-embed="/null" data-url="null" id="DeloitteCustomButton"><span>Options</span></a></h2>');
+        $('#'+graphicContainer).append('<h2 class="embed-title" style="padding-left:460.5px;"><a href="#mortality3" name="mortality3">SEX</a> <a href="#yrbs" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2>');
 
         var myScatter = d3plus.viz()
                 .container('#'+graphicContainer)
@@ -365,7 +365,7 @@
                 .x("sex")
                 .y("value")
                  .color(function(d){
-                 	console.log(d);
+                 	//console.log(d);
 						if(d.sex == "male"){
 							return "#C6C7CA";
 						}

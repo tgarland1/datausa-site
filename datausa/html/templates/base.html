@@ -215,8 +215,8 @@
     </script>
   <script>
 //$("#tripsbtn").click(tripsclick([{'title':'test','title':'test2'}],null,null,null,null));
-$("#frameDemo").load(function(){
-  var iframe = $("#frameDemo").contents();
+$(".frameDemo").load(function(){
+  var iframe = $(".frameDemo").contents();
   iframe.find(".DeloitteCustomButton").click(function(){
   //var panels = [{'title':'test','title':'test2'}];
   var panels = [{"title":"Share"},
@@ -280,8 +280,8 @@ $("#frameDemo").load(function(){
         .attr("data-target-id", p.title.toLowerCase())
         .text(p.title)
         .on("click", function(){
-          //var src = d3.event.srcElement || d3.event.target;
-          var src = null;
+          var src = d3.event.srcElement || d3.event.target;
+          //var src = null;
           if(src === window){
             var target_id = active_panel.attr("data-target-id");
           }
@@ -289,6 +289,7 @@ $("#frameDemo").load(function(){
             //var target_id = d3.select(src).attr("data-target-id");
             var target_id = "share";
             if (!target_id || typeof(target_id) != "string") target_id = d3.select(src.parentNode).attr("data-target-id");
+            var target_id = src.attributes.id.value;
           }
           var this_tab = d3.select(".change_share#"+target_id)
           var pos = this_tab.node().offsetLeft;
@@ -316,7 +317,7 @@ $("#frameDemo").load(function(){
   })
   nav
     .append("span")
-      .attr("class", "highlight")
+      .attr("class", "highlight").style("width","58px").style("left","570px")
 
   var panel_divs = body
     .append("div")
@@ -620,6 +621,7 @@ $("#frameDemo").load(function(){
 })});
 
 </script>  
-    
+
+
   </body>
 </html>
