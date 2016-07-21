@@ -501,10 +501,10 @@
         };
 
         var myFilter = [];
-
+        //this array below should reference the 
         //dropdown creation
         //We create multiple filters per each graph, all named after the sections [age,race,sex]
-        $.each(sections, function(index, sectionTwo) {
+        $.each(globalsections, function(index, sectionTwo) {
           if(section != sectionTwo && sectionTwo!='state_name'){
             var myDropdown = createDropdown(myFilters[sectionTwo],filterContainerName,sectionTwo,chartFilterLabel,filterContainerName);
             myDropdown.change(function(){
@@ -533,7 +533,7 @@
       
   	};
     
-  	var sections = ["sex","age","cause","race","state_name"];
+  	var globalsections = ["sex","age","cause","race","state_name"];
 
   	var textlookup = {"sex":{"title":"Mortality by Sex", "text":"Here we see 2014 CDC data and a comparison of the sex for the causes of death in the mortality data"},
   		"age":{"title":"Mortality by Age", "text":"Here we see 2014 CDC data and a comparison of the age for the causes of death in the mortality data"},
@@ -542,10 +542,10 @@
   		"state_name":{"title":"Mortality by State", "text":"Here we see 2014 CDC data and a comparison of the State for the causes of death in the mortality data"}
   			};
 
-  	$.each(sections, function(index, value){
+  	$.each(globalsections, function(index, value){
   		var titletransform = {'sex':'Sex','age':'Age','cause':'Cause','race':'Race','state_name':'State'};
   		var header = $("#mortality-headr");
-  		header.append('<h2 class="embed-title">Mortality by '+titletransform[value]+'</h2><div id="specialEdits" class="col-sm-3 col-lg-3 text-left"><div class="topic-stats"><br><br><br><br><br><br><div class="col-sm-12"><div class="col-sm-6"><div class="stat"><div class="stat-text">2014</div></div></div><div class="col-sm-6"><div class="stat"></div></div><div class="col-sm-12"><div class="stat-value stat-small">'+textlookup[value].text+'</div><div class="stat-value stat-small sub-source">Dataset: 2014 CDC Mortality Data<Br>Source: Centers for Disease Control and Prevention</div></div></div></div></div><div id="test2" class="col-sm-9 col-md-9 col-lg-9"><div id="chart'+index.toString()+'"></div></div>');
+  		header.append('<h2 class="embed-title" style="height: 33px;">Mortality by '+titletransform[value]+'</h2><div id="specialEdits" class="col-sm-3 col-lg-3 text-left"><div class="topic-stats"><br><br><br><br><br><br><div class="col-sm-12"><div class="col-sm-6"><div class="stat"><div class="stat-text">2014</div></div></div><div class="col-sm-6"><div class="stat"></div></div><div class="col-sm-12"><div class="stat-value stat-small">'+textlookup[value].text+'</div><div class="stat-value stat-small sub-source">Dataset: 2014 CDC Mortality Data<Br>Source: Centers for Disease Control and Prevention</div></div></div></div></div><div id="test2" class="col-sm-9 col-md-9 col-lg-9"><div id="chart'+index.toString()+'"></div></div>');
   		var container = "chart"+index.toString();
   		chartOne(container,value,'California');
 
