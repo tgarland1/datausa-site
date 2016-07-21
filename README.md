@@ -1,7 +1,7 @@
 # Data USA
 The most comprehensive visualization of U.S. public data
 
-To run a local copy of this site on your machine, follow: 
+To run a local copy of this site on your machine, create a Ubuntu VM and follow: 
 
 1.	sudo apt install git python python-dev python-pip postgresql postgresql-contrib libpq-dev libjpeg8-dev virtualenv
 2.	mkdir sites
