@@ -5,7 +5,7 @@
     <title>D3plus</title>
     <!-- loading D3plus JS file -->
     <script src="./jquery-2.2.2.min.js"></script>
-    <script src="./data/mortality.js"></script>
+    <script src="./data/mortality2.js"></script>
     <script src="js/d3plus.full.min.js"></script>
     
     <!-- Optional theme -->
@@ -453,7 +453,7 @@
 
         //Set the title for the chart
         if(chartTitle == "STATE_NAME"){
-        	$('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">State Name</a><a href="" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
+        	$('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">State</a><a href="" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
         }else{
         $('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">'+chartTitle+'</a><a href="" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
         }
@@ -477,9 +477,10 @@
                     .type("bar")
                     .data(mortalityData)
                     .id(section)
-                    .y(section)
-                    .x("count")
+                    .y({"value":section, "label":"SEX"})
+                    .x({"value":"count", "label":"COUNT"})
                     .y({"scale": "discrete"})
+                    .font("Palanquin")
                     .color(function(d){
 						if(d.sex == "Male"){
 							return "#C6C7CA";
@@ -496,9 +497,9 @@
                     .type("bar")
                     .data(mortalityData)
                     .id(section)
-                    .font({'family':'Palanquin'})
-                    .x(section)
-                    .y("count")
+                    .font("Palanquin")
+                    .x({"value":section, "transform": "uppercase"})
+                    .y({"value":"count", "label":"COUNT"})
                     //.color(section)
                     .color(function(d){
                     	if(section=='race'){

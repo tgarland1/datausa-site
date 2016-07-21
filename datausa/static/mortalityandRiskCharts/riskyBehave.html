@@ -310,8 +310,8 @@
                 .type("bar")
                 .data(columns["risk"][topic])
                 .id("sex")
-                .x("sex")
-                .y("value")
+                .x({"value":"sex","label":"SEX"})
+                .y({"value":"value","label":"VALUE"})
                  .color(function(d){
                  	//console.log(d);
 						if(d.sex == "male"){
@@ -332,7 +332,7 @@
                   }
                   return a.value + "% \n sderror(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
                 })
-                .font(5)
+                .font("Palanquin")
                 .legend({
                   "order": {
                     "sort": "desc",
