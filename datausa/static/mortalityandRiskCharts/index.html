@@ -436,7 +436,7 @@
                     .type("bar")
                     .data(mortalityData)
                     .id(section)
-                    .y({"value":section, "label":"SEX"})
+                    .y({"value":section, "label":"SEX", "grid":false})
                     .x({"value":"count", "label":"COUNT"})
                     .y({"scale": "discrete"})
                     .font("Palanquin")
@@ -457,7 +457,7 @@
                     .data(mortalityData)
                     .id(section)
                     .font("Palanquin")
-                    .x({"value":section, "transform": "uppercase"})
+                    .x({"value":section, "transform": "uppercase", "grid":false})
                     .y({"value":"count", "label":"COUNT"})
                     //.color(section)
                     .color(function(d){
