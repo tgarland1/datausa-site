@@ -5,7 +5,7 @@
 		<!-- loading D3plus JS file -->
 		<script src="./jquery-2.2.2.min.js"></script>
 		<script src="./data/mortality.js"></script>
-		<script src="js/d3plus.full.min.js"></script>
+		<script src="js/d3plus-remix.full.min.js"></script>
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="css/bootstrap-them.min.css">
@@ -273,13 +273,13 @@
 							<div class="col-sm-12">
 								<div class="stat-value stat-small">
 									Here we see data and a comparison of the sex for selected Risky Behaviors
-									for 2015 YRBS Data. All data displays the appropriate confidence intervals and 
-									standard errors associated with the data.<br>									
-									<strong>*We understand that the current bar chart displayed does not include the whiskers for the confidence intervals.  For the purposes of the prototype, we are demonstrating the ability to display a bar chart.  The solution to be developed will include the whiskers to display the confidence intervals on the bar chart. 
+									for 2015 YRBS Data. All data displays the appropriate confidence intervals and
+									standard errors associated with the data.<br>
+									<strong>*We understand that the current bar chart displayed does not include the whiskers for the confidence intervals.  For the purposes of the prototype, we are demonstrating the ability to display a bar chart.  The solution to be developed will include the whiskers to display the confidence intervals on the bar chart.
 									<br>
 									<br>
 									Also, please <span style="text-decoration: underline;">note the data shown in this chart and table only pertains to the specific use case provided</span> and does not generate the confidence intervals and standard errors on the fly.  The solution developed will have the ability to calculate this data on the fly as proposed in the PWS.  This is strictly for demonstration purposes to give the user the experience of exploring YRBS data. This is a sample of the data, charts, and variables that can be included.  Our system has the flexibility to create many other ways to engage the data.
-									</strong> 										
+									</strong>
 								</div>
 								<div class="stat-value stat-small sub-source">
 									Dataset: 2015 YRBS Risky Behavior Data
@@ -292,7 +292,7 @@
 					</div>
 				</div>
 				<div id="test2" class="col-sm-9 col-md-9 col-lg-9">
-					
+
 					<div id="holdTheCharts"></div>
 					<!-- trip created the div below to hold the actual charts. the div above holds the filters -->
 					<div id="thecharts"></div>
@@ -351,7 +351,11 @@
               {"sex": "male", "hex": "#000000"},
               {"sex": "female", "hex": "#000000"}
             ])
-            .color('hex')
+						.color({
+							"range" : [],
+							"disabled" : true,
+							"value" : []
+						})
             .labels({"resize": false, "font": {"size": 13}})
             .height(300)
             //.width(800)
@@ -377,7 +381,7 @@ var columns = {
       //Was going to build this out for more than risk but...
       //This container holds all the risk related data that appears in the dropdown
       //and also the data that appears in each of the charts based on the dropdown selection
-      
+
 
 
       //Creates the dropdown for risky behavior
@@ -401,7 +405,7 @@ var columns = {
         return mySelect;
       };
 
-    
+
     //Append the options button here
     $('#'+graphicContainer).append('<h2 class="embed-title" style="padding-left:460.5px;"><a href="#mortality3" name="mortality3">SEX</a> <a href="#yrbs" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2>');
     $('#'+graphicContainer).append('<div id="filterholder" class="col-sm-12"></div><br><br>')
@@ -415,12 +419,12 @@ var columns = {
       $('#thecharts').empty(); //this would need to change to a 3rd argument in createRiskyBehaviorCharts to make the method extensible
 
       if(b!="None"){
-      	//Get width of chart div for .width() 
+      	//Get width of chart div for .width()
         divWidth = $("#holdTheCharts").width();
 
         createcharts(b);
 
-       
+
         }
     });
   };
