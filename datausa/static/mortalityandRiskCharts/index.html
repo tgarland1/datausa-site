@@ -234,6 +234,31 @@
 		#DeloitteCustomButton{
 			position: relative;
 		}
+		select{
+			-moz-appearance: none;
+			-moz-user-select: none;
+			-webkit-appearance: none;
+			-webkit-user-select: none;
+  			background-position: center right;
+  			background-repeat: no-repeat;
+  			cursor: pointer;
+  			display: block; 
+  			text-align: left; 
+  			position: static; 
+  			width: 385px; 
+  			height: auto; 
+  			margin-top: 0px; 
+  			top: auto; 
+  			left: auto; 
+  			right: auto; 
+  			transition: none; 
+  			transform: none; 
+  			opacity: 1; 
+  			padding: 5px 23px 5px 5px; 
+  			background-image: none; 
+  			background-color: transparent; 
+  			background-size: 100%;
+		}
 	</style>
   </head>
 
@@ -361,7 +386,7 @@
     	// placec chart specific labels to label div of chart
     	//labelParent.append('<label id="labelFormat" for="'+labelParent+'_'+section+'_selector">'+capLable+'</label>');
         
-        filterParent.append('<select id="'+ddHolder+'_'+section+'_selector" class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%"></select>');
+        filterParent.append('<select id="'+ddHolder+'_'+section+'_selector" class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:20%; display: inline-block; margin-right:30px;"></select>');
     	
         //parent.append('<label for="'+parentName+'_'+section+'_selector">'+capLable+'</select>');
         //parent.append('<select id="'+parentName+'_'+section+'_selector" class="btn btn-default btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"></select>');
@@ -383,8 +408,10 @@
             );
         }
         });
+        mySelect2.append('</div>');
         return mySelect;
       };
+
       //Filter used onChange for each of the dropdowns
       //Returns new array of filtered data
       var filter = function(data, myFilters){
