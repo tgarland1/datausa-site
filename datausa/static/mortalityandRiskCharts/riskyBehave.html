@@ -236,33 +236,6 @@
 			#holdTheCharts{
 				width: 100%;
 			}
-			select{
-  				background-position: center right;
-  				background-repeat: no-repeat;
-  				-moz-appearance: none;
-			-moz-user-select: none;
-			-webkit-appearance: none;
-			-webkit-user-select: none;
-  			background-position: center right;
-  			background-repeat: no-repeat;
-  			cursor: pointer;
-  			/*display: block;*/ 
-  			text-align: left; 
-  			position: static; 
-  			width: 385px; 
-  			height: auto; 
-  			margin-top: 0px; 
-  			top: auto; 
-  			left: auto; 
-  			right: auto; 
-  			transition: none; 
-  			transform: none; 
-  			opacity: 1; 
-  			padding: 5px 23px 5px 5px; 
-  			background-image: none; 
-  			background-color: transparent; 
-  			background-size: 100%;
-			}
 		</style>
 	</head>
 
@@ -342,7 +315,7 @@
                 .type("bar")
                 .data(columns["risk"][topic])
                 .id("sex")
-                .x({"value":"sex","label":"SEX", "grid":false})
+                .x({"value":"sex","label":"SEX"})
                 .y({"value":"value","label":"VALUE"})
                  .color(function(d){
                  	//console.log(d);
@@ -386,8 +359,6 @@
 						})
             .labels({"resize": false, "font": {"size": 13}})
             .height(300)
-            .tooltip(["sex"])
-            //.tooltip({"html":'<div>Test</div>'})
             //.width(800)
             .cols(["value","ci-low","ci-high","sderror"])
             .draw();
@@ -443,19 +414,19 @@ var columns = {"risk":{
       //use the same column names [sex,value,ci-low,ci-high,sderror]
       var createDropdownz = function(myOptions,parentName){
         var parent = $('#'+parentName);
-        parent.append('<select id="'+parentName+'_selector" class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin: 0; display: inline-block;"></select>');
+        parent.append('<select id="'+parentName+'_selector" class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin: 0;"></select>');
 
         var mySelect = $('#'+parentName+'_selector');
 
         $.each(myOptions, function(optionIndex, optionObject) {
             mySelect.append(
-                $('<option></option>').val(optionIndex).html(optionIndex)
+                $('<option></option>').val(optionIndex).html(optionIndex +' <span class="caret"></span>')
             );
         });
         //trip hardcoded the select options below to illustrate future functionality. Need to add an id attribute if this actually filters anything
-        parent.append('<select class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin:0; display: inline-block;"><option>Age</option></select>')
-        parent.append('<select class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin:0; display: inline-block;"><option>Grade</option></select>')
-        parent.append('<select class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin:0; display: inline-block;"><option>Race</option></select>')
+        parent.append('<select class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin:0;"><option>Age+' <span class="caret"></span>'</option></select>')
+        parent.append('<select class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin:0;"><option>Grade</option></select>')
+        parent.append('<select class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin:0;"><option>Race</option></select>')
         return mySelect;
       };
 

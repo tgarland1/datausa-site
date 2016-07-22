@@ -320,6 +320,15 @@
 	</body>
 
   <script>
+
+    var imhere = window.location.href;
+    var res = imhere.split("/");
+{#    console.log(res);#}
+    var urlrsz = res.length;
+    var currentState = res[urlrsz - 2];
+
+    console.log(currentState);
+
   	// provide the dropdown id and get the statement
   	var chartOne = function(containerName,section,currentState){
   		
@@ -587,7 +596,7 @@
   		var header = $("#mortality-headr");
   		header.append('<h2 class="embed-title" style="height: 33px;">Mortality by '+titletransform[value]+'</h2><div id="specialEdits" class="col-sm-3 col-lg-3 text-left"><div class="topic-stats"><br><br><br><br><br><br><div class="col-sm-12"><div class="col-sm-6"><div class="stat"><div class="stat-text">2014</div></div></div><div class="col-sm-6"><div class="stat"></div></div><div class="col-sm-12"><div class="stat-value stat-small">'+textlookup[value].text+'</div><div class="stat-value stat-small sub-source">Dataset: 2014 CDC Mortality Data<Br>Source: Centers for Disease Control and Prevention</div></div></div></div></div><div id="test2" class="col-sm-9 col-md-9 col-lg-9"><div id="chart'+index.toString()+'"></div></div>');
   		var container = "chart"+index.toString();
-  		chartOne(container,value,'California');
+  		chartOne(container,value,currentState);
 
   	});
 
