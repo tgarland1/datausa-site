@@ -458,13 +458,25 @@
         var myScatter;
         if(section!='state_name'){
           if(section=='sex'){
+          	//convert counts to percentages for sex chart only. First need to get the sum
+          	var sum = 0;
+          	mortalityData.forEach(function(item){
+          		if(item.hasOwnProperty("count")){
+          			sum += parseInt(item["count"]);
+          		}
+          	});
+          	//for each object in the data array, transform count into a percentage of total
+          	var newMortalityData = mortalityData.map(function(item){
+          		item["percentage"]=item["count"]*100/sum;
+          		return item;
+          	});
             myScatter = d3plus.viz()
                     .container('#'+graphContainerName)
                     .type("bar")
-                    .data(mortalityData)
+                    .data(newMortalityData)
                     .id(section)
                     .y({"value":section, "label":"SEX", "grid":false})
-                    .x({"value":"count", "label":"COUNT"})
+                    .x({"value":"percentage", "label":"PERCENTAGE"})
                     .y({"scale": "discrete"})
                     .font("Palanquin")
                     .color(function(d){
