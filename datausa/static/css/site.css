@@ -2696,8 +2696,15 @@
       text-align: left;   }
 }
 
+#top-logo {
+  position: relative;
+  left: 90vw;
+  height: 50px;
+}
 
-
+#owhmin {
+  height: 50px;
+}
 
   body.home {
     position: relative;

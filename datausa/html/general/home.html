@@ -2,6 +2,10 @@
 
 {% block body %}
 
+<div id="top-logo">
+  <a target="_blank" href="http://www.datawheel.us/"><img id="owhmin" src="/static/img/footer/owh.png" /></a>
+</div>
+
 <div class="bg"></div>
 
 <section class="home-desc">
@@ -34,9 +38,10 @@
 
 <div class="home-collab">
 	<span class="collab-text">Created in Collaboration</span>
-	<a target="_blank" href="http://www2.deloitte.com/us/en.html"><img id="deloitte" src="/static/img/footer/deloitte.png" /></a>
-	<a target="_blank" href="http://macro.media.mit.edu/"><img id="macro" src="/static/img/footer/mit.png" /></a>
-	<a target="_blank" href="http://www.datawheel.us/"><img id="datawheel" src="/static/img/footer/datawheel.png" /></a>
+	<a target="_blank" href="http://www2.deloitte.com/us/en.html"><img id="deloitte" src="/static/img/footer/deloitte.png" alt="Deloitte"/></a>
+    <a target="_blank" href="http://www.hhs.gov/"><img id="owh" src="/static/img/footer/owh.png" /></a>
+	<a target="_blank" href="http://macro.media.mit.edu/"><img id="macro" src="/static/img/footer/mit.png" alt="MIT"/></a>
+	<a target="_blank" href="http://www.datawheel.us/"><img id="datawheel" src="/static/img/footer/datawheel.png" alt="Datawheel"/></a>
 </div>
 
 <div id="feed">
@@ -53,7 +58,7 @@
 		{% endif %}
 		<div class="feed-box-label">
 			<div class="feed-box-type">
-				<img src="http://imgh.us/about_4.svg" />
+				<img src="http://imgh.us/about_4.svg" alt="about"/>
 				<span class="feed-box-header">{{ box.type.title }}</span>
 			</div>
 			{% if box.type.depth %}
@@ -61,7 +66,7 @@
 			{% endif %}
 			{% if box.section %}
 			<div class="feed-box-section">
-				<img src="{{ box.section.icon }}" />
+				<img src="{{ box.section.icon }}" alt="about"/>
 				<span class="feed-box-header">{{ box.section.title }}</span>
 			</div>
 			{% endif %}
@@ -90,7 +95,7 @@
 		{% endif %}
 		<div class="feed-box-label">
 			<div class="feed-box-type">
-				<img src="http://imgh.us/about_4.svg" />
+				<img src="http://imgh.us/about_4.svg" alt="about" />
 				<span class="feed-box-header">{{ box.type.title }}</span>
 			</div>
 			{% if box.type.depth %}
@@ -98,7 +103,7 @@
 			{% endif %}
 			{% if box.section %}
 			<div class="feed-box-section">
-				<img src="{{ box.section.icon }}" />
+				<img src="{{ box.section.icon }}" alt="section" />
 				<span class="feed-box-header">{{ box.section.title }}</span>
 			</div>
 			{% endif %}
