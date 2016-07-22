@@ -4,7 +4,8 @@ from flask.ext.script import Manager, Command, Option
 class GunicornServer(Command):
 
     description = 'Run the app within Gunicorn'
-
+    #if you're running this on a VM, set host='0.0.0.0' and make sure to forward port 8000 so the host can access the VM's port 8000
+    #on a cloud server, or behind nginx, set host='127.0.0.1'
     def __init__(self, host='127.0.0.1', port=8000, workers=4):
         self.port = port
         self.host = host
