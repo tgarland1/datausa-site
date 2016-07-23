@@ -4,7 +4,6 @@
 		<title>D3plus</title>
 		<!-- loading D3plus JS file -->
 		<script src="./jquery-2.2.2.min.js"></script>
-		<script src="./data/mortality.js"></script>
 		<script src="js/d3plus-remix.full.min.js"></script>
 
 		<!-- Optional theme -->
@@ -236,6 +235,33 @@
 			#holdTheCharts{
 				width: 100%;
 			}
+			select{
+  				background-position: center right;
+  				background-repeat: no-repeat;
+  				-moz-appearance: none;
+			-moz-user-select: none;
+			-webkit-appearance: none;
+			-webkit-user-select: none;
+  			background-position: center right;
+  			background-repeat: no-repeat;
+  			cursor: pointer;
+  			/*display: block;*/ 
+  			text-align: left; 
+  			position: static; 
+  			width: 385px; 
+  			height: auto; 
+  			margin-top: 0px; 
+  			top: auto; 
+  			left: auto; 
+  			right: auto; 
+  			transition: none; 
+  			transform: none; 
+  			opacity: 1; 
+  			padding: 5px 23px 5px 5px; 
+  			background-image: none; 
+  			background-color: transparent; 
+  			background-size: 100%;
+			}
 		</style>
 	</head>
 
@@ -315,7 +341,7 @@
                 .type("bar")
                 .data(columns["risk"][topic])
                 .id("sex")
-                .x({"value":"sex","label":"SEX"})
+                .x({"value":"sex","label":"SEX", "grid":false})
                 .y({"value":"value","label":"VALUE"})
                  .color(function(d){
                  	//console.log(d);
@@ -359,6 +385,8 @@
 						})
             .labels({"resize": false, "font": {"size": 13}})
             .height(300)
+            .tooltip(["sex"])
+            //.tooltip({"html":'<div>Test</div>'})
             //.width(800)
             .cols(["value","ci-low","ci-high","sderror"])
             .draw();
@@ -414,25 +442,25 @@ var columns = {"risk":{
       //use the same column names [sex,value,ci-low,ci-high,sderror]
       var createDropdownz = function(myOptions,parentName){
         var parent = $('#'+parentName);
-        parent.append('<select id="'+parentName+'_selector" class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin: 0;"></select>');
+        parent.append('<select id="'+parentName+'_selector" class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin: 0; display: inline-block;"></select>');
 
         var mySelect = $('#'+parentName+'_selector');
 
         $.each(myOptions, function(optionIndex, optionObject) {
             mySelect.append(
-                $('<option></option>').val(optionIndex).html(optionIndex +' <span class="caret"></span>')
+                $('<option></option>').val(optionIndex).html(optionIndex)
             );
         });
         //trip hardcoded the select options below to illustrate future functionality. Need to add an id attribute if this actually filters anything
-        parent.append('<select class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin:0;"><option>Age+' <span class="caret"></span>'</option></select>')
-        parent.append('<select class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin:0;"><option>Grade</option></select>')
-        parent.append('<select class="btn btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:25%; margin:0;"><option>Race</option></select>')
+        parent.append('<select class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin:0; display: inline-block;"><option>Age</option><option>Filter coming soon!</option></select>')
+        parent.append('<select class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin:0; display: inline-block;"><option>Grade</option><option>Filter coming soon!</option></select>')
+        parent.append('<select class="d3plus_node d3plus_button_label d3plus_button_element mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent d3plus_button_element d3plus_button_selected" style="width:25%; margin:0; display: inline-block;"><option>Race</option><option>Filter coming soon!</option></select>')
         return mySelect;
       };
 
 
     //Append the options button here
-    $('#'+graphicContainer).append('<h2 class="embed-title" style="padding-left:460.5px;"><a href="#mortality3" name="mortality3">SEX</a> <a href="#yrbs" class="btn pri-btn data-btn DeloitteCustomButton" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2>');
+    $('#'+graphicContainer).append('<h2 class="embed-title" style="padding-left:460.5px;"><a href="#mortality3" name="mortality3">SEX</a> <a href="#yrbs" class="btn pri-btn data-btn DeloitteCustomButton2" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2>');
     $('#'+graphicContainer).append('<div id="filterholder" class="col-sm-12"></div><br><br>')
     var mydrop = createDropdownz(columns["risk"],"filterholder");
     //When you change the dropdown for risky behavior this will adjust the charting below

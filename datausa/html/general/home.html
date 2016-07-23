@@ -43,7 +43,19 @@
 	<a target="_blank" href="http://macro.media.mit.edu/"><img id="macro" src="/static/img/footer/mit.png" alt="MIT"/></a>
 	<a target="_blank" href="http://www.datawheel.us/"><img id="datawheel" src="/static/img/footer/datawheel.png" alt="Datawheel"/></a>
 </div>
-
+<!-- add modal -->
+<div id="modalRegister" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align-last: center">Story Coming Soon!</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal -->
 <div id="feed">
 {% for box in feed %}
     {% if box.link == '/story/04-04-2016_customStory/' %}
@@ -84,7 +96,7 @@
 		{% endif %}
 	</a>
     {% else %}
-    <a href="#" class="feed-box {{ box.type.title|lower }} {{ box.type.type|lower }}{% if box.featured %} featured{% endif %}">
+    <a href="#" class="feed-box {{ box.type.title|lower }} {{ box.type.type|lower }}{% if box.featured %} featured{% endif %}" data-toggle="modal" data-target="#modalRegister">
 		{% if box.image %}
 		<div class="feed-box-image-holder">
 			<div class="feed-box-image" style="background-image:url('{{ box.image }}');"></div>

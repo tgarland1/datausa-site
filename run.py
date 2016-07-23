@@ -1,4 +1,5 @@
 from datausa import app
+
 from flask.ext.script import Manager, Command, Option
 
 class GunicornServer(Command):
