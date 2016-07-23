@@ -5,7 +5,7 @@
     <title>D3plus</title>
     <!-- loading D3plus JS file -->
     <script src="./jquery-2.2.2.min.js"></script>
-    <script src="./data/mortality2.js"></script>
+    <!--<script src="./data/mortality2.js"></script>-->
     <script src="js/d3plus.full.min.js"></script>
     
     <!-- Optional theme -->
@@ -320,7 +320,33 @@
 	</body>
 
   <script>
+  		var mortalityData = [];
+  		var globalsections = ["sex","age","cause","race","state_name"];
+
+  		var textlookup = {"sex":{"title":"Mortality by Sex", "text":"Here we see 2014 CDC data and a comparison of the sex for the causes of death in the mortality data"},
+  		"age":{"title":"Mortality by Age", "text":"Here we see 2014 CDC data and a comparison of the age for the causes of death in the mortality data"},
+  		"cause":{"title":"Mortality by Cause", "text":"Here we see 2014 CDC data and a comparison of the cause for the causes of death in the mortality data"},
+  		"race":{"title":"Mortality by Race", "text":"Here we see 2014 CDC data and a comparison of the race for the causes of death in the mortality data"},
+  		"state_name":{"title":"Mortality by State", "text":"Here we see 2014 CDC data and a comparison of the State for the causes of death in the mortality data"}
+  			};
+
   	// provide the dropdown id and get the statement
+  	$.ajax({url:"/static/mortalityandRiskCharts/data/mortality_allcause.json", success: function(result){
+  		//console.log(result.data);
+  		//return result.data;
+  		mortalityData = result.data;
+  		
+  		$.each(globalsections, function(index, value){
+  		var titletransform = {'sex':'Sex','age':'Age','cause':'Cause','race':'Race','state_name':'State'};
+  		var header = $("#mortality-headr");
+  		header.append('<h2 class="embed-title" style="height: 33px;">Mortality by '+titletransform[value]+'</h2><div id="specialEdits" class="col-sm-3 col-lg-3 text-left"><div class="topic-stats"><br><br><br><br><br><br><div class="col-sm-12"><div class="col-sm-6"><div class="stat"><div class="stat-text">2014</div></div></div><div class="col-sm-6"><div class="stat"></div></div><div class="col-sm-12"><div class="stat-value stat-small">'+textlookup[value].text+'</div><div class="stat-value stat-small sub-source">Dataset: 2014 CDC Mortality Data<Br>Source: Centers for Disease Control and Prevention</div></div></div></div></div><div id="test2" class="col-sm-9 col-md-9 col-lg-9"><div id="chart'+index.toString()+'"></div></div>');
+  		var container = "chart"+index.toString();
+
+  		chartOne(container,value,parent.pagestate.trim());
+
+  	});
+
+  	}});
   	var chartOne = function(containerName,section,currentState){
   		
   		//var sections = ["sex","age","cause","race","state_name"];
@@ -356,23 +382,82 @@
           {columnName:"age",value:"90 - 94 years"},
           {columnName:"age",value:"95 - 99 years"}
         ], cause : [
-          {columnName:'cause',value:"None"},
+        //DO NOT DELETE THESE VALUES, in case we need to quickly roll back to using mortality2.js
+          /*{columnName:'cause',value:"None"},
           {columnName:'cause',value:"All other diseases (Residual)"},
           {columnName:'cause',value:"Ischemic heart diseases"},
           {columnName:'cause',value:"Malignant neoplasms of trachea, bronchus and lung"},
           {columnName:'cause',value:"Other diseases of heart"},
           {columnName:'cause',value:"Other malignant neoplasms"},
+          */
+          	{columnName:'cause',value:"None"},
+          	{columnName:'cause',value:"All other and unspecified accidents and adverse effects"},
+			{columnName:'cause',value:"All other diseases (Residual)"},
+			{columnName:'cause',value:"All other external causes"},
+			{columnName:'cause',value:"Alzheimer's disease"},
+			{columnName:'cause',value:"Assault (homicide)"},
+			{columnName:'cause',value:"Atherosclerosis"},
+			{columnName:'cause',value:"Cerebrovascular diseases"},
+			{columnName:'cause',value:"Certain conditions originating in the perinatal period"},
+			{columnName:'cause',value:"Chronic liver disease and cirrhosis"},
+			{columnName:'cause',value:"Chronic lower respiratory diseases"},
+			{columnName:'cause',value:"Congenital malformations, deformations and chromosomal abnormalities"},
+			{columnName:'cause',value:"Diabetes mellitus"},
+			{columnName:'cause',value:"Essential (primary) hypertension and hypertensive renal disease"},
+			{columnName:'cause',value:"Human immunodeficiency virus (HIV) disease"},
+			{columnName:'cause',value:"Hypertensive heart disease with or without renal disease"},
+			{columnName:'cause',value:"Influenza and pneumonia"},
+			{columnName:'cause',value:"Intentional self-harm (suicide)"},
+			{columnName:'cause',value:"Ischemic heart diseases"},
+			{columnName:'cause',value:"Leukemia"},
+			{columnName:'cause',value:"Malignant neoplasm of breast"},
+			{columnName:'cause',value:"Malignant neoplasm of pancreas"},
+			{columnName:'cause',value:"Malignant neoplasm of prostate"},
+			{columnName:'cause',value:"Malignant neoplasm of stomach"},
+			{columnName:'cause',value:"Malignant neoplasms of cervix uteri, corpus uteri and ovary"},
+			{columnName:'cause',value:"Malignant neoplasms of colon, rectum and anus"},
+			{columnName:'cause',value:"Malignant neoplasms of trachea, bronchus and lung"},
+			{columnName:'cause',value:"Malignant neoplasms of urinary tract"},
+			{columnName:'cause',value:"Motor vehicle accidents"},
+			{columnName:'cause',value:"Nephritis, nephrotic syndrome, and nephrosis"},
+			{columnName:'cause',value:"Non-Hodgkin's lymphoma"},
+			{columnName:'cause',value:"Other diseases of circulatory system"},
+			{columnName:'cause',value:"Other diseases of heart"},
+			{columnName:'cause',value:"Other malignant neoplasms"},
+			{columnName:'cause',value:"Peptic ulcer"},
+			{columnName:'cause',value:"Pregnancy, childbirth and the puerperium"},
+			{columnName:'cause',value:"Sudden infant death syndrome"},
+			{columnName:'cause',value:"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified (excluding Sudden infant death syndrome)"},
+			{columnName:'cause',value:"Syphilis"},
+			{columnName:'cause',value:"Tuberculosis"}
         ], sex : [
-          {columnName:'sex',value:"None"},
-          {columnName:'sex',value:"Male"},
-          {columnName:'sex',value:"Female"}
+	          {columnName:'sex',value:"None"},
+	          {columnName:'sex',value:"Male"},
+	          {columnName:'sex',value:"Female"}
         ], race : [
-          {columnName:'race',value:"None"},
+        //DO NOT DELETE THESE VALUES, in case we need to quickly roll back to using mortality2.js
+         /* {columnName:'race',value:"None"},
           {columnName:'race',value:"Black"},
           {columnName:'race',value:"American Indian (includes Aleuts and Eskimos)"},
           {columnName:'race',value:"Chinese"},
           {columnName:'race',value:"Filipino"},
           {columnName:'race',value:"White"}
+          */
+          	{columnName:'race',value:"None"},
+          	{columnName:'race',value:"American Indian (includes Aleuts and Eskimos)"},
+			{columnName:'race',value:"Asian Indian"},
+			{columnName:'race',value:"Black"},
+			{columnName:'race',value:"Chinese"},
+			{columnName:'race',value:"Combined other Asian or Pacific Islander, includes codes 18-68 for areas that do not report them separately"},
+			{columnName:'race',value:"Filipino"},
+			{columnName:'race',value:"Guamanian"},
+			{columnName:'race',value:"Hawaiian (includes Part-Hawaiian)"},
+			{columnName:'race',value:"Japanese"},
+			{columnName:'race',value:"Korean"},
+			{columnName:'race',value:"Other Asian or Pacific Islander in areas reporting codes 18-58"},
+			{columnName:'race',value:"Samoan"},
+			{columnName:'race',value:"Vietnamese"},
+			{columnName:'race',value:"White"}
         ]
       };
 
@@ -573,24 +658,7 @@
       
   	};
     
-  	var globalsections = ["sex","age","cause","race","state_name"];
-
-  	var textlookup = {"sex":{"title":"Mortality by Sex", "text":"Here we see 2014 CDC data and a comparison of the sex for the causes of death in the mortality data"},
-  		"age":{"title":"Mortality by Age", "text":"Here we see 2014 CDC data and a comparison of the age for the causes of death in the mortality data"},
-  		"cause":{"title":"Mortality by Cause", "text":"Here we see 2014 CDC data and a comparison of the cause for the causes of death in the mortality data"},
-  		"race":{"title":"Mortality by Race", "text":"Here we see 2014 CDC data and a comparison of the race for the causes of death in the mortality data"},
-  		"state_name":{"title":"Mortality by State", "text":"Here we see 2014 CDC data and a comparison of the State for the causes of death in the mortality data"}
-  			};
-
-  	$.each(globalsections, function(index, value){
-  		var titletransform = {'sex':'Sex','age':'Age','cause':'Cause','race':'Race','state_name':'State'};
-  		var header = $("#mortality-headr");
-  		header.append('<h2 class="embed-title" style="height: 33px;">Mortality by '+titletransform[value]+'</h2><div id="specialEdits" class="col-sm-3 col-lg-3 text-left"><div class="topic-stats"><br><br><br><br><br><br><div class="col-sm-12"><div class="col-sm-6"><div class="stat"><div class="stat-text">2014</div></div></div><div class="col-sm-6"><div class="stat"></div></div><div class="col-sm-12"><div class="stat-value stat-small">'+textlookup[value].text+'</div><div class="stat-value stat-small sub-source">Dataset: 2014 CDC Mortality Data<Br>Source: Centers for Disease Control and Prevention</div></div></div></div></div><div id="test2" class="col-sm-9 col-md-9 col-lg-9"><div id="chart'+index.toString()+'"></div></div>');
-  		var container = "chart"+index.toString();
-
-  		chartOne(container,value,parent.pagestate.trim());
-
-  	});
+  	
 
     //Create Mortality charts within specified container id
 
