@@ -400,7 +400,7 @@
             //);
             if (optionObject.value == 'none' || optionObject.value == 'None'){
             	mySelect2.append(
-                $('<option></option>').val(optionObject.value).html(optionObject.columnName.toUpperCase())
+                $('<option></option>').val(optionObject.value).html(optionObject.columnName.charAt(0).toUpperCase()+optionObject.columnName.substr(1).toLowerCase())
             );
             }else{
             	mySelect2.append(
