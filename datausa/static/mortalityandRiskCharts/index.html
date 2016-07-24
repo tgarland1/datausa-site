@@ -616,11 +616,12 @@
                     })
                     .background("#F6F6F6").axes({"background": {"color":"#F6F6F6"}}) 
                     .height(400)
-                  //  .icon(function(d){
-                   // 	if(section=='race'){
-                   // 		return "/static/img/attrs/person_profile.png"
-                   // 	}
-                    //})
+                    .icon({"style":"knockout", "value":function(d){
+                   	if(section=='race'){
+                   		return "/static/img/attrs/person_profile.png"
+                   		}
+                 	 }})
+                    .legend({"icon":true})
                     //.width(800)
                     .draw();
           }
