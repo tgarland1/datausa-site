@@ -327,6 +327,10 @@
 					<div id="holdTheCharts"></div>
 					<!-- trip created the div below to hold the actual charts. the div above holds the filters -->
 					<div id="thecharts"></div>
+					<br>
+					<br>
+					<div id="thetable"></div>
+					<br>
 				</div>
 			</article>
 
@@ -361,19 +365,13 @@
                     // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
                     return null;//it will output the id as the header within the hover menu with this null
                   }
-                  return a.value + "% \n sderror(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
+                  return a.value + "% \n sderror(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
                 })
                 .font("Palanquin")
-                .legend({
-                  "order": {
-                    "sort": "desc",
-                    "value": "size"
-                  }
-                })
                 .draw();
-		// test
+		
           var visualization = d3plus.viz()
-            .container('#thecharts')
+            .container('#thetable')
             .data(columns["risk"][topic])
             .type("table")
             .id("sex")
@@ -409,13 +407,31 @@ var columns = {
           ]
         }
       };
+var columns = {"risk":{
+"Currently Smoked Cigarettes":[{"sex":"female","race":"none","value":6.82,"ci-low":4.27,"ci-high":10.70,"sderror":1.47},
+								{"sex":"male","race":"none","value":8.39,"ci-low":5.28,"ci-high":13.10,"sderror":1.8}],
+"Texted Or E-Mailed While Driving A Car Or Other Vehicle":[{"sex":"female","race":"none","value":29.91,"ci-low":24.06,"ci-high":36.50,"sderror":2.93},
+{"sex":"male","race":"none","value":34.44,"ci-low":26.23,"ci-high":43.71,"sderror":4.14}],
+"Electronically bullied within the last 12 months":[{"sex":"female","race":"none","value":18.12,"ci-low":13.90,"ci-high":23.28,"sderror":2.2},
+{"sex":"male","race":"none","value":8.30,"ci-low":5.59,"ci-high":12.17,"sderror":1.52}],
+"Had Sexual Intercourse With Four Or More Persons during their life":[{"sex":"female","race":"none","value":5.12,"ci-low":3.86,"ci-high":.75,"sderror":0.67},
+{"sex":"male","race":"none","value":10.44,"ci-low":7.36,"ci-high":14.60,"sderror":1.68}],
+"Did Not Have 8 Or More Hours Of Sleep on an average school night":[{"sex":"female","race":"none","value":73.54,"ci-low":66.78,"ci-high":9.36,"sderror":2.96},
+{"sex":"male","race":"none","value":68.47,"ci-low":62.79,"ci-high":73.65,"sderror":2.55}],
+"Ever Used Electronic Vapor Products including e-cigarettes, e-cigars, e-pipes, vape pipes, vaping pens, e-hookahs, and hookah pens":[{"x":"female","race":"none","value":43.00,"ci-low":36.87,"ci-high":49.36,"sderror":2.94},
+{"sex":"male","race":"none","value":46.65,"ci-low":40.91,"ci-high":52.47,"sderror":2.73}],
+"Currently Drank Alcohol at least one drink of alcohol on at least 1 day during the 30 days before the survey":[{"sex":"female","race":"one","value":31.01,"ci-low":25.72,"ci-high":36.84,"sderror":2.62},
+{"sex":"male","race":"none","value":26.89,"ci-low":21.10,"ci-high":33.60,"sderror":2.94}],
+"Currently Used Tobacco current cigarette, smokeless tobacco, cigar, or electronic vapor products use on at least 1 day during the 30 ays before the survey":[{"sex":"female","race":"none","value":23.85,"ci-low":18.17,"ci-high":30.64,"sderror":2.93},
+{"sex":"male","race":"none","value":30.67,"ci-low":25.48,"ci-high":36.41,"sderror":2.57}]
+	}
+};
+
     //Creates the dropdown for risky behavior
     var createRiskyBehaviorCharts = function(graphicContainer,riskDropdownContainer){
       //Was going to build this out for more than risk but...
       //This container holds all the risk related data that appears in the dropdown
       //and also the data that appears in each of the charts based on the dropdown selection
-
-
 
       //Creates the dropdown for risky behavior
       //Add more risky behaviors by adding elements to var columns.risky["name of new risky behavior"] = [{}{}]
@@ -444,13 +460,13 @@ var columns = {
     $('#'+graphicContainer).append('<div id="filterholder" class="col-sm-12"></div><br><br>')
     var mydrop = createDropdownz(columns["risk"],"filterholder");
     //When you change the dropdown for risky behavior this will adjust the charting below
-    createcharts("Current tobacco use");
+    createcharts("Currently Smoked Cigarettes");
     mydrop.change(function(){
 
       //value of dropdown
       var b = mydrop.val();
       $('#thecharts').empty(); //this would need to change to a 3rd argument in createRiskyBehaviorCharts to make the method extensible
-
+      $('#thetable').empty();
       if(b!="None"){
       	//Get width of chart div for .width()
         divWidth = $("#holdTheCharts").width();
