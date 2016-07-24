@@ -276,6 +276,16 @@
 				</div>
 				<h2 class="embed-title" style="background-color:#fff !important;">Risky Behavior by Sex</h2>
 				<!--<h6 class="stat-value" style="color:#ef6145;"><strong>Please select a risky behavior below to see the data.</strong></h6>-->
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9">
+                    <div class="stat-value stat-small">
+                        <strong>*We understand that the current bar chart displayed does not include the whiskers for the confidence intervals.  For the purposes of the prototype, we are demonstrating the ability to display a bar chart.  The solution to be developed will include the whiskers to display the confidence intervals on the bar chart.
+                            <br>
+                            <br>
+                        <span style="text-decoration: underline;">Please note the data shown in this chart and table only pertains to the specific use case provided</span> and does not generate the confidence intervals and standard errors on the fly.  The solution developed will have the ability to calculate this data on the fly as proposed in the PWS.  This is strictly for demonstration purposes to give the user the experience of exploring YRBS data. This is a sample of the data, charts, and variables that can be included.  Our system has the flexibility to create many other ways to engage the data.
+                        </strong>
+                    </div>
+                </div>
 				<div id="specialEdits" class="col-sm-3 col-lg-3 text-left" style="background-color:#fff !important;">
 					<div id="riskyCat"></div>
 					<br>
@@ -301,11 +311,6 @@
 									Here we see data and a comparison of the sex for selected Risky Behaviors
 									for 2015 YRBS Data. All data displays the appropriate confidence intervals and
 									standard errors associated with the data.<br>
-									<strong>*We understand that the current bar chart displayed does not include the whiskers for the confidence intervals.  For the purposes of the prototype, we are demonstrating the ability to display a bar chart.  The solution to be developed will include the whiskers to display the confidence intervals on the bar chart.
-									<br>
-									<br>
-									Also, please <span style="text-decoration: underline;">note the data shown in this chart and table only pertains to the specific use case provided</span> and does not generate the confidence intervals and standard errors on the fly.  The solution developed will have the ability to calculate this data on the fly as proposed in the PWS.  This is strictly for demonstration purposes to give the user the experience of exploring YRBS data. This is a sample of the data, charts, and variables that can be included.  Our system has the flexibility to create many other ways to engage the data.
-									</strong>
 								</div>
 								<div class="stat-value stat-small sub-source">
 									Dataset: 2015 YRBS Risky Behavior Data
@@ -321,12 +326,7 @@
 
 					<div id="holdTheCharts"></div>
 					<!-- trip created the div below to hold the actual charts. the div above holds the filters -->
-					
 					<div id="thecharts"></div>
-					<br>
-					<br>
-					<div id="thetable"></div>
-					<br>
 				</div>
 			</article>
 
@@ -361,15 +361,19 @@
                     // a.d3plus_label.names[0]=a.value + "% \n stdv(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
                     return null;//it will output the id as the header within the hover menu with this null
                   }
-                  return a.value + "% \n sderror(" +a.sderror+ ") \n ci("+a['ci-low']+"-"+a['ci-high']+")";
+                  return a.value + "% \n sderror(" +a.sderror+ ") ci("+a['ci-low']+"-"+a['ci-high']+")";
                 })
                 .font("Palanquin")
-                //.legend({"order": {"sort": "desc","value": "size"}})
-                .legend(false)
+                .legend({
+                  "order": {
+                    "sort": "desc",
+                    "value": "size"
+                  }
+                })
                 .draw();
-		
+		// test
           var visualization = d3plus.viz()
-            .container('#thetable')
+            .container('#thecharts')
             .data(columns["risk"][topic])
             .type("table")
             .id("sex")
@@ -392,8 +396,6 @@
             .draw();
 
   };
-  //old data that definitely works as of 22 july 12pm:
-  /*
 var columns = {
         "risk" : {
         	//"None":[],
@@ -407,28 +409,6 @@ var columns = {
           ]
         }
       };
-*/
-//new data added 22 july 12:30pm:
-var columns = {"risk":{
-"Currently Smoked Cigarettes":[{"sex":"female","race":"none","value":6.82,"ci-low":4.27,"ci-high":10.70,"sderror":1.47},
-								{"sex":"male","race":"none","value":8.39,"ci-low":5.28,"ci-high":13.10,"sderror":1.8}],
-"Texted Or E-Mailed While Driving A Car Or Other Vehicle":[{"sex":"female","race":"none","value":29.91,"ci-low":24.06,"ci-high":36.50,"sderror":2.93},
-{"sex":"male","race":"none","value":34.44,"ci-low":26.23,"ci-high":43.71,"sderror":4.14}],
-"Electronically bullied within the last 12 months":[{"sex":"female","race":"none","value":18.12,"ci-low":13.90,"ci-high":23.28,"sderror":2.2},
-{"sex":"male","race":"none","value":8.30,"ci-low":5.59,"ci-high":12.17,"sderror":1.52}],
-"Had Sexual Intercourse With Four Or More Persons during their life":[{"sex":"female","race":"none","value":5.12,"ci-low":3.86,"ci-high":6.75,"sderror":0.67},
-{"sex":"male","race":"none","value":10.44,"ci-low":7.36,"ci-high":14.60,"sderror":1.68}],
-"Did Not Have 8 Or More Hours Of Sleep on an average school night":[{"sex":"female","race":"none","value":73.54,"ci-low":66.78,"ci-high":79.36,"sderror":2.96},
-{"sex":"male","race":"none","value":68.47,"ci-low":62.79,"ci-high":73.65,"sderror":2.55}],
-"Ever Used Electronic Vapor Products including e-cigarettes, e-cigars, e-pipes, vape pipes, vaping pens, e-hookahs, and hookah pens":[{"sex":"female","race":"none","value":43.00,"ci-low":36.87,"ci-high":49.36,"sderror":2.94},
-{"sex":"male","race":"none","value":46.65,"ci-low":40.91,"ci-high":52.47,"sderror":2.73}],
-"Currently Drank Alcohol at least one drink of alcohol on at least 1 day during the 30 days before the survey":[{"sex":"female","race":"none","value":31.01,"ci-low":25.72,"ci-high":36.84,"sderror":2.62},
-{"sex":"male","race":"none","value":26.89,"ci-low":21.10,"ci-high":33.60,"sderror":2.94}],
-"Currently Used Tobacco current cigarette, smokeless tobacco, cigar, or electronic vapor products use on at least 1 day during the 30 days before the survey":[{"sex":"female","race":"none","value":23.85,"ci-low":18.17,"ci-high":30.64,"sderror":2.93},
-{"sex":"male","race":"none","value":30.67,"ci-low":25.48,"ci-high":36.41,"sderror":2.57}]
-	}
-};
-      
     //Creates the dropdown for risky behavior
     var createRiskyBehaviorCharts = function(graphicContainer,riskDropdownContainer){
       //Was going to build this out for more than risk but...
@@ -464,13 +444,13 @@ var columns = {"risk":{
     $('#'+graphicContainer).append('<div id="filterholder" class="col-sm-12"></div><br><br>')
     var mydrop = createDropdownz(columns["risk"],"filterholder");
     //When you change the dropdown for risky behavior this will adjust the charting below
-    createcharts("Currently Smoked Cigarettes");
+    createcharts("Current tobacco use");
     mydrop.change(function(){
 
       //value of dropdown
       var b = mydrop.val();
       $('#thecharts').empty(); //this would need to change to a 3rd argument in createRiskyBehaviorCharts to make the method extensible
-      $('#thetable').empty();
+
       if(b!="None"){
       	//Get width of chart div for .width()
         divWidth = $("#holdTheCharts").width();
