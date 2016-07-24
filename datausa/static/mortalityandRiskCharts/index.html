@@ -331,7 +331,7 @@
   			};
 
   	// provide the dropdown id and get the statement
-  	$.ajax({url:"/static/mortalityandRiskCharts/data/mortality2.json", success: function(result){
+  	$.ajax({url:"/static/mortalityandRiskCharts/data/mortality_allcause_fiverace.json", success: function(result){
   		//console.log(result.data);
   		//return result.data;
   		mortalityData = result.data;
@@ -388,14 +388,18 @@
           {columnName:"age",value:"95 - 99 years"}
         ], cause : [
         //DO NOT DELETE THESE VALUES, in case we need to quickly roll back to using mortality2.js
+        //these are the top 5 causes:
+        /*
           {columnName:'cause',value:"None"},
           {columnName:'cause',value:"All other diseases (Residual)"},
           {columnName:'cause',value:"Ischemic heart diseases"},
           {columnName:'cause',value:"Malignant neoplasms of trachea, bronchus and lung"},
           {columnName:'cause',value:"Other diseases of heart"},
           {columnName:'cause',value:"Other malignant neoplasms"},
+          */
+          //DO NOT DELETE THESE VALUES in case we need to quickly revert back to using all causes
+          //these are all of the causes:
           
-          /*
           	{columnName:'cause',value:"None"},
           	{columnName:'cause',value:"All other and unspecified accidents and adverse effects"},
 			{columnName:'cause',value:"All other diseases (Residual)"},
@@ -436,20 +440,22 @@
 			{columnName:'cause',value:"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified (excluding Sudden infant death syndrome)"},
 			{columnName:'cause',value:"Syphilis"},
 			{columnName:'cause',value:"Tuberculosis"}
-			*/
+			
         ], sex : [
 	          {columnName:'sex',value:"None"},
 	          {columnName:'sex',value:"Male"},
 	          {columnName:'sex',value:"Female"}
         ], race : [
         //DO NOT DELETE THESE VALUES, in case we need to quickly roll back to using mortality2.js
+        //these are the top 5 races
           {columnName:'race',value:"None"},
           {columnName:'race',value:"Black"},
           {columnName:'race',value:"American Indian (includes Aleuts and Eskimos)"},
           {columnName:'race',value:"Chinese"},
           {columnName:'race',value:"Filipino"},
           {columnName:'race',value:"White"}
-          
+          //DO NOT DELETE THESE VALUES, in case we need to quickly roll back to using all races
+        //these are all the races:
           /*
           	{columnName:'race',value:"None"},
           	{columnName:'race',value:"American Indian (includes Aleuts and Eskimos)"},
