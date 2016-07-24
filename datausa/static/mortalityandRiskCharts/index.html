@@ -347,6 +347,11 @@
   	});
 
   	}});
+
+
+  	//	$(".DeloitteCustomButton1").click(parent.optionButtonPopover());
+  	
+
   	var chartOne = function(containerName,section,currentState){
   		
   		//var sections = ["sex","age","cause","race","state_name"];
@@ -533,9 +538,9 @@
 
         //Set the title for the chart
         if(chartTitle == "STATE_NAME"){
-        	$('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">State</a><a href="#chartOne" class="btn pri-btn data-btn DeloitteCustomButton1" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
+        	$('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">State</a><a href="#chartOne" class="btn pri-btn data-btn DeloitteCustomButton1" onclick="parent.optionButtonPopover()" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
         }else{
-        $('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">'+chartTitle+'</a><a href="#chartOne" class="btn pri-btn data-btn DeloitteCustomButton1" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
+        $('#'+containerName).append('<br><br><h2 id="'+chartTitle+'theTItle" class="embed-title" style="padding-left:460.5px;"><a href="#chartOne" name="income_sex" style="padding-right:20px">'+chartTitle+'</a><a href="#chartOne" class="btn pri-btn data-btn DeloitteCustomButton1" onclick="parent.optionButtonPopover()" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2><br>');
         }
         // div to hold filter labels
         $('#'+containerName).append('<div id="'+chartFilterLabel+'" class="col-sm-12"></div>');

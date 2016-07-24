@@ -271,7 +271,7 @@
 				<header class="mortality prof-body" id="mortality-headr" style="background-color:#fff !important;">
 
 					<h2 class="section-title" style="background-color:#fff !important;"><a href="#yrbs" name="yrbs">YRBS Risky Behavior</a></h2>
-					<p>The Yourth Risk Behavior Surveillance System (YRBSS) monitors six types of health-risk behaviors that contribue to the leading causes of death and disability among youth and adults.</p>
+					<p>The Youth Risk Behavior Surveillance System (YRBSS) monitors six types of health-risk behaviors that contribute to the leading causes of death and disability among youth and adults.</p>
 				</header>
 				</div>
 				<h2 class="embed-title" style="background-color:#fff !important;">Risky Behavior by Sex</h2>
@@ -460,7 +460,7 @@ var columns = {"risk":{
 
 
     //Append the options button here
-    $('#'+graphicContainer).append('<h2 class="embed-title" style="padding-left:460.5px;"><a href="#mortality3" name="mortality3">SEX</a> <a href="#yrbs" class="btn pri-btn data-btn DeloitteCustomButton2" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2>');
+    $('#'+graphicContainer).append('<h2 class="embed-title" style="padding-left:460.5px;"><a href="#mortality3" name="mortality3">SEX</a> <a href="#yrbs" class="btn pri-btn data-btn DeloitteCustomButton2" onclick="parent.optionButtonPopover()" data-target-id="null" data-embed="/null" data-url="null"><span>Options</span></a></h2>');
     $('#'+graphicContainer).append('<div id="filterholder" class="col-sm-12"></div><br><br>')
     var mydrop = createDropdownz(columns["risk"],"filterholder");
     //When you change the dropdown for risky behavior this will adjust the charting below
