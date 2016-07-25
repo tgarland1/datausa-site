@@ -526,7 +526,7 @@
           	});
           	//for each object in the data array, transform count into a percentage of total
           	var newMortalityData = mortalityData.map(function(item){
-          		item["percentage"]=item["count"]*100/sum;
+          		item["percentage"]=+(item["count"]*100/sum);
           		return item;
           	});
             myScatter = d3plus.viz()
@@ -549,7 +549,7 @@
                     .height(300)
                     .legend(false)
                     .format({"number": function(n, opts){
-                    	return n+"%"
+                    	return d3.round(n,2)+"%";
                     }})
                     .draw();
           }else{
