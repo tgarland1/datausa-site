@@ -518,6 +518,7 @@
         if(section!='state_name'){
           if(section=='sex'){
           	//convert counts to percentages for sex chart only. First need to get the sum
+          	/*
           	var sum = 0;
           	mortalityData.forEach(function(item){
           		if(item.hasOwnProperty("count")){
@@ -529,13 +530,14 @@
           		item["percentage"]=+(item["count"]*100/sum);
           		return item;
           	});
+			*/
             myScatter = d3plus.viz()
                     .container('#'+graphContainerName)
                     .type("bar")
-                    .data(newMortalityData)
+                    .data(mortalityData)
                     .id(section)
                     .y({"value":section, "label":"SEX", "grid":false})
-                    .x({"value":"percentage", "label":"PERCENTAGE"})
+                    .x({"value":"count", "label":"COUNT"})
                     .y({"scale": "discrete"})
                     .font("Palanquin")
                     .color(function(d){
@@ -548,9 +550,8 @@
 					}).background("#F6F6F6").axes({"background": {"color":"#F6F6F6"}}) 
                     .height(300)
                     .legend(false)
-                    .format({"number": function(n, opts){
-                    	return d3.round(n,2)+"%";
-                    }})
+                    .title({"sub":"Total number of 2014 deaths: 2,631,171. Number of deaths  accounted  for  in  the  top  5  causes: 1,393,984"})
+                    //.format({"number": function(n, opts){return d3.round(n,2)+"%";}})
                     .draw();
           }else{
             myScatter = d3plus.viz()
